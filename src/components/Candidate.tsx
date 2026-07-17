@@ -37,6 +37,12 @@ export default function Candidate() {
 
         {/* Portrait — clipPath curtain reveal bottom-up */}
         <div className="relative">
+          {/* Offset decorative border behind the frame */}
+          <div
+            className="absolute border border-[rgba(237,241,245,0.2)]"
+            style={{ inset: "-12px 12px 12px -12px" }}
+          />
+
           <motion.div
             className="w-full aspect-4/5 relative overflow-hidden"
             initial={{ clipPath: "inset(100% 0 0 0)" }}
@@ -44,29 +50,72 @@ export default function Candidate() {
             transition={{ duration: 1.3, ease }}
           >
             <Image
-              src="https://res.cloudinary.com/dhmqhless/image/upload/v1784252795/omoowo3_tunvta.png"
+              src="https://res.cloudinary.com/dhmqhless/image/upload/v1784255332/omoowo4_wyrzo8.png"
               alt="Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)"
               fill
               style={{ objectFit: "cover", objectPosition: "center top" }}
             />
-            {/* Bottom fade */}
+
+            {/* Bottom gradient fade */}
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,14,19,0.55) 100%)" }}
+              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(11,14,19,0.7) 100%)" }}
             />
-          </motion.div>
 
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 1.1 }}
-          >
-            <div>
-              <p className="text-[#EDF1F5]/90 text-[10px] tracking-[0.3em] uppercase mb-0.5">Alhaji Omoowo</p>
-              <p className="text-[#EDF1F5]/55 text-[10px] tracking-[0.2em] uppercase">PDP &middot; Ogun East</p>
-            </div>
-            <div className="w-10 h-px bg-[#EDF1F5]/40" />
+            {/* Glass name badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 1.2, ease }}
+              className="absolute bottom-0 left-0 right-0 mx-4 mb-4 overflow-hidden"
+              style={{
+                backdropFilter: "blur(16px) saturate(1.5)",
+                WebkitBackdropFilter: "blur(16px) saturate(1.5)",
+                background: "rgba(11,14,19,0.35)",
+                border: "1px solid rgba(237,241,245,0.12)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(237,241,245,0.08)",
+              }}
+            >
+              {/* Glass top shine */}
+              <div
+                className="absolute inset-x-0 top-0 h-px pointer-events-none"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(237,241,245,0.2), transparent)" }}
+              />
+              <div className="px-5 py-4 flex items-center justify-between">
+                <div>
+                  <p className="text-[#EDF1F5] text-[11px] font-medium tracking-[0.22em] uppercase mb-0.5">
+                    Alhaji Omoowo
+                  </p>
+                  <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(237,241,245,0.55)" }}>
+                    PDP &middot; Ogun East &middot; 2027
+                  </p>
+                </div>
+                <div
+                  className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(62,92,118,0.3)", border: "1px solid rgba(62,92,118,0.55)" }}
+                >
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                    <circle cx="4" cy="4" r="2.5" fill="#3E5C76" />
+                  </svg>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Top-right glass accent chip */}
+            <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 1.35, ease }}
+              className="absolute top-4 right-4 px-3 py-1.5"
+              style={{
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                background: "rgba(62,92,118,0.28)",
+                border: "1px solid rgba(237,241,245,0.12)",
+              }}
+            >
+              <p className="text-[#EDF1F5]/70 text-[9px] tracking-[0.3em] uppercase">2027</p>
+            </motion.div>
           </motion.div>
         </div>
 

@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -37,19 +38,24 @@ export default function Candidate() {
         {/* Portrait — clipPath curtain reveal bottom-up */}
         <div className="relative">
           <motion.div
-            className="w-full aspect-4/5"
+            className="w-full aspect-4/5 relative overflow-hidden"
             initial={{ clipPath: "inset(100% 0 0 0)" }}
             animate={inView ? { clipPath: "inset(0% 0 0 0)" } : {}}
             transition={{ duration: 1.3, ease }}
-            style={{ background: "linear-gradient(160deg, #4A6E8A 0%, #3A5A72 45%, #2A4A60 100%)" }}
-          />
-          <motion.div
-            className="absolute inset-0"
-            initial={{ clipPath: "inset(100% 0 0 0)" }}
-            animate={inView ? { clipPath: "inset(0% 0 0 0)" } : {}}
-            transition={{ duration: 1.3, ease }}
-            style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,14,19,0.5) 100%)" }}
-          />
+          >
+            <Image
+              src="https://res.cloudinary.com/dhmqhless/image/upload/v1784252795/omoowo3_tunvta.png"
+              alt="Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center top" }}
+            />
+            {/* Bottom fade */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,14,19,0.55) 100%)" }}
+            />
+          </motion.div>
+
           <motion.div
             className="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end"
             initial={{ opacity: 0 }}

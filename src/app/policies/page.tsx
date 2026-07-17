@@ -107,18 +107,11 @@ function PoliciesHero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden flex items-end" style={{ height: "60vh", minHeight: "420px", background: "#3E5C76" }}>
-      {/* Animated background geometry */}
+    <section ref={ref} className="relative overflow-hidden flex items-end" style={{ height: "60vh", minHeight: "420px", background: "#E9EEF2" }}>
+      {/* Subtle background accents */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y }}>
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 20% 60%, rgba(11,14,19,0.35) 0%, transparent 60%)" }} />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 20%, rgba(237,241,245,0.06) 0%, transparent 50%)" }} />
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            backgroundSize: "200px",
-          }}
-        />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 30%, rgba(62,92,118,0.07) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 10% 80%, rgba(62,92,118,0.05) 0%, transparent 50%)" }} />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-300 mx-auto px-6 md:px-12 lg:px-20 pb-16 md:pb-20">
@@ -126,8 +119,7 @@ function PoliciesHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="text-[10px] tracking-[0.45em] uppercase mb-5"
-          style={{ color: "rgba(237,241,245,0.55)" }}
+          className="text-[10px] tracking-[0.45em] uppercase mb-5 text-[#3E5C76]"
         >
           Policy Agenda &middot; 2027
         </motion.p>
@@ -137,7 +129,7 @@ function PoliciesHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.95, delay: 0.3, ease }}
-            className="font-light text-[#EDF1F5] leading-[1.02]"
+            className="font-light text-[#0B0E13] leading-[1.02]"
             style={{ fontSize: "clamp(2.2rem, 5.5vw, 5rem)", letterSpacing: "-0.02em" }}
           >
             What Omoowo will fight for.
@@ -148,8 +140,8 @@ function PoliciesHero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease }}
-          className="max-w-xl leading-relaxed mb-10"
-          style={{ fontSize: "clamp(0.9rem, 1.2vw, 1rem)", color: "rgba(237,241,245,0.65)" }}
+          className="max-w-xl leading-relaxed mb-10 text-[#8A94A6]"
+          style={{ fontSize: "clamp(0.9rem, 1.2vw, 1rem)" }}
         >
           Five clear commitments to the people of Ogun East — each with a concrete plan, not just a promise.
         </motion.p>
@@ -165,13 +157,11 @@ function PoliciesHero() {
             <a
               key={p.n}
               href={`#policy-${p.n}`}
-              className="px-4 py-2 text-[10px] tracking-[0.2em] uppercase transition-all duration-200 hover:opacity-80"
+              className="px-4 py-2 text-[10px] tracking-[0.2em] uppercase transition-all duration-200 hover:opacity-70"
               style={{
-                backdropFilter: "blur(10px)",
-                WebkitBackdropFilter: "blur(10px)",
-                background: "rgba(237,241,245,0.12)",
-                border: "1px solid rgba(237,241,245,0.18)",
-                color: "#EDF1F5",
+                background: "rgba(62,92,118,0.08)",
+                border: "1px solid rgba(62,92,118,0.2)",
+                color: "#3E5C76",
               }}
             >
               {p.n} &middot; {p.title}
@@ -191,7 +181,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
   const inView = useInView(ref, { once: false, margin: "-80px" });
   const [expanded, setExpanded] = useState(false);
   const isLight = index % 2 !== 0;
-  const bg = isLight ? "#EDF1F5" : "#0B0E13";
+  const bg = isLight ? "#EDF1F5" : "#3E5C76";
   const heading = isLight ? "#0B0E13" : "#EDF1F5";
   const body = isLight ? "#8A94A6" : "rgba(237,241,245,0.65)";
   const label = isLight ? "#3E5C76" : "rgba(237,241,245,0.45)";
@@ -348,17 +338,16 @@ function CommitmentBanner() {
   const words = "These are not campaign promises. They are commitments — and Omoowo will be held to every one of them.".split(" ");
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#3E5C76" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#E9EEF2" }}>
       <div className="max-w-190 mx-auto text-center">
         <motion.div
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : {}}
           transition={{ duration: 0.7 }}
-          className="w-10 h-px mx-auto mb-12 origin-center"
-          style={{ background: "rgba(237,241,245,0.35)" }}
+          className="w-10 h-px mx-auto mb-12 origin-center bg-[#3E5C76]"
         />
         <blockquote
-          className="font-light text-[#EDF1F5] leading-[1.45] mb-10"
+          className="font-light text-[#0B0E13] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.2rem)", letterSpacing: "-0.01em" }}
         >
           {words.map((word, i) => (
@@ -378,7 +367,7 @@ function CommitmentBanner() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.85, ease }}
           className="text-[11px] tracking-[0.3em] uppercase"
-          style={{ color: "rgba(237,241,245,0.5)" }}
+          style={{ color: "#8A94A6" }}
         >
           Alhaji Omoowo &mdash; PDP, Ogun East 2027
         </motion.p>

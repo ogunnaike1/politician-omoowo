@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const links = [
   { label: "Home", href: "/" },
@@ -15,24 +16,23 @@ const links = [
 
 export default function Nav() {
   const { scrollY } = useScroll();
-  const filled = useTransform(scrollY, [0, 60], [0, 1]);
-  const borderOpacity = useTransform(scrollY, [0, 60], [0, 1]);
+  const filled = useTransform(scrollY, [0, 70], [0, 1]);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Home hero is now light (#EDF1F5) → links start dark, stay dark
-  // Profile hero is dark (photo) → links start light, go dark on scroll
+  useMotionValueEvent(scrollY, "change", (v) => {
+    setIsScrolled(v > 70);
+  });
+
+  // Home hero is light (#EDF1F5) → links always dark
+  // Profile hero is dark photo → links start white, turn dark on scroll
   const isHome = pathname === "/";
-
-  const linkColorHome = useTransform(filled, [0, 1], ["#0B0E13", "#3A4452"]);
-  const brandColorHome = useTransform(filled, [0, 1], ["#0B0E13", "#0B0E13"]);
-  const linkColorProfile = useTransform(filled, [0, 1], ["#EDF1F5", "#3A4452"]);
-  const brandColorProfile = useTransform(filled, [0, 1], ["#EDF1F5", "#0B0E13"]);
-
-  const linkColor = isHome ? linkColorHome : linkColorProfile;
-  const brandColor = isHome ? brandColorHome : brandColorProfile;
+  const linkColor = isHome ? "#0B0E13" : isScrolled ? "#0B0E13" : "#EDF1F5";
+  const brandColor = isHome ? "#0B0E13" : isScrolled ? "#0B0E13" : "#EDF1F5";
 
   return (
     <motion.header className="fixed top-0 inset-x-0 z-50 h-15">
+      {/* Filled background */}
       <motion.div
         className="absolute inset-0"
         style={{
@@ -42,22 +42,20 @@ export default function Nav() {
           WebkitBackdropFilter: "blur(12px)",
         }}
       />
+      {/* Bottom border fades in */}
       <motion.div
         className="absolute inset-x-0 bottom-0 h-px bg-[#C8D4DE]"
-        style={{ opacity: borderOpacity }}
+        style={{ opacity: filled }}
       />
 
       <nav className="relative h-full max-w-300 mx-auto px-6 md:px-12 flex items-center justify-between">
-        <motion.a
+        <a
           href="/"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ color: brandColor }}
           className="text-[13px] font-semibold tracking-[0.12em] uppercase"
+          style={{ color: brandColor, transition: "color 0.35s ease" }}
         >
           Omoowo &middot; 2027
-        </motion.a>
+        </a>
 
         <motion.div
           className="hidden lg:flex items-center gap-7"
@@ -66,14 +64,14 @@ export default function Nav() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           {links.map((l) => (
-            <motion.a
+            <a
               key={l.label}
               href={l.href}
-              style={{ color: linkColor }}
-              className="text-[11.5px] font-medium tracking-[0.14em] uppercase transition-opacity duration-200 hover:opacity-60"
+              className="text-[11.5px] font-medium tracking-[0.14em] uppercase hover:opacity-60"
+              style={{ color: linkColor, transition: "color 0.35s ease, opacity 0.2s ease" }}
             >
               {l.label}
-            </motion.a>
+            </a>
           ))}
           <a
             href="#involved"

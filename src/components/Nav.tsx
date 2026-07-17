@@ -1,8 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const links = [
   { label: "Home", href: "/" },
@@ -16,46 +14,35 @@ const links = [
 
 export default function Nav() {
   const { scrollY } = useScroll();
-  const filled = useTransform(scrollY, [0, 70], [0, 1]);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
 
-  useMotionValueEvent(scrollY, "change", (v) => {
-    setIsScrolled(v > 70);
-  });
-
-  // Home hero is light (#EDF1F5) → links always dark
-  // Profile hero is dark photo → links start white, turn dark on scroll
-  const isHome = pathname === "/";
-  const linkColor = isHome ? "#0B0E13" : isScrolled ? "#0B0E13" : "#EDF1F5";
-  const brandColor = isHome ? "#0B0E13" : isScrolled ? "#0B0E13" : "#EDF1F5";
+  // Nav bg: #3E5C76 → #E8ECF1
+  const bgColor = useTransform(scrollY, [0, 80], ["#3E5C76", "#E8ECF1"]);
+  // Links & brand: light → dark
+  const linkColor = useTransform(scrollY, [0, 80], ["#EDF1F5", "#0B0E13"]);
+  // Button: bg inverts — #E8ECF1 → #3E5C76, text #3E5C76 → #EDF1F5
+  const btnBg = useTransform(scrollY, [0, 80], ["#E8ECF1", "#3E5C76"]);
+  const btnColor = useTransform(scrollY, [0, 80], ["#46494E", "#EDF1F5"]);
+  const borderOpacity = useTransform(scrollY, [40, 80], [0, 1]);
 
   return (
-    <motion.header className="fixed top-0 inset-x-0 z-50 h-15">
-      {/* Filled background */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          opacity: filled,
-          background: "rgba(237,241,245,0.97)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-        }}
-      />
-      {/* Bottom border fades in */}
+    <motion.header className="fixed top-0 inset-x-0 z-50 h-15" style={{ background: bgColor }}>
+      {/* Bottom border fades in when scrolled */}
       <motion.div
         className="absolute inset-x-0 bottom-0 h-px bg-[#C8D4DE]"
-        style={{ opacity: filled }}
+        style={{ opacity: borderOpacity }}
       />
 
       <nav className="relative h-full max-w-300 mx-auto px-6 md:px-12 flex items-center justify-between">
-        <a
+        <motion.a
           href="/"
           className="text-[13px] font-semibold tracking-[0.12em] uppercase"
-          style={{ color: brandColor, transition: "color 0.35s ease" }}
+          style={{ color: linkColor }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           Omoowo &middot; 2027
-        </a>
+        </motion.a>
 
         <motion.div
           className="hidden lg:flex items-center gap-7"
@@ -64,21 +51,22 @@ export default function Nav() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           {links.map((l) => (
-            <a
+            <motion.a
               key={l.label}
               href={l.href}
-              className="text-[11.5px] font-medium tracking-[0.14em] uppercase hover:opacity-60"
-              style={{ color: linkColor, transition: "color 0.35s ease, opacity 0.2s ease" }}
+              style={{ color: linkColor }}
+              className="text-[11.5px] font-medium tracking-[0.14em] uppercase hover:opacity-60 transition-opacity duration-200"
             >
               {l.label}
-            </a>
+            </motion.a>
           ))}
-          <a
+          <motion.a
             href="#involved"
-            className="ml-2 px-5 py-2 text-[11px] font-medium tracking-[0.16em] uppercase bg-[#3E5C76] text-[#EDF1F5] hover:bg-[#0B0E13] transition-colors duration-200"
+            style={{ background: btnBg, color: btnColor }}
+            className="ml-2 px-5 py-2 text-[11px] font-medium tracking-[0.16em] uppercase hover:opacity-80 transition-opacity duration-200"
           >
             Support Us
-          </a>
+          </motion.a>
         </motion.div>
       </nav>
     </motion.header>

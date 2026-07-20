@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -269,10 +269,10 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
                     initial={{ opacity: 0, x: 20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.55, delay: 0.4 + i * 0.08, ease }}
-                    className="flex items-start gap-4"
+                    className="flex items-start gap-4 group cursor-default"
                   >
                     <div
-                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-200"
                       style={{ background: dotBg, border: `1px solid ${dotBorder}` }}
                     >
                       <svg width="6" height="6" viewBox="0 0 6 6" fill="none">
@@ -294,8 +294,12 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
             >
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 transition-all duration-200 hover:opacity-70"
-                style={{ color: isLight ? "#294B68" : "#EDF1F5", borderBottom: `1px solid ${isLight ? "#294B68" : "rgba(237,241,245,0.3)"}` }}
+                className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 transition-all duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  color: isLight ? "#294B68" : "#EDF1F5",
+                  borderBottom: `1px solid ${isLight ? "#294B68" : "rgba(237,241,245,0.3)"}`,
+                  "--tw-ring-color": isLight ? "rgba(41,75,104,0.5)" : "rgba(237,241,245,0.4)",
+                } as React.CSSProperties}
               >
                 {expanded ? "Hide Impact" : "Expected Impact"}
                 <motion.span

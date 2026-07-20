@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useInView, animate } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
@@ -68,15 +68,15 @@ export default function Record() {
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
               transition={{ duration: 0.75, delay: 0.2 + i * 0.15, ease }}
-              className="bg-[#EDF1F5] px-8 py-10"
+              className="bg-[#EDF1F5] px-8 py-10 group hover:bg-[#E4EBF0] transition-colors duration-250 cursor-default"
             >
               <p
-                className="font-light text-[#162B3D] tabular-nums leading-none mb-3"
+                className="font-light text-[#162B3D] tabular-nums leading-none mb-3 group-hover:text-[#294B68] transition-colors duration-250"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", letterSpacing: "-0.03em" }}
               >
                 <AnimatedNumber value={s.value} suffix={s.suffix} />
               </p>
-              <p className="text-[#162B3D] text-sm mb-1">{s.label}</p>
+              <p className="text-[#162B3D] text-sm mb-1 group-hover:text-[#294B68] transition-colors duration-250">{s.label}</p>
               <p className="text-[#8A94A6] text-[11px] leading-relaxed">{s.sub}</p>
             </motion.div>
           ))}
@@ -94,7 +94,7 @@ export default function Record() {
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.8 + i * 0.12, ease }}
-              className="bg-[#EDF1F5] px-8 py-6 flex items-start gap-5"
+              className="bg-[#EDF1F5] px-8 py-6 flex items-start gap-5 group hover:bg-[#E4EBF0] transition-colors duration-250 cursor-default"
             >
               <motion.div
                 className="w-px self-stretch bg-[#294B68] shrink-0"
@@ -104,8 +104,8 @@ export default function Record() {
                 style={{ originY: 0 }}
               />
               <div>
-                <p className="text-[#294B68] text-[10px] tracking-[0.2em] uppercase mb-1">{yr}</p>
-                <p className="text-[#162B3D] text-sm mb-0.5">{role}</p>
+                <p className="text-[#294B68] text-[10px] tracking-[0.2em] uppercase mb-1 group-hover:tracking-[0.3em] transition-all duration-250">{yr}</p>
+                <p className="text-[#162B3D] text-sm mb-0.5 group-hover:text-[#294B68] transition-colors duration-250">{role}</p>
                 <p className="text-[#8A94A6] text-[11px]" dangerouslySetInnerHTML={{ __html: sub }} />
               </div>
             </motion.div>

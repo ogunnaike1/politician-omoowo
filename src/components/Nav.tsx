@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -9,7 +9,7 @@ const links = [
   { label: "Vision", href: "/vision" },
   { label: "Events", href: "/events" },
   { label: "News", href: "/news" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -55,9 +55,13 @@ export default function Nav() {
               key={l.label}
               href={l.href}
               style={{ color: linkColor }}
-              className="text-[11.5px] font-medium tracking-[0.14em] uppercase hover:opacity-60 transition-opacity duration-200"
+              className="relative text-[11.5px] font-medium tracking-[0.14em] uppercase group focus-visible:outline-none"
             >
               {l.label}
+              <span
+                className="absolute -bottom-0.5 left-0 w-full h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                style={{ background: "currentColor", opacity: 0.45 }}
+              />
             </motion.a>
           ))}
           <motion.a

@@ -639,7 +639,7 @@ function NewsIndex() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className="relative px-4 py-2 text-[9.5px] tracking-[0.22em] uppercase overflow-hidden transition-colors duration-200"
+                className="relative px-4 py-2 text-[9.5px] tracking-[0.22em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
                 style={{
                   color: active === f ? C.light : "rgba(237,241,245,0.4)",
                   border: `1px solid ${active === f ? "rgba(237,241,245,0.35)" : "rgba(237,241,245,0.1)"}`,
@@ -765,7 +765,7 @@ function NewsletterCTA() {
                     />
                     <button
                       onClick={() => value.includes("@") && setSent(true)}
-                      className="px-7 py-4 text-[10px] tracking-[0.22em] uppercase shrink-0 transition-colors duration-200"
+                      className="px-7 py-4 text-[10px] tracking-[0.22em] uppercase shrink-0 transition-colors duration-200 hover:bg-[#162B3D] focus-visible:outline-none focus-visible:bg-[#162B3D]"
                       style={{ background: C.mid, color: C.light }}
                     >
                       Subscribe

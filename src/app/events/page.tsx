@@ -558,7 +558,7 @@ function UpcomingEvents() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className="relative px-4 py-2 text-[10px] tracking-[0.22em] uppercase transition-colors duration-200 overflow-hidden"
+                className="relative px-4 py-2 text-[10px] tracking-[0.22em] uppercase transition-colors duration-200 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#294B68]/60"
                 style={{
                   color: active === f ? C.light : C.muted,
                   border: `1px solid ${active === f ? C.mid : C.border}`,
@@ -667,7 +667,7 @@ function PastEvents() {
               initial={{ opacity: 0, x: -24 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.12 + i * 0.12, ease }}
-              className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-8 border-t"
+              className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-8 border-t group hover:bg-[rgba(237,241,245,0.03)] px-3 -mx-3 transition-colors duration-200 cursor-default"
               style={{ borderColor: "rgba(237,241,245,0.08)" }}
             >
               <div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -176,7 +176,7 @@ function Biography() {
               ["State", "Ogun State, Nigeria"],
               ["Election", "2027 National Assembly"],
             ].map(([label, val]) => (
-              <div key={label} className="py-3 flex justify-between gap-4">
+              <div key={label} className="py-3 flex justify-between gap-4 hover:bg-[rgba(62,92,118,0.04)] px-2 -mx-2 transition-colors duration-200 cursor-default">
                 <p className="text-[#8A94A6] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
                 <p className="text-[#162B3D] text-[11px] text-right leading-relaxed">{val}</p>
               </div>
@@ -476,15 +476,15 @@ function Stats() {
             initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
             animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
             transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
-            className="bg-[#162B3D] px-8 py-10"
+            className="bg-[#162B3D] px-8 py-10 group hover:bg-[rgba(41,75,104,0.6)] transition-colors duration-250 cursor-default"
           >
             <p
-              className="font-light text-[#EDF1F5] leading-none mb-3"
+              className="font-light text-[#EDF1F5] leading-none mb-3 group-hover:text-[#C8D4DE] transition-colors duration-250"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.03em" }}
             >
               {d.value}
             </p>
-            <p className="text-[#C8D4DE] text-sm mb-1">{d.label}</p>
+            <p className="text-[#C8D4DE] text-sm mb-1 group-hover:text-[#EDF1F5] transition-colors duration-250">{d.label}</p>
             <p className="text-[#8A94A6] text-[11px] leading-relaxed">{d.sub}</p>
           </motion.div>
         ))}

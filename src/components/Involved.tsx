@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -87,7 +87,8 @@ export default function Involved() {
                 initial={anim.initial}
                 animate={inView ? anim.animate : anim.initial}
                 transition={anim.transition}
-                className="flex flex-col p-10"
+                whileHover={{ y: -6, boxShadow: "0 24px 48px rgba(0,0,0,0.22)", transition: { type: "spring", stiffness: 260, damping: 22 } }}
+                className="flex flex-col p-10 cursor-default"
                 style={{ background: cardBg }}
               >
                 <p

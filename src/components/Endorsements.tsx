@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
   motion,
@@ -134,13 +134,19 @@ export default function Endorsements() {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.15 + i * 0.09, ease }}
                 onClick={() => setActive(i)}
-                className="w-full text-left py-6 transition-all duration-200"
+                className="relative w-full text-left py-6 pl-5 transition-all duration-200 group focus-visible:outline-none"
                 style={{
                   opacity: active === i ? 1 : 0.35,
                   borderBottom: "1px solid rgba(237,241,245,0.12)",
                 }}
               >
-                <p className="text-[#EDF1F5] text-sm leading-relaxed mb-1 line-clamp-2">&ldquo;{q.q}&rdquo;</p>
+                <motion.div
+                  className="absolute left-0 top-0 bottom-0 w-0.5 origin-top"
+                  animate={{ scaleY: active === i ? 1 : 0, opacity: active === i ? 1 : 0 }}
+                  transition={{ duration: 0.35, ease }}
+                  style={{ background: "#EDF1F5" }}
+                />
+                <p className="text-[#EDF1F5] text-sm leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
                 <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(237,241,245,0.5)" }}>{q.name}</p>
               </motion.button>
             ))}

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -26,7 +26,7 @@ export default function Vision() {
             His Vision
           </motion.p>
 
-          {/* Quote â€” blur+fade word stagger */}
+          {/* Quote - blur+fade word stagger */}
           <blockquote
             className="font-light text-[#162B3D] leading-tight mb-12"
             style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)", letterSpacing: "-0.01em" }}
@@ -76,7 +76,7 @@ export default function Vision() {
             },
             {
               title: "Inclusive Growth",
-              body: "Development must reach every local government â€” from Ijebu-East to Ogun Waterside. No community left behind.",
+              body: "Development must reach every local government — from Ijebu-East to Ogun Waterside. No community left behind.",
             },
             {
               title: "Accountable Leadership",
@@ -88,11 +88,18 @@ export default function Vision() {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.9 + i * 0.15 }}
-              className="bg-[#EDF1F5] px-8 py-10"
+              whileHover={{ y: -5, transition: { type: "spring", stiffness: 280, damping: 24 } }}
+              className="bg-[#EDF1F5] px-8 py-10 group hover:bg-[#DFE8EF] transition-colors duration-300 cursor-default"
             >
-              <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase mb-5">0{i + 1}</p>
-              <h3 className="text-[#162B3D] font-light text-lg mb-4 leading-snug">{p.title}</h3>
+              <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase mb-5 group-hover:tracking-[0.45em] transition-all duration-300">0{i + 1}</p>
+              <h3 className="text-[#162B3D] font-light text-lg mb-4 leading-snug group-hover:text-[#294B68] transition-colors duration-300">{p.title}</h3>
               <p className="text-[#8A94A6] text-sm leading-[1.8]">{p.body}</p>
+              <motion.div
+                className="mt-8 h-px bg-[#294B68] origin-left"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.35 }}
+              />
             </motion.div>
           ))}
         </div>

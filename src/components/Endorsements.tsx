@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   motion,
@@ -19,7 +19,7 @@ const quotes = [
     role: "Peoples Democratic Party, Ogun State Chapter",
   },
   {
-    q: "What sets Omoowo apart is that he listens. He does not just come to town during elections — he has always been present.",
+    q: "What sets Omoowo apart is that he listens. He does not just come to town during elections â€” he has always been present.",
     name: "Community Leader, Ijebu-East LGA",
     role: "Traditional Rulers Council Representative",
   },
@@ -61,7 +61,7 @@ export default function Endorsements() {
   };
 
   return (
-    <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#3E5C76" }}>
+    <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#294B68" }}>
       <div className="max-w-300 mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
@@ -75,7 +75,7 @@ export default function Endorsements() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-0 items-start">
 
-          {/* Left — 3D tilt quote panel */}
+          {/* Left â€” 3D tilt quote panel */}
           <div style={{ perspective: "900px" }}>
             <motion.div
               ref={panelRef}

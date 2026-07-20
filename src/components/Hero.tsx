@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useSpring, useTransform, useMotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -48,11 +48,11 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           initial={{ opacity: 0, scale: 0.88 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.6, ease }}
-          className="absolute border border-[#3E5C76]/50"
+          className="absolute border border-[#294B68]/50"
           style={{ inset: "-14px 14px 14px -14px", zIndex: 0 }}
         />
 
-        {/* Main frame — clip reveal top-down */}
+        {/* Main frame â€” clip reveal top-down */}
         <motion.div
           initial={{ clipPath: "inset(0 0 100% 0)" }}
           animate={{ clipPath: "inset(0 0 0% 0)" }}
@@ -92,10 +92,10 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             <div className="px-5 py-4 flex items-center justify-between">
               <div>
                 <p className="text-[#EDF1F5] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
-                <p className="text-[#3E5C76] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
+                <p className="text-[#294B68] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
               </div>
               <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(62,92,118,0.3)", border: "1px solid rgba(62,92,118,0.5)" }}>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3" fill="#3E5C76" /></svg>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3" fill="#294B68" /></svg>
               </div>
             </div>
           </motion.div>
@@ -117,7 +117,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             className="absolute"
             style={{ ...pos, zIndex: 2, transform: `rotate(${pos.rotate})` }}
           >
-            <path d="M1 21 L1 1 L21 1" stroke="#3E5C76" strokeWidth="1.5" fill="none" />
+            <path d="M1 21 L1 1 L21 1" stroke="#294B68" strokeWidth="1.5" fill="none" />
           </motion.svg>
         ))}
 
@@ -126,14 +126,14 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 1.5, ease }}
-          className="absolute -right-5 top-1/3 w-2 h-2 rounded-full bg-[#3E5C76]"
+          className="absolute -right-5 top-1/3 w-2 h-2 rounded-full bg-[#294B68]"
           style={{ zIndex: 3 }}
         />
         <motion.div
           initial={{ opacity: 0, scaleY: 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{ duration: 0.6, delay: 1.55, ease }}
-          className="absolute -right-5 w-px bg-[#3E5C76]/30 origin-top"
+          className="absolute -right-5 w-px bg-[#294B68]/30 origin-top"
           style={{ zIndex: 3, top: "calc(33% + 10px)", height: "80px" }}
         />
       </motion.div>
@@ -168,10 +168,10 @@ export default function Hero() {
       {/* Two-column layout */}
       <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-center pt-24 pb-20">
 
-        {/* Left — text */}
+        {/* Left â€” text */}
         <div className="flex flex-col justify-center">
           <motion.p
-            className="text-[#3E5C76] text-[11px] font-medium tracking-[0.4em] uppercase mb-7"
+            className="text-[#294B68] text-[11px] font-medium tracking-[0.4em] uppercase mb-7"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
@@ -220,20 +220,20 @@ export default function Hero() {
           >
             <a
               href="#involved"
-              className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#3E5C76] transition-colors duration-200"
+              className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#294B68] transition-colors duration-200"
             >
               Join the Campaign
             </a>
             <a
               href="/profile"
-              className="px-7 py-3 border border-[#3E5C76] text-[#0B0E13] text-[11px] tracking-[0.2em] uppercase hover:bg-[#3E5C76] hover:text-[#EDF1F5] transition-all duration-200"
+              className="px-7 py-3 border border-[#294B68] text-[#0B0E13] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] hover:text-[#EDF1F5] transition-all duration-200"
             >
               Meet Omoowo
             </a>
           </motion.div>
         </div>
 
-        {/* Right — portrait frame */}
+        {/* Right â€” portrait frame */}
         <div className="hidden lg:flex items-center justify-center h-full py-16">
           <div className="relative w-full max-w-[360px]" style={{ aspectRatio: "3/4" }}>
             <PortraitFrame scrolled={scrolled} />
@@ -249,7 +249,7 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1.6 }}
       >
         <motion.div
-          className="w-px h-14 bg-[#3E5C76] origin-top"
+          className="w-px h-14 bg-[#294B68] origin-top"
           animate={{ scaleY: [0, 1, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />

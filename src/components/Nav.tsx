@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -15,12 +15,12 @@ const links = [
 export default function Nav() {
   const { scrollY } = useScroll();
 
-  // Nav bg: #3E5C76 → #E8ECF1
-  const bgColor = useTransform(scrollY, [0, 80], ["#3E5C76", "#E8ECF1"]);
-  // Links & brand: light → dark
+  // Nav bg: #294B68 â†’ #E8ECF1
+  const bgColor = useTransform(scrollY, [0, 80], ["#294B68", "#E8ECF1"]);
+  // Links & brand: light â†’ dark
   const linkColor = useTransform(scrollY, [0, 80], ["#EDF1F5", "#0B0E13"]);
-  // Button: bg inverts — #E8ECF1 → #3E5C76, text #3E5C76 → #EDF1F5
-  const btnBg = useTransform(scrollY, [0, 80], ["#E8ECF1", "#3E5C76"]);
+  // Button: bg inverts â€” #E8ECF1 â†’ #294B68, text #294B68 â†’ #EDF1F5
+  const btnBg = useTransform(scrollY, [0, 80], ["#E8ECF1", "#294B68"]);
   const btnColor = useTransform(scrollY, [0, 80], ["#46494E", "#EDF1F5"]);
   const borderOpacity = useTransform(scrollY, [40, 80], [0, 1]);
 

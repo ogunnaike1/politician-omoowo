@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -32,10 +32,10 @@ export default function Candidate() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section id="candidate" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#3E5C76" }}>
+    <section id="candidate" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#294B68" }}>
       <div className="max-w-300 mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-14 md:gap-24 items-center">
 
-        {/* Portrait — clipPath curtain reveal bottom-up */}
+        {/* Portrait â€” clipPath curtain reveal bottom-up */}
         <div className="relative">
           {/* Offset decorative border behind the frame */}
           <div
@@ -95,7 +95,7 @@ export default function Candidate() {
                   style={{ background: "rgba(62,92,118,0.3)", border: "1px solid rgba(62,92,118,0.55)" }}
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                    <circle cx="4" cy="4" r="2.5" fill="#3E5C76" />
+                    <circle cx="4" cy="4" r="2.5" fill="#294B68" />
                   </svg>
                 </div>
               </div>

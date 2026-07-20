@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView, animate } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
@@ -44,7 +44,7 @@ export default function Record() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-[#3E5C76] text-[10px] tracking-[0.4em] uppercase mb-3"
+              className="text-[#294B68] text-[10px] tracking-[0.4em] uppercase mb-3"
             >
               The District
             </motion.p>
@@ -60,7 +60,7 @@ export default function Record() {
           </div>
         </div>
 
-        {/* Stats — horizontal clipPath wipe */}
+        {/* Stats â€” horizontal clipPath wipe */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#C8D4DE]">
           {stats.map((s, i) => (
             <motion.div
@@ -97,14 +97,14 @@ export default function Record() {
               className="bg-[#EDF1F5] px-8 py-6 flex items-start gap-5"
             >
               <motion.div
-                className="w-px self-stretch bg-[#3E5C76] shrink-0"
+                className="w-px self-stretch bg-[#294B68] shrink-0"
                 initial={{ scaleY: 0 }}
                 animate={inView ? { scaleY: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.9 + i * 0.12 }}
                 style={{ originY: 0 }}
               />
               <div>
-                <p className="text-[#3E5C76] text-[10px] tracking-[0.2em] uppercase mb-1">{yr}</p>
+                <p className="text-[#294B68] text-[10px] tracking-[0.2em] uppercase mb-1">{yr}</p>
                 <p className="text-[#0B0E13] text-sm mb-0.5">{role}</p>
                 <p className="text-[#8A94A6] text-[11px]" dangerouslySetInnerHTML={{ __html: sub }} />
               </div>

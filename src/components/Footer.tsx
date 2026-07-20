@@ -30,7 +30,7 @@ export default function Footer() {
             <p className="text-[#EDF1F5] text-sm font-medium tracking-wide mb-1.5">
               Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)
             </p>
-            <p className="text-[#3E5C76] text-[11px] mb-1">
+            <p className="text-[#294B68] text-[11px] mb-1">
               PDP Candidate &mdash; Ogun East Senatorial District
             </p>
             <p className="text-[#8A94A6] text-[11px]">
@@ -56,7 +56,7 @@ export default function Footer() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-col md:flex-row justify-between gap-4 pt-8"
         >
-          <p className="text-[#3E5C76]/60 text-[10px] max-w-lg leading-relaxed">
+          <p className="text-[#294B68]/60 text-[10px] max-w-lg leading-relaxed">
             &copy; 2027 Omoowo Campaign. All rights reserved. Authorised by the Omoowo 2027 Campaign
             Committee. Registered with the Independent National Electoral Commission (INEC).
             Peoples Democratic Party (PDP) &mdash; Ogun East Senatorial District.
@@ -66,7 +66,7 @@ export default function Footer() {
               <a
                 key={t}
                 href="#"
-                className="text-[#3E5C76]/60 text-[10px] tracking-[0.15em] uppercase hover:text-[#8A94A6] transition-colors duration-200"
+                className="text-[#294B68]/60 text-[10px] tracking-[0.15em] uppercase hover:text-[#8A94A6] transition-colors duration-200"
               >
                 {t}
               </a>

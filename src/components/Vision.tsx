@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -21,12 +21,12 @@ export default function Vision() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#3E5C76] text-[10px] tracking-[0.4em] uppercase mb-12"
+            className="text-[#294B68] text-[10px] tracking-[0.4em] uppercase mb-12"
           >
             His Vision
           </motion.p>
 
-          {/* Quote — blur+fade word stagger */}
+          {/* Quote â€” blur+fade word stagger */}
           <blockquote
             className="font-light text-[#0B0E13] leading-tight mb-12"
             style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)", letterSpacing: "-0.01em" }}
@@ -50,7 +50,7 @@ export default function Vision() {
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.55 }}
-            className="w-14 h-px bg-[#3E5C76] origin-left mb-10"
+            className="w-14 h-px bg-[#294B68] origin-left mb-10"
           />
 
           <motion.p
@@ -76,7 +76,7 @@ export default function Vision() {
             },
             {
               title: "Inclusive Growth",
-              body: "Development must reach every local government — from Ijebu-East to Ogun Waterside. No community left behind.",
+              body: "Development must reach every local government â€” from Ijebu-East to Ogun Waterside. No community left behind.",
             },
             {
               title: "Accountable Leadership",
@@ -90,7 +90,7 @@ export default function Vision() {
               transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.9 + i * 0.15 }}
               className="bg-[#EDF1F5] px-8 py-10"
             >
-              <p className="text-[#3E5C76] text-[10px] tracking-[0.3em] uppercase mb-5">0{i + 1}</p>
+              <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase mb-5">0{i + 1}</p>
               <h3 className="text-[#0B0E13] font-light text-lg mb-4 leading-snug">{p.title}</h3>
               <p className="text-[#8A94A6] text-sm leading-[1.8]">{p.body}</p>
             </motion.div>

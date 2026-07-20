@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -7,7 +7,7 @@ const items = [
   {
     n: "01",
     title: "Infrastructure & Roads",
-    body: "Rehabilitating federal roads, bridges, and rural access routes across Ogun East — connecting communities to markets, schools, and hospitals.",
+    body: "Rehabilitating federal roads, bridges, and rural access routes across Ogun East â€” connecting communities to markets, schools, and hospitals.",
   },
   {
     n: "02",
@@ -79,7 +79,7 @@ export default function Priorities() {
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
   return (
-    <section id="priorities" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#3E5C76" }}>
+    <section id="priorities" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#294B68" }}>
       <div className="max-w-300 mx-auto">
 
         {/* Header */}
@@ -174,7 +174,7 @@ export default function Priorities() {
             style={{ transformOrigin: "bottom center", background: "#0B0E13" }}
             className="p-8 md:p-10 flex flex-col justify-between"
           >
-            <p className="text-[#3E5C76] text-[10px] tracking-[0.3em] uppercase">Five Priorities</p>
+            <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase">Five Priorities</p>
             <div>
               <p className="font-light text-[#EDF1F5] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
                 05

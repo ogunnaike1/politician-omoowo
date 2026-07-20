@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -7,15 +7,15 @@ import { useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-/* ─────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    DATA
-───────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const policies = [
   {
     n: "01",
     title: "Infrastructure & Roads",
     tagline: "Connecting Ogun East to opportunity.",
-    color: "#3E5C76",
+    color: "#294B68",
     summary:
       "Poor road networks remain one of the biggest barriers to economic growth in Ogun East. Farmers cannot move produce to market. Traders lose hours to impassable roads. Communities stay isolated. Omoowo will make infrastructure rehabilitation a legislative priority from his first day in the National Assembly.",
     commitments: [
@@ -34,7 +34,7 @@ const policies = [
     tagline: "Investing in the next generation of Ogun East.",
     color: "#0B0E13",
     summary:
-      "Education is the single most powerful tool for lifting communities out of poverty. Yet too many schools in Ogun East are underfunded, understaffed, and underequipped. Omoowo believes that every child in the Senatorial District deserves access to quality education — and every young person deserves a pathway to a productive career.",
+      "Education is the single most powerful tool for lifting communities out of poverty. Yet too many schools in Ogun East are underfunded, understaffed, and underequipped. Omoowo believes that every child in the Senatorial District deserves access to quality education â€” and every young person deserves a pathway to a productive career.",
     commitments: [
       "Secure federal intervention funding for public primary and secondary schools across Ogun East",
       "Establish a constituency scholarship programme for outstanding students from low-income families",
@@ -49,7 +49,7 @@ const policies = [
     n: "03",
     title: "Healthcare Access",
     tagline: "Quality care must reach every community.",
-    color: "#3E5C76",
+    color: "#294B68",
     summary:
       "In parts of Ogun East, the nearest functioning hospital is hours away. Women give birth without skilled attendants. Preventable diseases go untreated. This is unacceptable. Omoowo will fight in the National Assembly for healthcare infrastructure and funding that reflects the real needs of Ogun East's population.",
     commitments: [
@@ -68,7 +68,7 @@ const policies = [
     tagline: "Every family deserves to feel safe.",
     color: "#0B0E13",
     summary:
-      "Security challenges — from farmer-herder conflicts to coastal piracy in Ogun Waterside — have disrupted livelihoods and driven displacement across Ogun East. Omoowo understands that security is not just a law enforcement issue but a development one. Without safety, no investment, agricultural or otherwise, can take root.",
+      "Security challenges â€” from farmer-herder conflicts to coastal piracy in Ogun Waterside â€” have disrupted livelihoods and driven displacement across Ogun East. Omoowo understands that security is not just a law enforcement issue but a development one. Without safety, no investment, agricultural or otherwise, can take root.",
     commitments: [
       "Advocate for increased deployment of security personnel to hotspot areas in Ogun East",
       "Support legislation for community policing frameworks that involve local stakeholders",
@@ -83,7 +83,7 @@ const policies = [
     n: "05",
     title: "Agriculture & Economic Growth",
     tagline: "Unlocking the full potential of Ogun East's land and people.",
-    color: "#3E5C76",
+    color: "#294B68",
     summary:
       "Ogun East has some of the most fertile land in Nigeria and a coastline that offers immense fishing and maritime potential. Yet most of this wealth remains untapped due to lack of investment, poor infrastructure, and limited market access. Omoowo will champion agribusiness, small enterprise support, and rural electrification to build a diverse, resilient economy.",
     commitments: [
@@ -98,9 +98,9 @@ const policies = [
   },
 ];
 
-/* ─────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    HERO
-───────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function PoliciesHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -119,7 +119,7 @@ function PoliciesHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="text-[10px] tracking-[0.45em] uppercase mb-5 text-[#3E5C76]"
+          className="text-[10px] tracking-[0.45em] uppercase mb-5 text-[#294B68]"
         >
           Policy Agenda &middot; 2027
         </motion.p>
@@ -143,7 +143,7 @@ function PoliciesHero() {
           className="max-w-xl leading-relaxed mb-10 text-[#8A94A6]"
           style={{ fontSize: "clamp(0.9rem, 1.2vw, 1rem)" }}
         >
-          Five clear commitments to the people of Ogun East — each with a concrete plan, not just a promise.
+          Five clear commitments to the people of Ogun East â€” each with a concrete plan, not just a promise.
         </motion.p>
 
         {/* Policy index pills */}
@@ -161,7 +161,7 @@ function PoliciesHero() {
               style={{
                 background: "rgba(62,92,118,0.08)",
                 border: "1px solid rgba(62,92,118,0.2)",
-                color: "#3E5C76",
+                color: "#294B68",
               }}
             >
               {p.n} &middot; {p.title}
@@ -173,22 +173,22 @@ function PoliciesHero() {
   );
 }
 
-/* ─────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    INDIVIDUAL POLICY SECTION
-───────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function PolicySection({ policy, index }: { policy: typeof policies[0]; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
   const [expanded, setExpanded] = useState(false);
   const isLight = index % 2 !== 0;
-  const bg = isLight ? "#EDF1F5" : "#3E5C76";
+  const bg = isLight ? "#EDF1F5" : "#294B68";
   const heading = isLight ? "#0B0E13" : "#EDF1F5";
   const body = isLight ? "#8A94A6" : "rgba(237,241,245,0.65)";
-  const label = isLight ? "#3E5C76" : "rgba(237,241,245,0.45)";
+  const label = isLight ? "#294B68" : "rgba(237,241,245,0.45)";
   const divider = isLight ? "#C8D4DE" : "rgba(237,241,245,0.1)";
   const dotBg = isLight ? "rgba(62,92,118,0.12)" : "rgba(237,241,245,0.08)";
   const dotBorder = isLight ? "rgba(62,92,118,0.3)" : "rgba(237,241,245,0.15)";
-  const dotFill = isLight ? "#3E5C76" : "#EDF1F5";
+  const dotFill = isLight ? "#294B68" : "#EDF1F5";
 
   return (
     <section
@@ -200,7 +200,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_5fr] gap-12 lg:gap-24">
 
-          {/* Left — number + tagline */}
+          {/* Left â€” number + tagline */}
           <div className="lg:pt-2">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -222,7 +222,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
             </motion.div>
           </div>
 
-          {/* Right — content */}
+          {/* Right â€” content */}
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -295,7 +295,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
               <button
                 onClick={() => setExpanded(!expanded)}
                 className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 transition-all duration-200 hover:opacity-70"
-                style={{ color: isLight ? "#3E5C76" : "#EDF1F5", borderBottom: `1px solid ${isLight ? "#3E5C76" : "rgba(237,241,245,0.3)"}` }}
+                style={{ color: isLight ? "#294B68" : "#EDF1F5", borderBottom: `1px solid ${isLight ? "#294B68" : "rgba(237,241,245,0.3)"}` }}
               >
                 {expanded ? "Hide Impact" : "Expected Impact"}
                 <motion.span
@@ -314,7 +314,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
               >
                 <div
                   className="mt-5 px-5 py-5 border-l-2"
-                  style={{ borderColor: isLight ? "#3E5C76" : "rgba(237,241,245,0.2)", background: isLight ? "rgba(62,92,118,0.05)" : "rgba(237,241,245,0.04)" }}
+                  style={{ borderColor: isLight ? "#294B68" : "rgba(237,241,245,0.2)", background: isLight ? "rgba(62,92,118,0.05)" : "rgba(237,241,245,0.04)" }}
                 >
                   <p className="text-sm leading-[1.85] italic" style={{ color: body }}>
                     {policy.impact}
@@ -329,13 +329,13 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
   );
 }
 
-/* ─────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    COMMITMENT BANNER
-───────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function CommitmentBanner() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
-  const words = "These are not campaign promises. They are commitments — and Omoowo will be held to every one of them.".split(" ");
+  const words = "These are not campaign promises. They are commitments â€” and Omoowo will be held to every one of them.".split(" ");
 
   return (
     <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#E9EEF2" }}>
@@ -344,7 +344,7 @@ function CommitmentBanner() {
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : {}}
           transition={{ duration: 0.7 }}
-          className="w-10 h-px mx-auto mb-12 origin-center bg-[#3E5C76]"
+          className="w-10 h-px mx-auto mb-12 origin-center bg-[#294B68]"
         />
         <blockquote
           className="font-light text-[#0B0E13] leading-[1.45] mb-10"
@@ -376,9 +376,9 @@ function CommitmentBanner() {
   );
 }
 
-/* ─────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    CTA
-───────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function PoliciesCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
@@ -391,7 +391,7 @@ function PoliciesCTA() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#3E5C76] text-[10px] tracking-[0.4em] uppercase mb-4"
+            className="text-[#294B68] text-[10px] tracking-[0.4em] uppercase mb-4"
           >
             Take Action
           </motion.p>
@@ -420,13 +420,13 @@ function PoliciesCTA() {
           </a>
           <a
             href="/profile"
-            className="px-7 py-3 border border-[#3E5C76] text-[#3E5C76] text-[11px] tracking-[0.2em] uppercase hover:bg-[#3E5C76] hover:text-[#EDF1F5] transition-all duration-200"
+            className="px-7 py-3 border border-[#294B68] text-[#294B68] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] hover:text-[#EDF1F5] transition-all duration-200"
           >
             Meet Omoowo
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#3E5C76] transition-colors duration-200"
+            className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] transition-colors duration-200"
           >
             Join the Campaign
           </a>
@@ -436,9 +436,9 @@ function PoliciesCTA() {
   );
 }
 
-/* ─────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    PAGE
-───────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export default function PoliciesPage() {
   return (
     <>

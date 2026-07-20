@@ -52,7 +52,7 @@ export default function Record() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#0B0E13] leading-[1.1]"
+              className="font-light text-[#162B3D] leading-[1.1]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
             >
               Ogun East deserves better representation.
@@ -71,12 +71,12 @@ export default function Record() {
               className="bg-[#EDF1F5] px-8 py-10"
             >
               <p
-                className="font-light text-[#0B0E13] tabular-nums leading-none mb-3"
+                className="font-light text-[#162B3D] tabular-nums leading-none mb-3"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", letterSpacing: "-0.03em" }}
               >
                 <AnimatedNumber value={s.value} suffix={s.suffix} />
               </p>
-              <p className="text-[#0B0E13] text-sm mb-1">{s.label}</p>
+              <p className="text-[#162B3D] text-sm mb-1">{s.label}</p>
               <p className="text-[#8A94A6] text-[11px] leading-relaxed">{s.sub}</p>
             </motion.div>
           ))}
@@ -105,7 +105,7 @@ export default function Record() {
               />
               <div>
                 <p className="text-[#294B68] text-[10px] tracking-[0.2em] uppercase mb-1">{yr}</p>
-                <p className="text-[#0B0E13] text-sm mb-0.5">{role}</p>
+                <p className="text-[#162B3D] text-sm mb-0.5">{role}</p>
                 <p className="text-[#8A94A6] text-[11px]" dangerouslySetInnerHTML={{ __html: sub }} />
               </div>
             </motion.div>

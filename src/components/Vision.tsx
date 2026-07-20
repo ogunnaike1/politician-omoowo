@@ -28,7 +28,7 @@ export default function Vision() {
 
           {/* Quote â€” blur+fade word stagger */}
           <blockquote
-            className="font-light text-[#0B0E13] leading-tight mb-12"
+            className="font-light text-[#162B3D] leading-tight mb-12"
             style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)", letterSpacing: "-0.01em" }}
           >
             &ldquo;
@@ -91,7 +91,7 @@ export default function Vision() {
               className="bg-[#EDF1F5] px-8 py-10"
             >
               <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase mb-5">0{i + 1}</p>
-              <h3 className="text-[#0B0E13] font-light text-lg mb-4 leading-snug">{p.title}</h3>
+              <h3 className="text-[#162B3D] font-light text-lg mb-4 leading-snug">{p.title}</h3>
               <p className="text-[#8A94A6] text-sm leading-[1.8]">{p.body}</p>
             </motion.div>
           ))}

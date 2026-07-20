@@ -32,7 +32,7 @@ const policies = [
     n: "02",
     title: "Education & Youth Empowerment",
     tagline: "Investing in the next generation of Ogun East.",
-    color: "#0B0E13",
+    color: "#162B3D",
     summary:
       "Education is the single most powerful tool for lifting communities out of poverty. Yet too many schools in Ogun East are underfunded, understaffed, and underequipped. Omoowo believes that every child in the Senatorial District deserves access to quality education â€” and every young person deserves a pathway to a productive career.",
     commitments: [
@@ -66,7 +66,7 @@ const policies = [
     n: "04",
     title: "Security & Community Safety",
     tagline: "Every family deserves to feel safe.",
-    color: "#0B0E13",
+    color: "#162B3D",
     summary:
       "Security challenges â€” from farmer-herder conflicts to coastal piracy in Ogun Waterside â€” have disrupted livelihoods and driven displacement across Ogun East. Omoowo understands that security is not just a law enforcement issue but a development one. Without safety, no investment, agricultural or otherwise, can take root.",
     commitments: [
@@ -129,7 +129,7 @@ function PoliciesHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.95, delay: 0.3, ease }}
-            className="font-light text-[#0B0E13] leading-[1.02]"
+            className="font-light text-[#162B3D] leading-[1.02]"
             style={{ fontSize: "clamp(2.2rem, 5.5vw, 5rem)", letterSpacing: "-0.02em" }}
           >
             What Omoowo will fight for.
@@ -182,7 +182,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
   const [expanded, setExpanded] = useState(false);
   const isLight = index % 2 !== 0;
   const bg = isLight ? "#EDF1F5" : "#294B68";
-  const heading = isLight ? "#0B0E13" : "#EDF1F5";
+  const heading = isLight ? "#162B3D" : "#EDF1F5";
   const body = isLight ? "#8A94A6" : "rgba(237,241,245,0.65)";
   const label = isLight ? "#294B68" : "rgba(237,241,245,0.45)";
   const divider = isLight ? "#C8D4DE" : "rgba(237,241,245,0.1)";
@@ -347,7 +347,7 @@ function CommitmentBanner() {
           className="w-10 h-px mx-auto mb-12 origin-center bg-[#294B68]"
         />
         <blockquote
-          className="font-light text-[#0B0E13] leading-[1.45] mb-10"
+          className="font-light text-[#162B3D] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.2rem)", letterSpacing: "-0.01em" }}
         >
           {words.map((word, i) => (
@@ -399,7 +399,7 @@ function PoliciesCTA() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#0B0E13]"
+            className="font-light text-[#162B3D]"
             style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
           >
             Stand behind this agenda.
@@ -414,7 +414,7 @@ function PoliciesCTA() {
         >
           <a
             href="/"
-            className="px-7 py-3 border border-[#C8D4DE] text-[#0B0E13] text-[11px] tracking-[0.2em] uppercase hover:border-[#0B0E13] transition-colors duration-200"
+            className="px-7 py-3 border border-[#C8D4DE] text-[#162B3D] text-[11px] tracking-[0.2em] uppercase hover:border-[#162B3D] transition-colors duration-200"
           >
             &larr; Back to Home
           </a>
@@ -426,7 +426,7 @@ function PoliciesCTA() {
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] transition-colors duration-200"
+            className="px-7 py-3 bg-[#162B3D] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] transition-colors duration-200"
           >
             Join the Campaign
           </a>

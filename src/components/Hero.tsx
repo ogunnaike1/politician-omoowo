@@ -180,7 +180,7 @@ export default function Hero() {
           </motion.p>
 
           <h1
-            className="text-[#0B0E13] font-light leading-[1.04] mb-6"
+            className="text-[#162B3D] font-light leading-[1.04] mb-6"
             style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", letterSpacing: "-0.02em" }}
           >
             {headline.map((lineWords, li) => (
@@ -220,13 +220,13 @@ export default function Hero() {
           >
             <a
               href="#involved"
-              className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#294B68] transition-colors duration-200"
+              className="px-7 py-3 bg-[#162B3D] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#294B68] transition-colors duration-200"
             >
               Join the Campaign
             </a>
             <a
               href="/profile"
-              className="px-7 py-3 border border-[#294B68] text-[#0B0E13] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] hover:text-[#EDF1F5] transition-all duration-200"
+              className="px-7 py-3 border border-[#294B68] text-[#162B3D] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] hover:text-[#EDF1F5] transition-all duration-200"
             >
               Meet Omoowo
             </a>

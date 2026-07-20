@@ -171,7 +171,7 @@ export default function Priorities() {
             initial="hidden"
             animate={inView ? "show" : "hidden"}
             whileHover="hovered"
-            style={{ transformOrigin: "bottom center", background: "#0B0E13" }}
+            style={{ transformOrigin: "bottom center", background: "#162B3D" }}
             className="p-8 md:p-10 flex flex-col justify-between"
           >
             <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase">Five Priorities</p>

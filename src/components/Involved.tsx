@@ -80,7 +80,7 @@ export default function Involved() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(237,241,245,0.12)" }}>
           {cards.map((c, i) => {
             const anim = cardAnimations[i];
-            const cardBg = c.dark ? "#0B0E13" : "rgba(62,92,118,0.45)";
+            const cardBg = c.dark ? "#162B3D" : "rgba(62,92,118,0.45)";
             return (
               <motion.div
                 key={c.id}

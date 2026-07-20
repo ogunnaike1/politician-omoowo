@@ -178,7 +178,7 @@ function Biography() {
             ].map(([label, val]) => (
               <div key={label} className="py-3 flex justify-between gap-4">
                 <p className="text-[#8A94A6] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
-                <p className="text-[#0B0E13] text-[11px] text-right leading-relaxed">{val}</p>
+                <p className="text-[#162B3D] text-[11px] text-right leading-relaxed">{val}</p>
               </div>
             ))}
           </motion.div>
@@ -198,7 +198,7 @@ function Biography() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#0B0E13] leading-[1.1] mb-10"
+            className="font-light text-[#162B3D] leading-[1.1] mb-10"
             style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.5rem)", letterSpacing: "-0.02em" }}
           >
             A son of Ogun East, built by its people, fighting for its future.
@@ -263,7 +263,7 @@ function Timeline() {
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-[#0B0E13] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#162B3D] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -308,7 +308,7 @@ function Timeline() {
                     initial={{ scale: 0 }}
                     animate={inView ? { scale: 1 } : {}}
                     transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 + i * 0.12 }}
-                    className="absolute top-1 w-3 h-3 rounded-full bg-[#294B68] border-2 border-[#0B0E13]"
+                    className="absolute top-1 w-3 h-3 rounded-full bg-[#294B68] border-2 border-[#162B3D]"
                     style={{ left: isRight ? "auto" : "-6px", right: isRight ? "-6px" : "auto", [isRight ? "right" : "left"]: "calc(100% - 5px)" }}
                   />
                   {/* Mobile dot */}
@@ -369,7 +369,7 @@ function Values() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#0B0E13] mb-16"
+          className="font-light text-[#162B3D] mb-16"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
         >
           What guides every decision.
@@ -386,7 +386,7 @@ function Values() {
             >
               <p className="text-[#C8D4DE] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
               <h3
-                className="font-light text-[#0B0E13] mb-5 leading-tight group-hover:text-[#294B68] transition-colors duration-300"
+                className="font-light text-[#162B3D] mb-5 leading-tight group-hover:text-[#294B68] transition-colors duration-300"
                 style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)" }}
               >
                 {v.title}
@@ -468,7 +468,7 @@ function Stats() {
   ];
 
   return (
-    <section ref={ref} className="bg-[#0B0E13] py-20 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#162B3D] py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#151A21]">
         {data.map((d, i) => (
           <motion.div
@@ -476,7 +476,7 @@ function Stats() {
             initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
             animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
             transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
-            className="bg-[#0B0E13] px-8 py-10"
+            className="bg-[#162B3D] px-8 py-10"
           >
             <p
               className="font-light text-[#EDF1F5] leading-none mb-3"
@@ -514,7 +514,7 @@ function ProfileCTA() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#0B0E13]"
+            className="font-light text-[#162B3D]"
             style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
           >
             Be part of the movement.
@@ -529,13 +529,13 @@ function ProfileCTA() {
         >
           <a
             href="/"
-            className="px-7 py-3 border border-[#C8D4DE] text-[#0B0E13] text-[11px] tracking-[0.2em] uppercase hover:border-[#0B0E13] transition-colors duration-200"
+            className="px-7 py-3 border border-[#C8D4DE] text-[#162B3D] text-[11px] tracking-[0.2em] uppercase hover:border-[#162B3D] transition-colors duration-200"
           >
             &larr; Back to Home
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#0B0E13] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#151A21] transition-colors duration-200"
+            className="px-7 py-3 bg-[#162B3D] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#151A21] transition-colors duration-200"
           >
             Join the Campaign
           </a>

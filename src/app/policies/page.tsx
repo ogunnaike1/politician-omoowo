@@ -15,7 +15,7 @@ const policies = [
     n: "01",
     title: "Infrastructure & Roads",
     tagline: "Connecting Ogun East to opportunity.",
-    color: "#294B68",
+    color: "#E63035",
     summary:
       "Poor road networks remain one of the biggest barriers to economic growth in Ogun East. Farmers cannot move produce to market. Traders lose hours to impassable roads. Communities stay isolated. Omoowo will make infrastructure rehabilitation a legislative priority from his first day in the National Assembly.",
     commitments: [
@@ -32,7 +32,7 @@ const policies = [
     n: "02",
     title: "Education & Youth Empowerment",
     tagline: "Investing in the next generation of Ogun East.",
-    color: "#162B3D",
+    color: "#1A1A1A",
     summary:
       "Education is the single most powerful tool for lifting communities out of poverty. Yet too many schools in Ogun East are underfunded, understaffed, and underequipped. Omoowo believes that every child in the Senatorial District deserves access to quality education â€” and every young person deserves a pathway to a productive career.",
     commitments: [
@@ -49,7 +49,7 @@ const policies = [
     n: "03",
     title: "Healthcare Access",
     tagline: "Quality care must reach every community.",
-    color: "#294B68",
+    color: "#E63035",
     summary:
       "In parts of Ogun East, the nearest functioning hospital is hours away. Women give birth without skilled attendants. Preventable diseases go untreated. This is unacceptable. Omoowo will fight in the National Assembly for healthcare infrastructure and funding that reflects the real needs of Ogun East's population.",
     commitments: [
@@ -66,7 +66,7 @@ const policies = [
     n: "04",
     title: "Security & Community Safety",
     tagline: "Every family deserves to feel safe.",
-    color: "#162B3D",
+    color: "#1A1A1A",
     summary:
       "Security challenges â€” from farmer-herder conflicts to coastal piracy in Ogun Waterside â€” have disrupted livelihoods and driven displacement across Ogun East. Omoowo understands that security is not just a law enforcement issue but a development one. Without safety, no investment, agricultural or otherwise, can take root.",
     commitments: [
@@ -83,7 +83,7 @@ const policies = [
     n: "05",
     title: "Agriculture & Economic Growth",
     tagline: "Unlocking the full potential of Ogun East's land and people.",
-    color: "#294B68",
+    color: "#E63035",
     summary:
       "Ogun East has some of the most fertile land in Nigeria and a coastline that offers immense fishing and maritime potential. Yet most of this wealth remains untapped due to lack of investment, poor infrastructure, and limited market access. Omoowo will champion agribusiness, small enterprise support, and rural electrification to build a diverse, resilient economy.",
     commitments: [
@@ -107,11 +107,11 @@ function PoliciesHero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden flex items-end" style={{ height: "60vh", minHeight: "420px", background: "#E9EEF2" }}>
+    <section ref={ref} className="relative overflow-hidden flex items-end" style={{ height: "60vh", minHeight: "420px", background: "#F6F6F6" }}>
       {/* Subtle background accents */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y }}>
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 30%, rgba(62,92,118,0.07) 0%, transparent 60%)" }} />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 10% 80%, rgba(62,92,118,0.05) 0%, transparent 50%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 30%, rgba(230,48,53,0.07) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 10% 80%, rgba(230,48,53,0.05) 0%, transparent 50%)" }} />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-300 mx-auto px-6 md:px-12 lg:px-20 pb-16 md:pb-20">
@@ -119,7 +119,7 @@ function PoliciesHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="text-[10px] tracking-[0.45em] uppercase mb-5 text-[#294B68]"
+          className="text-[10px] tracking-[0.45em] uppercase mb-5 text-[#E63035]"
         >
           Policy Agenda &middot; 2027
         </motion.p>
@@ -129,7 +129,7 @@ function PoliciesHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.95, delay: 0.3, ease }}
-            className="font-light text-[#162B3D] leading-[1.02]"
+            className="font-light text-[#1A1A1A] leading-[1.02]"
             style={{ fontSize: "clamp(2.2rem, 5.5vw, 5rem)", letterSpacing: "-0.02em" }}
           >
             What Omoowo will fight for.
@@ -140,7 +140,7 @@ function PoliciesHero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease }}
-          className="max-w-xl leading-relaxed mb-10 text-[#8A94A6]"
+          className="max-w-xl leading-relaxed mb-10 text-[#888888]"
           style={{ fontSize: "clamp(0.9rem, 1.2vw, 1rem)" }}
         >
           Five clear commitments to the people of Ogun East â€” each with a concrete plan, not just a promise.
@@ -159,9 +159,9 @@ function PoliciesHero() {
               href={`#policy-${p.n}`}
               className="px-4 py-2 text-[10px] tracking-[0.2em] uppercase transition-all duration-200 hover:opacity-70"
               style={{
-                background: "rgba(62,92,118,0.08)",
-                border: "1px solid rgba(62,92,118,0.2)",
-                color: "#294B68",
+                background: "rgba(230,48,53,0.08)",
+                border: "1px solid rgba(230,48,53,0.2)",
+                color: "#E63035",
               }}
             >
               {p.n} &middot; {p.title}
@@ -181,14 +181,14 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
   const inView = useInView(ref, { once: false, margin: "-80px" });
   const [expanded, setExpanded] = useState(false);
   const isLight = index % 2 !== 0;
-  const bg = isLight ? "#EDF1F5" : "#294B68";
-  const heading = isLight ? "#162B3D" : "#EDF1F5";
-  const body = isLight ? "#8A94A6" : "rgba(237,241,245,0.65)";
-  const label = isLight ? "#294B68" : "rgba(237,241,245,0.45)";
-  const divider = isLight ? "#C8D4DE" : "rgba(237,241,245,0.1)";
-  const dotBg = isLight ? "rgba(62,92,118,0.12)" : "rgba(237,241,245,0.08)";
-  const dotBorder = isLight ? "rgba(62,92,118,0.3)" : "rgba(237,241,245,0.15)";
-  const dotFill = isLight ? "#294B68" : "#EDF1F5";
+  const bg = isLight ? "#F6F6F6" : "#E63035";
+  const heading = isLight ? "#1A1A1A" : "#F6F6F6";
+  const body = isLight ? "#888888" : "rgba(246,246,246,0.65)";
+  const label = isLight ? "#E63035" : "rgba(246,246,246,0.45)";
+  const divider = isLight ? "#DCDCDC" : "rgba(246,246,246,0.1)";
+  const dotBg = isLight ? "rgba(230,48,53,0.12)" : "rgba(246,246,246,0.08)";
+  const dotBorder = isLight ? "rgba(230,48,53,0.3)" : "rgba(246,246,246,0.15)";
+  const dotFill = isLight ? "#E63035" : "#F6F6F6";
 
   return (
     <section
@@ -209,7 +209,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
             >
               <p
                 className="font-light leading-none mb-4"
-                style={{ fontSize: "clamp(3.5rem, 6vw, 6rem)", color: isLight ? "rgba(62,92,118,0.15)" : "rgba(237,241,245,0.08)", letterSpacing: "-0.04em" }}
+                style={{ fontSize: "clamp(3.5rem, 6vw, 6rem)", color: isLight ? "rgba(230,48,53,0.15)" : "rgba(246,246,246,0.08)", letterSpacing: "-0.04em" }}
               >
                 {policy.n}
               </p>
@@ -296,9 +296,9 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
                 onClick={() => setExpanded(!expanded)}
                 className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 transition-all duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{
-                  color: isLight ? "#294B68" : "#EDF1F5",
-                  borderBottom: `1px solid ${isLight ? "#294B68" : "rgba(237,241,245,0.3)"}`,
-                  "--tw-ring-color": isLight ? "rgba(41,75,104,0.5)" : "rgba(237,241,245,0.4)",
+                  color: isLight ? "#E63035" : "#F6F6F6",
+                  borderBottom: `1px solid ${isLight ? "#E63035" : "rgba(246,246,246,0.3)"}`,
+                  "--tw-ring-color": isLight ? "rgba(230,48,53,0.5)" : "rgba(246,246,246,0.4)",
                 } as React.CSSProperties}
               >
                 {expanded ? "Hide Impact" : "Expected Impact"}
@@ -318,7 +318,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
               >
                 <div
                   className="mt-5 px-5 py-5 border-l-2"
-                  style={{ borderColor: isLight ? "#294B68" : "rgba(237,241,245,0.2)", background: isLight ? "rgba(62,92,118,0.05)" : "rgba(237,241,245,0.04)" }}
+                  style={{ borderColor: isLight ? "#E63035" : "rgba(246,246,246,0.2)", background: isLight ? "rgba(230,48,53,0.05)" : "rgba(246,246,246,0.04)" }}
                 >
                   <p className="text-sm leading-[1.85] italic" style={{ color: body }}>
                     {policy.impact}
@@ -342,16 +342,16 @@ function CommitmentBanner() {
   const words = "These are not campaign promises. They are commitments â€” and Omoowo will be held to every one of them.".split(" ");
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#E9EEF2" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#F6F6F6" }}>
       <div className="max-w-190 mx-auto text-center">
         <motion.div
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : {}}
           transition={{ duration: 0.7 }}
-          className="w-10 h-px mx-auto mb-12 origin-center bg-[#294B68]"
+          className="w-10 h-px mx-auto mb-12 origin-center bg-[#E63035]"
         />
         <blockquote
-          className="font-light text-[#162B3D] leading-[1.45] mb-10"
+          className="font-light text-[#1A1A1A] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.2rem)", letterSpacing: "-0.01em" }}
         >
           {words.map((word, i) => (
@@ -371,7 +371,7 @@ function CommitmentBanner() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.85, ease }}
           className="text-[11px] tracking-[0.3em] uppercase"
-          style={{ color: "#8A94A6" }}
+          style={{ color: "#888888" }}
         >
           Alhaji Omoowo &mdash; PDP, Ogun East 2027
         </motion.p>
@@ -388,14 +388,14 @@ function PoliciesCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#EDF1F5] py-28 md:py-36 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-36 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#294B68] text-[10px] tracking-[0.4em] uppercase mb-4"
+            className="text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-4"
           >
             Take Action
           </motion.p>
@@ -403,7 +403,7 @@ function PoliciesCTA() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#162B3D]"
+            className="font-light text-[#1A1A1A]"
             style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
           >
             Stand behind this agenda.
@@ -418,19 +418,19 @@ function PoliciesCTA() {
         >
           <a
             href="/"
-            className="px-7 py-3 border border-[#C8D4DE] text-[#162B3D] text-[11px] tracking-[0.2em] uppercase hover:border-[#162B3D] transition-colors duration-200"
+            className="px-7 py-3 border border-[#DCDCDC] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:border-[#1A1A1A] transition-colors duration-200"
           >
             &larr; Back to Home
           </a>
           <a
             href="/profile"
-            className="px-7 py-3 border border-[#294B68] text-[#294B68] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] hover:text-[#EDF1F5] transition-all duration-200"
+            className="px-7 py-3 border border-[#E63035] text-[#E63035] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#F6F6F6] transition-all duration-200"
           >
             Meet Omoowo
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#162B3D] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] transition-colors duration-200"
+            className="px-7 py-3 bg-[#E63035] text-[#F6F6F6] text-[11px] tracking-[0.2em] uppercase hover:bg-[#008B4D] transition-colors duration-200"
           >
             Join the Campaign
           </a>

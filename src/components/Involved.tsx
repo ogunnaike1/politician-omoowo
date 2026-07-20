@@ -56,14 +56,14 @@ export default function Involved() {
   const [email, setEmail] = useState("");
 
   return (
-    <section id="involved" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#294B68" }}>
+    <section id="involved" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
           className="text-[10px] tracking-[0.4em] uppercase mb-4"
-          style={{ color: "rgba(237,241,245,0.55)" }}
+          style={{ color: "rgba(246,246,246,0.55)" }}
         >
           Get Involved
         </motion.p>
@@ -71,16 +71,16 @@ export default function Involved() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#EDF1F5] mb-16"
+          className="font-light text-[#F6F6F6] mb-16"
           style={{ fontSize: "clamp(1.7rem, 3.5vw, 3.2rem)", letterSpacing: "-0.02em" }}
         >
           Ogun East wins together.
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(237,241,245,0.12)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(246,246,246,0.12)" }}>
           {cards.map((c, i) => {
             const anim = cardAnimations[i];
-            const cardBg = c.dark ? "#162B3D" : "rgba(62,92,118,0.45)";
+            const cardBg = c.dark ? "#E63035" : "#F6F6F6";
             return (
               <motion.div
                 key={c.id}
@@ -93,17 +93,17 @@ export default function Involved() {
               >
                 <p
                   className="text-[10px] tracking-[0.35em] uppercase mb-6"
-                  style={{ color: c.dark ? "#294B68" : "rgba(237,241,245,0.4)" }}
+                  style={{ color: c.dark ? "rgba(246,246,246,0.55)" : "#008B4D" }}
                 >
                   {c.label}
                 </p>
                 <h3
-                  className="font-light text-[#EDF1F5] leading-tight mb-5"
-                  style={{ fontSize: "clamp(1.3rem, 1.8vw, 1.7rem)" }}
+                  className="font-light leading-tight mb-5"
+                  style={{ fontSize: "clamp(1.3rem, 1.8vw, 1.7rem)", color: c.dark ? "#F6F6F6" : "#1A1A1A" }}
                 >
                   {c.title}
                 </h3>
-                <p className="text-sm leading-[1.8] mb-10 flex-1" style={{ color: "rgba(237,241,245,0.65)" }}>
+                <p className="text-sm leading-[1.8] mb-10 flex-1" style={{ color: c.dark ? "rgba(246,246,246,0.65)" : "#888888" }}>
                   {c.body}
                 </p>
 
@@ -115,19 +115,19 @@ export default function Involved() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your@email.com"
                       className="flex-1 bg-transparent border px-4 py-2.5 text-[11px] outline-none transition-colors duration-200 min-w-0 placeholder:opacity-40"
-                      style={{ color: "#EDF1F5", borderColor: "rgba(237,241,245,0.25)" }}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(237,241,245,0.7)")}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(237,241,245,0.25)")}
+                      style={{ color: "#1A1A1A", borderColor: "rgba(26,26,26,0.25)" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#008B4D")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.25)")}
                     />
-                    <button className="px-5 py-2.5 bg-[#EDF1F5] text-[#294B68] text-[11px] shrink-0 font-medium hover:bg-white transition-colors duration-200">
+                    <button className="px-5 py-2.5 bg-[#008B4D] text-[#F6F6F6] text-[11px] shrink-0 font-medium hover:bg-[#E63035] transition-colors duration-200">
                       &rarr;
                     </button>
                   </div>
                 ) : (
                   <a
                     href={`#${c.id}`}
-                    className="inline-flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase pb-1 w-fit transition-all duration-300 hover:gap-5 text-[#EDF1F5]"
-                    style={{ borderBottom: "1px solid rgba(237,241,245,0.35)" }}
+                    className="inline-flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase pb-1 w-fit transition-all duration-300 hover:gap-5"
+                    style={{ color: c.dark ? "#F6F6F6" : "#008B4D", borderBottom: `1px solid ${c.dark ? "rgba(246,246,246,0.35)" : "rgba(0,139,77,0.35)"}` }}
                   >
                     {c.cta} <span>&rarr;</span>
                   </a>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -32,14 +32,14 @@ export default function Candidate() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section id="candidate" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#294B68" }}>
+    <section id="candidate" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#E63035" }}>
       <div className="max-w-300 mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-14 md:gap-24 items-center">
 
         {/* Portrait â€” clipPath curtain reveal bottom-up */}
         <div className="relative">
           {/* Offset decorative border behind the frame */}
           <div
-            className="absolute border border-[rgba(237,241,245,0.2)]"
+            className="absolute border border-[rgba(246,246,246,0.2)]"
             style={{ inset: "-12px 12px 12px -12px" }}
           />
 
@@ -59,7 +59,7 @@ export default function Candidate() {
             {/* Bottom gradient fade */}
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(11,14,19,0.7) 100%)" }}
+              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(0,139,77,0.75) 100%)" }}
             />
 
             {/* Glass name badge */}
@@ -71,31 +71,31 @@ export default function Candidate() {
               style={{
                 backdropFilter: "blur(16px) saturate(1.5)",
                 WebkitBackdropFilter: "blur(16px) saturate(1.5)",
-                background: "rgba(11,14,19,0.35)",
-                border: "1px solid rgba(237,241,245,0.12)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(237,241,245,0.08)",
+                background: "rgba(0,139,77,0.85)",
+                border: "1px solid rgba(246,246,246,0.12)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(246,246,246,0.08)",
               }}
             >
               {/* Glass top shine */}
               <div
                 className="absolute inset-x-0 top-0 h-px pointer-events-none"
-                style={{ background: "linear-gradient(90deg, transparent, rgba(237,241,245,0.2), transparent)" }}
+                style={{ background: "linear-gradient(90deg, transparent, rgba(246,246,246,0.2), transparent)" }}
               />
               <div className="px-5 py-4 flex items-center justify-between">
                 <div>
-                  <p className="text-[#EDF1F5] text-[11px] font-medium tracking-[0.22em] uppercase mb-0.5">
+                  <p className="text-[#F6F6F6] text-[11px] font-medium tracking-[0.22em] uppercase mb-0.5">
                     Alhaji Omoowo
                   </p>
-                  <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(237,241,245,0.55)" }}>
+                  <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
                     PDP &middot; Ogun East &middot; 2027
                   </p>
                 </div>
                 <div
                   className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
-                  style={{ background: "rgba(62,92,118,0.3)", border: "1px solid rgba(62,92,118,0.55)" }}
+                  style={{ background: "rgba(230,48,53,0.3)", border: "1px solid rgba(230,48,53,0.55)" }}
                 >
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                    <circle cx="4" cy="4" r="2.5" fill="#294B68" />
+                    <circle cx="4" cy="4" r="2.5" fill="#E63035" />
                   </svg>
                 </div>
               </div>
@@ -110,11 +110,11 @@ export default function Candidate() {
               style={{
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
-                background: "rgba(62,92,118,0.28)",
-                border: "1px solid rgba(237,241,245,0.12)",
+                background: "rgba(230,48,53,0.28)",
+                border: "1px solid rgba(246,246,246,0.12)",
               }}
             >
-              <p className="text-[#EDF1F5]/70 text-[9px] tracking-[0.3em] uppercase">2027</p>
+              <p className="text-[#F6F6F6]/70 text-[9px] tracking-[0.3em] uppercase">2027</p>
             </motion.div>
           </motion.div>
         </div>
@@ -124,7 +124,7 @@ export default function Candidate() {
           {inView && (
             <>
               <div className="mb-5">
-                <MaskedLine delay={0.3} className="text-[10px] tracking-[0.4em] uppercase" style={{ color: "rgba(237,241,245,0.55)" }}>
+                <MaskedLine delay={0.3} className="text-[10px] tracking-[0.4em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
                   The Candidate
                 </MaskedLine>
               </div>
@@ -132,7 +132,7 @@ export default function Candidate() {
               <div className="mb-7">
                 <MaskedLine
                   delay={0.45}
-                  className="font-light text-[#EDF1F5] leading-[1.1]"
+                  className="font-light text-[#F6F6F6] leading-[1.1]"
                   style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
                 >
                   A lifelong servant of Ogun East and its people.
@@ -143,7 +143,7 @@ export default function Candidate() {
                 <MaskedLine
                   delay={0.6}
                   className="leading-[1.8]"
-                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(237,241,245,0.72)" }}
+                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(246,246,246,0.72)" }}
                 >
                   Alhaji Abdulhameed Oluwafemi Omotayo, widely known as Omoowo, is a prominent community
                   leader, businessman, and PDP stalwart with deep roots across the Ogun East Senatorial
@@ -156,7 +156,7 @@ export default function Candidate() {
                 <MaskedLine
                   delay={0.72}
                   className="leading-[1.8]"
-                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(237,241,245,0.72)" }}
+                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(246,246,246,0.72)" }}
                 >
                   As the PDP candidate for the 2027 Ogun East Senatorial District election, Omoowo brings
                   a clear, people-first agenda to the National Assembly &mdash; focused on infrastructure,
@@ -173,9 +173,9 @@ export default function Candidate() {
                   <a
                     href="/profile"
                     className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 hover:gap-5 transition-all duration-300"
-                    style={{ color: "#EDF1F5", borderBottom: "1px solid rgba(237,241,245,0.35)" }}
+                    style={{ color: "#F6F6F6", borderBottom: "1px solid rgba(246,246,246,0.35)" }}
                   >
-                    Read Full Profile <span style={{ color: "rgba(237,241,245,0.6)" }}>&rarr;</span>
+                    Read Full Profile <span style={{ color: "rgba(246,246,246,0.6)" }}>&rarr;</span>
                   </a>
                 </motion.div>
               </div>
@@ -186,7 +186,7 @@ export default function Candidate() {
                   animate={{ y: "0%" }}
                   transition={{ duration: 0.85, delay: 0.9, ease }}
                   className="flex gap-8 pt-8"
-                  style={{ borderTop: "1px solid rgba(237,241,245,0.15)" }}
+                  style={{ borderTop: "1px solid rgba(246,246,246,0.15)" }}
                 >
                   {[
                     ["PDP", "Party Affiliation"],
@@ -194,10 +194,10 @@ export default function Candidate() {
                     ["Ogun East", "Senatorial District"],
                   ].map(([num, label]) => (
                     <div key={label}>
-                      <p className="font-light text-[#EDF1F5] leading-none mb-1.5" style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}>
+                      <p className="font-light text-[#F6F6F6] leading-none mb-1.5" style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}>
                         {num}
                       </p>
-                      <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(237,241,245,0.5)" }}>{label}</p>
+                      <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.5)" }}>{label}</p>
                     </div>
                   ))}
                 </motion.div>

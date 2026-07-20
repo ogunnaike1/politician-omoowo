@@ -35,7 +35,7 @@ export default function Record() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section id="record" ref={ref} className="bg-[#EDF1F5] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section id="record" ref={ref} className="bg-[#F6F6F6] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
@@ -44,7 +44,7 @@ export default function Record() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-[#294B68] text-[10px] tracking-[0.4em] uppercase mb-3"
+              className="text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-3"
             >
               The District
             </motion.p>
@@ -52,7 +52,7 @@ export default function Record() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#162B3D] leading-[1.1]"
+              className="font-light text-[#1A1A1A] leading-[1.1]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
             >
               Ogun East deserves better representation.
@@ -61,29 +61,29 @@ export default function Record() {
         </div>
 
         {/* Stats â€” horizontal clipPath wipe */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#C8D4DE]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#E63035]">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
               transition={{ duration: 0.75, delay: 0.2 + i * 0.15, ease }}
-              className="bg-[#EDF1F5] px-8 py-10 group hover:bg-[#E4EBF0] transition-colors duration-250 cursor-default"
+              className="bg-[#F6F6F6] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
             >
               <p
-                className="font-light text-[#162B3D] tabular-nums leading-none mb-3 group-hover:text-[#294B68] transition-colors duration-250"
+                className="font-light text-[#1A1A1A] tabular-nums leading-none mb-3 group-hover:text-[#E63035] transition-colors duration-250"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", letterSpacing: "-0.03em" }}
               >
                 <AnimatedNumber value={s.value} suffix={s.suffix} />
               </p>
-              <p className="text-[#162B3D] text-sm mb-1 group-hover:text-[#294B68] transition-colors duration-250">{s.label}</p>
-              <p className="text-[#8A94A6] text-[11px] leading-relaxed">{s.sub}</p>
+              <p className="text-[#1A1A1A] text-sm mb-1 group-hover:text-[#E63035] transition-colors duration-250">{s.label}</p>
+              <p className="text-[#888888] text-[11px] leading-relaxed">{s.sub}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Timeline */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#C8D4DE]">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#E63035]">
           {[
             ["Community Roots", "Grassroots Leadership", "Decades of service across Ogun East"],
             ["PDP Candidate", "Party Nomination", "Peoples Democratic Party &middot; Ogun East"],
@@ -94,19 +94,19 @@ export default function Record() {
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.8 + i * 0.12, ease }}
-              className="bg-[#EDF1F5] px-8 py-6 flex items-start gap-5 group hover:bg-[#E4EBF0] transition-colors duration-250 cursor-default"
+              className="bg-[#F6F6F6] px-8 py-6 flex items-start gap-5 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
             >
               <motion.div
-                className="w-px self-stretch bg-[#294B68] shrink-0"
+                className="w-px self-stretch bg-[#E63035] shrink-0"
                 initial={{ scaleY: 0 }}
                 animate={inView ? { scaleY: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.9 + i * 0.12 }}
                 style={{ originY: 0 }}
               />
               <div>
-                <p className="text-[#294B68] text-[10px] tracking-[0.2em] uppercase mb-1 group-hover:tracking-[0.3em] transition-all duration-250">{yr}</p>
-                <p className="text-[#162B3D] text-sm mb-0.5 group-hover:text-[#294B68] transition-colors duration-250">{role}</p>
-                <p className="text-[#8A94A6] text-[11px]" dangerouslySetInnerHTML={{ __html: sub }} />
+                <p className="text-[#E63035] text-[10px] tracking-[0.2em] uppercase mb-1 group-hover:tracking-[0.3em] transition-all duration-250">{yr}</p>
+                <p className="text-[#1A1A1A] text-sm mb-0.5 group-hover:text-[#E63035] transition-colors duration-250">{role}</p>
+                <p className="text-[#888888] text-[11px]" dangerouslySetInnerHTML={{ __html: sub }} />
               </div>
             </motion.div>
           ))}

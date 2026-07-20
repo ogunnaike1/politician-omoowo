@@ -13,7 +13,7 @@ export default function Vision() {
   const words = quoteText.split(" ");
 
   return (
-    <section id="vision" ref={ref} className="bg-[#EDF1F5] py-28 md:py-44 px-6 md:px-12 lg:px-20">
+    <section id="vision" ref={ref} className="bg-[#F6F6F6] py-28 md:py-44 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <div className="max-w-190">
 
@@ -21,14 +21,14 @@ export default function Vision() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#294B68] text-[10px] tracking-[0.4em] uppercase mb-12"
+            className="text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-12"
           >
             His Vision
           </motion.p>
 
           {/* Quote - blur+fade word stagger */}
           <blockquote
-            className="font-light text-[#162B3D] leading-tight mb-12"
+            className="font-light text-[#1A1A1A] leading-tight mb-12"
             style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)", letterSpacing: "-0.01em" }}
           >
             &ldquo;
@@ -50,14 +50,14 @@ export default function Vision() {
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.55 }}
-            className="w-14 h-px bg-[#294B68] origin-left mb-10"
+            className="w-14 h-px bg-[#E63035] origin-left mb-10"
           />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7, ease }}
-            className="text-[#8A94A6] leading-[1.85]"
+            className="text-[#888888] leading-[1.85]"
             style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)" }}
           >
             Omoowo&apos;s approach is rooted in community &mdash; listening to farmers in Ijebu-East,
@@ -68,7 +68,7 @@ export default function Vision() {
         </div>
 
         {/* Three pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#C8D4DE] mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#E63035] mt-20">
           {[
             {
               title: "People First",
@@ -89,13 +89,13 @@ export default function Vision() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.9 + i * 0.15 }}
               whileHover={{ y: -5, transition: { type: "spring", stiffness: 280, damping: 24 } }}
-              className="bg-[#EDF1F5] px-8 py-10 group hover:bg-[#DFE8EF] transition-colors duration-300 cursor-default"
+              className="bg-[#F6F6F6] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300 cursor-default"
             >
-              <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase mb-5 group-hover:tracking-[0.45em] transition-all duration-300">0{i + 1}</p>
-              <h3 className="text-[#162B3D] font-light text-lg mb-4 leading-snug group-hover:text-[#294B68] transition-colors duration-300">{p.title}</h3>
-              <p className="text-[#8A94A6] text-sm leading-[1.8]">{p.body}</p>
+              <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase mb-5 group-hover:tracking-[0.45em] transition-all duration-300">0{i + 1}</p>
+              <h3 className="text-[#1A1A1A] font-light text-lg mb-4 leading-snug group-hover:text-[#E63035] transition-colors duration-300">{p.title}</h3>
+              <p className="text-[#888888] text-sm leading-[1.8]">{p.body}</p>
               <motion.div
-                className="mt-8 h-px bg-[#294B68] origin-left"
+                className="mt-8 h-px bg-[#E63035] origin-left"
                 initial={{ scaleX: 0 }}
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.35 }}

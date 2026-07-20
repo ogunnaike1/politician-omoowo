@@ -8,12 +8,12 @@ import { useRef, useEffect, useState } from "react";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const C = {
-  dark: "#162B3D",
-  mid: "#294B68",
-  light: "#EDF1F5",
-  muted: "#8A94A6",
-  bg: "#E9EEF2",
-  border: "#C8D4DE",
+  dark: "#1A1A1A",
+  mid: "#E63035",
+  light: "#F6F6F6",
+  muted: "#888888",
+  bg: "#F6F6F6",
+  border: "#DCDCDC",
 } as const;
 
 /* ══════════════════════════════════════════
@@ -88,7 +88,7 @@ function Countdown() {
           {i > 0 && (
             <span
               className="font-light pb-5 px-1.5 md:px-2 text-xl md:text-2xl"
-              style={{ color: "rgba(237,241,245,0.18)" }}
+              style={{ color: "rgba(246,246,246,0.18)" }}
             >
               :
             </span>
@@ -106,7 +106,7 @@ function Countdown() {
             </div>
             <p
               className="text-[8px] tracking-[0.32em] uppercase mt-2"
-              style={{ color: "rgba(237,241,245,0.32)" }}
+              style={{ color: "rgba(246,246,246,0.32)" }}
             >
               {label}
             </p>
@@ -215,7 +215,7 @@ const TYPE_PILL: Record<EventType, { bg: string; color: string }> = {
   "Town Hall":    { bg: C.dark,   color: C.light },
   "Forum":        { bg: C.border, color: C.dark  },
   "Summit":       { bg: C.mid,    color: C.light },
-  "Consultation": { bg: "rgba(138,148,166,0.2)", color: C.dark },
+  "Consultation": { bg: "rgba(136,136,136,0.2)", color: C.dark },
 };
 
 /* ══════════════════════════════════════════
@@ -237,7 +237,7 @@ function EventsHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex flex-col"
-      style={{ minHeight: "100vh", background: C.dark }}
+      style={{ minHeight: "100vh", background: "#E63035" }}
     >
       {/* Ghost grid lines */}
       <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.04 }}>
@@ -257,14 +257,14 @@ function EventsHero() {
         {/* Top bar */}
         <div
           className="flex items-center justify-between pt-32 md:pt-36 pb-0 border-b"
-          style={{ borderColor: "rgba(237,241,245,0.07)" }}
+          style={{ borderColor: "rgba(246,246,246,0.07)" }}
         >
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease }}
             className="pb-5 font-mono text-[11px] tracking-[0.32em] uppercase"
-            style={{ color: "rgba(237,241,245,0.38)" }}
+            style={{ color: "rgba(246,246,246,0.38)" }}
           >
             <ScrambleText text="CAMPAIGN SCHEDULE · 2026–2027" active={scrambleActive} />
           </motion.div>
@@ -273,7 +273,7 @@ function EventsHero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="pb-5 text-[10px] tracking-[0.25em] uppercase"
-            style={{ color: "rgba(237,241,245,0.25)" }}
+            style={{ color: "rgba(246,246,246,0.25)" }}
           >
             PDP · Ogun East
           </motion.div>
@@ -323,7 +323,7 @@ function EventsHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1, ease }}
               className="text-sm leading-[1.95] max-w-md"
-              style={{ color: "rgba(237,241,245,0.5)" }}
+              style={{ color: "rgba(246,246,246,0.5)" }}
             >
               Omoowo is not campaigning from a distance. He is showing up — ward by ward, LGA by LGA — to
               listen to the people of Ogun East and share what he will do for them in Abuja.
@@ -341,15 +341,15 @@ function EventsHero() {
             <div
               className="relative overflow-hidden p-8 md:p-10"
               style={{
-                background: "rgba(41,75,104,0.45)",
-                border: "1px solid rgba(237,241,245,0.08)",
+                background: "rgba(230,48,53,0.45)",
+                border: "1px solid rgba(246,246,246,0.08)",
                 backdropFilter: "blur(12px)",
               }}
             >
               {/* Top shine */}
               <div
                 className="absolute inset-x-0 top-0 h-px pointer-events-none"
-                style={{ background: "linear-gradient(90deg, transparent, rgba(237,241,245,0.12), transparent)" }}
+                style={{ background: "linear-gradient(90deg, transparent, rgba(246,246,246,0.12), transparent)" }}
               />
 
               {/* Live indicator */}
@@ -358,7 +358,7 @@ function EventsHero() {
                   <div className="absolute inset-0 rounded-full bg-green-400 opacity-60 animate-ping" />
                   <div className="relative rounded-full w-2 h-2 bg-green-400" />
                 </div>
-                <span className="text-[9px] tracking-[0.35em] uppercase" style={{ color: "rgba(237,241,245,0.4)" }}>
+                <span className="text-[9px] tracking-[0.35em] uppercase" style={{ color: "rgba(246,246,246,0.4)" }}>
                   Next Event
                 </span>
               </div>
@@ -369,18 +369,18 @@ function EventsHero() {
               >
                 Grand Campaign Launch Rally
               </p>
-              <p className="text-[11px] mb-1.5" style={{ color: "rgba(237,241,245,0.45)" }}>
+              <p className="text-[11px] mb-1.5" style={{ color: "rgba(246,246,246,0.45)" }}>
                 Ijebu-Ode Township Stadium
               </p>
-              <p className="text-[10px] tracking-[0.2em] uppercase mb-8" style={{ color: "rgba(237,241,245,0.3)" }}>
+              <p className="text-[10px] tracking-[0.2em] uppercase mb-8" style={{ color: "rgba(246,246,246,0.3)" }}>
                 02 August 2026 · 10:00 AM WAT
               </p>
 
               <div
                 className="pt-7 border-t"
-                style={{ borderColor: "rgba(237,241,245,0.08)" }}
+                style={{ borderColor: "rgba(246,246,246,0.08)" }}
               >
-                <p className="text-[9px] tracking-[0.32em] uppercase mb-6" style={{ color: "rgba(237,241,245,0.28)" }}>
+                <p className="text-[9px] tracking-[0.32em] uppercase mb-6" style={{ color: "rgba(246,246,246,0.28)" }}>
                   Countdown
                 </p>
                 <Countdown />
@@ -395,11 +395,11 @@ function EventsHero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.4 }}
           className="border-t py-5 overflow-hidden"
-          style={{ borderColor: "rgba(237,241,245,0.07)" }}
+          style={{ borderColor: "rgba(246,246,246,0.07)" }}
         >
           <motion.div
             className="flex whitespace-nowrap gap-0 text-[10px] tracking-[0.38em] uppercase"
-            style={{ color: "rgba(237,241,245,0.22)", fontWeight: 500 }}
+            style={{ color: "rgba(246,246,246,0.22)", fontWeight: 500 }}
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
           >
@@ -430,7 +430,7 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
       transition={{ duration: 0.45, delay: index * 0.06, ease }}
       className="group grid grid-cols-1 md:grid-cols-[100px_1fr_auto] items-center gap-4 md:gap-10 py-6 border-t cursor-default"
       style={{ borderColor: C.border }}
-      whileHover={{ backgroundColor: "rgba(41,75,104,0.04)" }}
+      whileHover={{ backgroundColor: "rgba(230,48,53,0.06)" }}
     >
       {/* Date */}
       <div className="flex md:flex-col items-baseline md:items-start gap-2 md:gap-0">
@@ -457,7 +457,7 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
       {/* Title + location */}
       <div>
         <p
-          className="font-light leading-tight mb-1.5 group-hover:text-[#294B68] transition-colors duration-300"
+          className="font-light leading-tight mb-1.5 group-hover:text-[#E63035] transition-colors duration-300"
           style={{
             fontSize: event.featured ? "clamp(1.05rem, 1.6vw, 1.4rem)" : "clamp(0.95rem, 1.3vw, 1.15rem)",
             color: C.dark,
@@ -558,7 +558,7 @@ function UpcomingEvents() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className="relative px-4 py-2 text-[10px] tracking-[0.22em] uppercase transition-colors duration-200 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#294B68]/60"
+                className="relative px-4 py-2 text-[10px] tracking-[0.22em] uppercase transition-colors duration-200 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E63035]/60"
                 style={{
                   color: active === f ? C.light : C.muted,
                   border: `1px solid ${active === f ? C.mid : C.border}`,
@@ -595,7 +595,7 @@ function UpcomingEvents() {
               <EventRow key={event.id} event={event} index={i} />
             ))}
           </AnimatePresence>
-          <div className="h-px" style={{ background: C.border }} />
+          <div className="h-px" style={{ background: "rgba(246,246,246,0.15)" }} />
         </div>
 
         {/* Footer note */}
@@ -630,7 +630,7 @@ function PastEvents() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="text-[10px] tracking-[0.42em] uppercase mb-4"
-              style={{ color: "rgba(237,241,245,0.38)" }}
+              style={{ color: "rgba(246,246,246,0.38)" }}
             >
               Previously
             </motion.p>
@@ -653,7 +653,7 @@ function PastEvents() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[11px] leading-[1.7] max-w-xs text-right hidden md:block"
-            style={{ color: "rgba(237,241,245,0.4)" }}
+            style={{ color: "rgba(246,246,246,0.4)" }}
           >
             The campaign did not begin with the launch rally.<br />
             It began quietly — in communities, one conversation at a time.
@@ -667,13 +667,13 @@ function PastEvents() {
               initial={{ opacity: 0, x: -24 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.12 + i * 0.12, ease }}
-              className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-8 border-t group hover:bg-[rgba(237,241,245,0.03)] px-3 -mx-3 transition-colors duration-200 cursor-default"
-              style={{ borderColor: "rgba(237,241,245,0.08)" }}
+              className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-8 border-t group hover:bg-[rgba(246,246,246,0.03)] transition-colors duration-200 cursor-default"
+              style={{ borderColor: "rgba(246,246,246,0.08)" }}
             >
               <div>
                 <p
                   className="text-[11px] tracking-[0.18em] uppercase leading-[1.8]"
-                  style={{ color: "rgba(237,241,245,0.35)" }}
+                  style={{ color: "rgba(246,246,246,0.35)" }}
                 >
                   {event.date}
                 </p>
@@ -683,22 +683,22 @@ function PastEvents() {
                   className="font-light mb-2 leading-tight"
                   style={{
                     fontSize: "clamp(1rem, 1.4vw, 1.2rem)",
-                    color: "rgba(237,241,245,0.65)",
+                    color: "rgba(246,246,246,0.65)",
                     letterSpacing: "-0.01em",
                   }}
                 >
                   {event.title}
                 </p>
-                <p className="text-[11px] mb-3" style={{ color: "rgba(237,241,245,0.35)" }}>
+                <p className="text-[11px] mb-3" style={{ color: "rgba(246,246,246,0.35)" }}>
                   {event.location}
                 </p>
-                <p className="text-[12px] leading-[1.8]" style={{ color: "rgba(237,241,245,0.4)" }}>
+                <p className="text-[12px] leading-[1.8]" style={{ color: "rgba(246,246,246,0.4)" }}>
                   {event.note}
                 </p>
               </div>
             </motion.div>
           ))}
-          <div className="h-px" style={{ background: "rgba(237,241,245,0.08)" }} />
+          <div className="h-px" style={{ background: "rgba(246,246,246,0.08)" }} />
         </div>
       </div>
     </section>
@@ -713,7 +713,7 @@ function AttendCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: C.dark }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-28 items-end mb-16">
@@ -723,7 +723,7 @@ function AttendCTA() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="text-[10px] tracking-[0.42em] uppercase mb-5"
-              style={{ color: "rgba(237,241,245,0.3)" }}
+              style={{ color: "rgba(246,246,246,0.3)" }}
             >
               Be There
             </motion.p>
@@ -731,7 +731,7 @@ function AttendCTA() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.1, ease }}
-              className="font-light text-[#EDF1F5] leading-[1.04]"
+              className="font-light text-[#F6F6F6] leading-[1.04]"
               style={{
                 fontSize: "clamp(2rem, 5vw, 5.5rem)",
                 letterSpacing: "-0.035em",
@@ -745,7 +745,7 @@ function AttendCTA() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.25, ease }}
             className="text-sm leading-[1.95]"
-            style={{ color: "rgba(237,241,245,0.48)" }}
+            style={{ color: "rgba(246,246,246,0.48)" }}
           >
             Every rally, town hall, and forum is open to all residents of Ogun East. Omoowo campaigns
             without barriers. Your presence at these events is not just support — it is a statement
@@ -754,7 +754,7 @@ function AttendCTA() {
         </div>
 
         {/* Two option cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(237,241,245,0.06)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(246,246,246,0.06)" }}>
           {[
             {
               label: "WhatsApp Updates",
@@ -775,26 +775,26 @@ function AttendCTA() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.35 + i * 0.12, ease }}
               className="p-10 md:p-12 group hover:bg-[rgba(255,255,255,0.03)] transition-colors duration-300"
-              style={{ background: "rgba(41,75,104,0.25)" }}
+              style={{ background: "rgba(230,48,53,0.25)" }}
             >
               <p
                 className="text-[9px] tracking-[0.38em] uppercase mb-5"
-                style={{ color: "rgba(237,241,245,0.3)" }}
+                style={{ color: "rgba(246,246,246,0.3)" }}
               >
                 {card.label}
               </p>
               <h3
-                className="font-light text-[#EDF1F5] leading-tight mb-4"
+                className="font-light text-[#F6F6F6] leading-tight mb-4"
                 style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)", letterSpacing: "-0.01em" }}
               >
                 {card.headline}
               </h3>
-              <p className="text-sm leading-[1.9] mb-8" style={{ color: "rgba(237,241,245,0.45)" }}>
+              <p className="text-sm leading-[1.9] mb-8" style={{ color: "rgba(246,246,246,0.45)" }}>
                 {card.body}
               </p>
               <p
                 className="text-[11px] tracking-[0.2em] uppercase group-hover:translate-x-1.5 transition-transform duration-300"
-                style={{ color: "rgba(237,241,245,0.5)" }}
+                style={{ color: "rgba(246,246,246,0.5)" }}
               >
                 {card.action}
               </p>
@@ -819,8 +819,8 @@ function AttendCTA() {
               href={l.href}
               className="px-6 py-3 text-[10px] tracking-[0.22em] uppercase transition-all duration-200 hover:opacity-60"
               style={{
-                border: "1px solid rgba(237,241,245,0.1)",
-                color: "rgba(237,241,245,0.45)",
+                border: "1px solid rgba(246,246,246,0.1)",
+                color: "rgba(246,246,246,0.45)",
               }}
             >
               {l.label}

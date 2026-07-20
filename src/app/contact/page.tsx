@@ -14,12 +14,12 @@ import { useRef, useState } from "react";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const C = {
-  dark: "#162B3D",
-  mid: "#294B68",
-  light: "#EDF1F5",
-  muted: "#8A94A6",
-  bg: "#E9EEF2",
-  border: "#C8D4DE",
+  dark: "#1A1A1A",
+  mid: "#E63035",
+  light: "#F6F6F6",
+  muted: "#888888",
+  bg: "#F6F6F6",
+  border: "#DCDCDC",
 } as const;
 
 /* ══════════════════════════════════════════
@@ -146,7 +146,7 @@ function ContactHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex flex-col"
-      style={{ minHeight: "72vh", background: C.dark }}
+      style={{ minHeight: "72vh", background: "#E63035" }}
     >
       {/* Ghost "C" watermark */}
       <div
@@ -158,7 +158,7 @@ function ContactHero() {
           fontSize: "clamp(18rem, 40vw, 42rem)",
           fontWeight: 300,
           letterSpacing: "-0.08em",
-          color: "rgba(237,241,245,0.025)",
+          color: "rgba(246,246,246,0.025)",
           lineHeight: 1,
         }}
       >
@@ -168,7 +168,7 @@ function ContactHero() {
       {/* Vertical rule */}
       <div
         className="absolute top-0 bottom-0 w-px pointer-events-none"
-        style={{ left: "clamp(1.5rem, 5vw, 5rem)", background: "rgba(237,241,245,0.04)" }}
+        style={{ left: "clamp(1.5rem, 5vw, 5rem)", background: "rgba(246,246,246,0.04)" }}
       />
 
       <motion.div
@@ -178,7 +178,7 @@ function ContactHero() {
         {/* Top bar */}
         <div
           className="flex items-center justify-between pt-32 md:pt-36 pb-5 border-b"
-          style={{ borderColor: "rgba(237,241,245,0.07)" }}
+          style={{ borderColor: "rgba(246,246,246,0.07)" }}
         >
           <motion.div
             initial={{ opacity: 0, x: -14 }}
@@ -187,7 +187,7 @@ function ContactHero() {
             className="flex items-center gap-4"
           >
             <div className="w-5 h-px" style={{ background: C.mid }} />
-            <span className="text-[10px] tracking-[0.42em] uppercase" style={{ color: "rgba(237,241,245,0.35)" }}>
+            <span className="text-[10px] tracking-[0.42em] uppercase" style={{ color: "rgba(246,246,246,0.35)" }}>
               Get in Touch
             </span>
           </motion.div>
@@ -201,7 +201,7 @@ function ContactHero() {
               <div className="absolute inset-0 rounded-full bg-green-400 opacity-50 animate-ping" />
               <div className="rounded-full w-1.5 h-1.5 bg-green-400" />
             </div>
-            <span className="text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(237,241,245,0.28)" }}>
+            <span className="text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(246,246,246,0.28)" }}>
               Campaign open
             </span>
           </motion.div>
@@ -248,7 +248,7 @@ function ContactHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.85, ease }}
               className="text-sm leading-[1.95] max-w-md"
-              style={{ color: "rgba(237,241,245,0.48)" }}
+              style={{ color: "rgba(246,246,246,0.48)" }}
             >
               Omoowo is committed to hearing from every community in Ogun East &mdash;
               whether you have a question, want to get involved, or need to reach the campaign team directly.
@@ -262,7 +262,7 @@ function ContactHero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
           className="border-t py-5 flex flex-wrap gap-x-10 gap-y-2"
-          style={{ borderColor: "rgba(237,241,245,0.07)" }}
+          style={{ borderColor: "rgba(246,246,246,0.07)" }}
         >
           {[
             { label: "Campaign Office", val: "Ijebu-Ode, Ogun State" },
@@ -270,8 +270,8 @@ function ContactHero() {
             { label: "WhatsApp", val: "+234 800 000 0000" },
           ].map((c) => (
             <div key={c.label} className="flex items-center gap-3">
-              <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(237,241,245,0.28)" }}>{c.label}</span>
-              <span className="text-[9px] tracking-[0.18em]" style={{ color: "rgba(237,241,245,0.5)" }}>{c.val}</span>
+              <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: "rgba(246,246,246,0.28)" }}>{c.label}</span>
+              <span className="text-[9px] tracking-[0.18em]" style={{ color: "rgba(246,246,246,0.5)" }}>{c.val}</span>
             </div>
           ))}
         </motion.div>
@@ -317,7 +317,7 @@ function ContactMain() {
               Reach Us
             </p>
             <h2
-              className="font-light text-[#162B3D] leading-[1.08] mb-12"
+              className="font-light text-[#1A1A1A] leading-[1.08] mb-12"
               style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.6rem)", letterSpacing: "-0.02em" }}
             >
               We respond to every message.
@@ -347,9 +347,9 @@ function ContactMain() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.1 + i * 0.08, ease }}
-                  className="py-6 group hover:bg-[rgba(62,92,118,0.03)] -mx-4 px-4 transition-colors duration-200 cursor-default"
+                  className="py-6 group hover:bg-[rgba(230,48,53,0.03)] transition-colors duration-200 cursor-default"
                 >
-                  <p className="text-[9px] tracking-[0.32em] uppercase mb-2.5 group-hover:text-[#294B68] transition-colors duration-200" style={{ color: C.muted }}>
+                  <p className="text-[9px] tracking-[0.32em] uppercase mb-2.5 group-hover:text-[#E63035] transition-colors duration-200" style={{ color: C.muted }}>
                     {item.label}
                   </p>
                   {item.lines.map((line, j) => (
@@ -391,7 +391,7 @@ function ContactMain() {
                           key={s}
                           type="button"
                           onClick={() => setSubject(s)}
-                          className="relative px-4 py-2 text-[10px] tracking-[0.18em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#294B68]/40"
+                          className="relative px-4 py-2 text-[10px] tracking-[0.18em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E63035]/40"
                           style={{
                             color: subject === s ? C.light : C.muted,
                             border: `1px solid ${subject === s ? C.mid : C.border}`,
@@ -449,8 +449,8 @@ function ContactMain() {
                   >
                     <motion.button
                       type="submit"
-                      className="group relative flex items-center gap-4 px-8 py-4 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#294B68]/50"
-                      style={{ background: C.dark, color: C.light }}
+                      className="group relative flex items-center gap-4 px-8 py-4 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E63035]/50"
+                      style={{ background: "#E63035", color: C.light }}
                       whileHover="hov"
                       whileTap={{ scale: 0.98 }}
                     >
@@ -524,7 +524,7 @@ function ContactMain() {
                     Message Received
                   </p>
                   <h3
-                    className="font-light text-[#162B3D] leading-[1.2] mb-6"
+                    className="font-light text-[#1A1A1A] leading-[1.2] mb-6"
                     style={{ fontSize: "clamp(1.4rem, 2.2vw, 2rem)", letterSpacing: "-0.02em" }}
                   >
                     Thank you, {name.split(" ")[0]}.
@@ -581,7 +581,7 @@ function Offices() {
   ];
 
   return (
-    <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: C.dark }}>
+    <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
@@ -590,7 +590,7 @@ function Offices() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="text-[10px] tracking-[0.42em] uppercase mb-4"
-              style={{ color: "rgba(237,241,245,0.35)" }}
+              style={{ color: "rgba(246,246,246,0.35)" }}
             >
               Our Offices
             </motion.p>
@@ -598,7 +598,7 @@ function Offices() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#EDF1F5] leading-[1.08]"
+              className="font-light text-[#F6F6F6] leading-[1.08]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.025em" }}
             >
               Present in every LGA.
@@ -609,14 +609,14 @@ function Offices() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[11px] leading-[1.75] max-w-xs text-right hidden md:block"
-            style={{ color: "rgba(237,241,245,0.38)" }}
+            style={{ color: "rgba(246,246,246,0.38)" }}
           >
             Every constituency office is open to residents<br />
             of Ogun East — no appointment needed.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(237,241,245,0.06)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(246,246,246,0.06)" }}>
           {offices.map((o, i) => (
             <motion.div
               key={o.lga}
@@ -625,25 +625,25 @@ function Offices() {
               transition={{ duration: 0.7, delay: 0.15 + i * 0.12, ease }}
               whileHover={{ y: -5, transition: { type: "spring", stiffness: 260, damping: 22 } }}
               className="p-10 md:p-12 group cursor-default"
-              style={{ background: "rgba(41,75,104,0.25)" }}
+              style={{ background: "rgba(230,48,53,0.25)" }}
             >
               <div
                 className="w-8 h-px mb-8 group-hover:w-14 transition-all duration-300"
                 style={{ background: o.accent }}
               />
-              <p className="text-[9px] tracking-[0.35em] uppercase mb-2" style={{ color: "rgba(237,241,245,0.32)" }}>
+              <p className="text-[9px] tracking-[0.35em] uppercase mb-2" style={{ color: "rgba(246,246,246,0.32)" }}>
                 {o.role}
               </p>
               <h3
-                className="font-light text-[#EDF1F5] leading-tight mb-5 group-hover:text-[#C8D4DE] transition-colors duration-250"
+                className="font-light text-[#F6F6F6] leading-tight mb-5 group-hover:text-[#DCDCDC] transition-colors duration-250"
                 style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)", letterSpacing: "-0.01em" }}
               >
                 {o.lga}
               </h3>
-              <p className="text-[12px] leading-[1.8] mb-5" style={{ color: "rgba(237,241,245,0.45)", whiteSpace: "pre-line" }}>
+              <p className="text-[12px] leading-[1.8] mb-5" style={{ color: "rgba(246,246,246,0.45)", whiteSpace: "pre-line" }}>
                 {o.address}
               </p>
-              <p className="text-[10px] tracking-[0.18em] uppercase" style={{ color: "rgba(237,241,245,0.25)" }}>
+              <p className="text-[10px] tracking-[0.18em] uppercase" style={{ color: "rgba(246,246,246,0.25)" }}>
                 {o.hours}
               </p>
             </motion.div>
@@ -675,14 +675,14 @@ function Press() {
               Media &amp; Press
             </p>
             <h2
-              className="font-light text-[#162B3D] leading-[1.1]"
+              className="font-light text-[#1A1A1A] leading-[1.1]"
               style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", letterSpacing: "-0.02em" }}
             >
               For journalists and broadcasters.
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: C.border }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: "#E63035" }}>
             {[
               {
                 heading: "Press Releases",
@@ -714,9 +714,9 @@ function Press() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.08 + i * 0.08, ease }}
-                className="bg-[#EDF1F5] p-8 group hover:bg-[#E4EBF0] transition-colors duration-250 cursor-default"
+                className="bg-[#F6F6F6] p-8 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
               >
-                <h4 className="text-[#162B3D] text-sm font-medium mb-3 group-hover:text-[#294B68] transition-colors duration-250">
+                <h4 className="text-[#1A1A1A] text-sm font-medium mb-3 group-hover:text-[#E63035] transition-colors duration-250">
                   {card.heading}
                 </h4>
                 <p className="text-[12px] leading-[1.85] mb-6" style={{ color: C.muted }}>
@@ -748,7 +748,7 @@ function ContactCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: C.dark }}>
+    <section ref={ref} className="py-28 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#E63035" }}>
       <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <motion.p
@@ -756,7 +756,7 @@ function ContactCTA() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
             className="text-[10px] tracking-[0.4em] uppercase mb-4"
-            style={{ color: "rgba(237,241,245,0.35)" }}
+            style={{ color: "rgba(246,246,246,0.35)" }}
           >
             Explore More
           </motion.p>
@@ -764,7 +764,7 @@ function ContactCTA() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#EDF1F5]"
+            className="font-light text-[#F6F6F6]"
             style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
           >
             Join Omoowo&apos;s movement.
@@ -780,7 +780,7 @@ function ContactCTA() {
           <a
             href="/"
             className="px-7 py-3 border text-[11px] tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-200"
-            style={{ borderColor: "rgba(237,241,245,0.15)", color: "rgba(237,241,245,0.5)" }}
+            style={{ borderColor: "rgba(246,246,246,0.15)", color: "rgba(246,246,246,0.5)" }}
           >
             &larr; Back to Home
           </a>
@@ -795,7 +795,7 @@ function ContactCTA() {
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase transition-colors duration-200 hover:bg-[#294B68]"
+            className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase transition-colors duration-200 hover:bg-[#E63035]"
             style={{ background: C.mid, color: C.light }}
           >
             Get Involved

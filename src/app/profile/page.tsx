@@ -11,7 +11,7 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 /* â”€â”€ helpers â”€â”€ */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[#8A94A6] text-[10px] tracking-[0.4em] uppercase mb-4">{children}</p>
+    <p className="text-[#888888] text-[10px] tracking-[0.4em] uppercase mb-4">{children}</p>
   );
 }
 
@@ -41,7 +41,7 @@ function ProfileHero() {
         className="absolute inset-0"
         style={{
           opacity: overlayOpacity,
-          background: "linear-gradient(to bottom, rgba(11,14,19,0.2) 0%, rgba(11,14,19,0.5) 50%, rgba(11,14,19,1) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,139,77,0.2) 0%, rgba(0,139,77,0.55) 55%, rgba(0,139,77,0.95) 100%)",
         }}
       />
 
@@ -61,7 +61,7 @@ function ProfileHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease }}
-          className="text-[#294B68] text-[10px] tracking-[0.45em] uppercase mb-5"
+          className="text-[#E63035] text-[10px] tracking-[0.45em] uppercase mb-5"
         >
           Candidate Profile
         </motion.p>
@@ -71,7 +71,7 @@ function ProfileHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1, delay: 0.3, ease }}
-            className="font-light text-[#EDF1F5] leading-[1.0]"
+            className="font-light text-[#F6F6F6] leading-[1.0]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
           >
             Alhaji Abdulhameed
@@ -82,7 +82,7 @@ function ProfileHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1, delay: 0.42, ease }}
-            className="font-light text-[#EDF1F5] leading-[1.0]"
+            className="font-light text-[#F6F6F6] leading-[1.0]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
           >
             Oluwafemi Omotayo
@@ -99,12 +99,12 @@ function ProfileHero() {
           {["Known as Omoowo", "PDP Candidate", "Ogun East Senatorial District", "2027 Election"].map((tag) => (
             <span
               key={tag}
-              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#EDF1F5]/80 rounded-sm"
+              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#F6F6F6]/80 rounded-sm"
               style={{
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
-                background: "rgba(62,92,118,0.22)",
-                border: "1px solid rgba(62,92,118,0.4)",
+                background: "rgba(230,48,53,0.22)",
+                border: "1px solid rgba(230,48,53,0.4)",
               }}
             >
               {tag}
@@ -122,7 +122,7 @@ function Biography() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#EDF1F5] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-28 items-start">
 
         {/* Left â€” sticky photo accent */}
@@ -135,7 +135,7 @@ function Biography() {
           >
             {/* Decorative offset */}
             <div
-              className="absolute border border-[#294B68]/30"
+              className="absolute border border-[#E63035]/30"
               style={{ inset: "12px -12px -12px 12px" }}
             />
             <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
@@ -151,12 +151,12 @@ function Biography() {
                 style={{
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
-                  background: "rgba(11,14,19,0.45)",
-                  borderTop: "1px solid rgba(237,241,245,0.08)",
+                  background: "rgba(0,139,77,0.75)",
+                  borderTop: "1px solid rgba(246,246,246,0.08)",
                 }}
               >
-                <p className="text-[#EDF1F5]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
-                <p className="text-[#294B68] text-[10px] tracking-[0.15em] uppercase mt-0.5">PDP &middot; Ogun East</p>
+                <p className="text-[#F6F6F6]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
+                <p className="text-[#E63035] text-[10px] tracking-[0.15em] uppercase mt-0.5">PDP &middot; Ogun East</p>
               </div>
             </div>
           </motion.div>
@@ -166,7 +166,7 @@ function Biography() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.35, ease }}
-            className="mt-8 divide-y divide-[#C8D4DE]"
+            className="mt-8 divide-y divide-[#DCDCDC]"
           >
             {[
               ["Full Name", "Alhaji Abdulhameed Oluwafemi Omotayo"],
@@ -176,9 +176,9 @@ function Biography() {
               ["State", "Ogun State, Nigeria"],
               ["Election", "2027 National Assembly"],
             ].map(([label, val]) => (
-              <div key={label} className="py-3 flex justify-between gap-4 hover:bg-[rgba(62,92,118,0.04)] px-2 -mx-2 transition-colors duration-200 cursor-default">
-                <p className="text-[#8A94A6] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
-                <p className="text-[#162B3D] text-[11px] text-right leading-relaxed">{val}</p>
+              <div key={label} className="py-3 flex justify-between gap-4 hover:bg-[rgba(230,48,53,0.06)] transition-colors duration-200 cursor-default">
+                <p className="text-[#888888] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
+                <p className="text-[#1A1A1A] text-[11px] text-right leading-relaxed">{val}</p>
               </div>
             ))}
           </motion.div>
@@ -198,7 +198,7 @@ function Biography() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#162B3D] leading-[1.1] mb-10"
+            className="font-light text-[#1A1A1A] leading-[1.1] mb-10"
             style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.5rem)", letterSpacing: "-0.02em" }}
           >
             A son of Ogun East, built by its people, fighting for its future.
@@ -217,7 +217,7 @@ function Biography() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.08, ease }}
-              className="text-[#8A94A6] leading-[1.9] mb-6"
+              className="text-[#888888] leading-[1.9] mb-6"
               style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)" }}
             >
               {para}
@@ -263,7 +263,7 @@ function Timeline() {
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-[#162B3D] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#008B4D] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -276,7 +276,7 @@ function Timeline() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#EDF1F5] mb-20"
+          className="font-light text-[#F6F6F6] mb-20"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
         >
           A life spent in service.
@@ -288,7 +288,7 @@ function Timeline() {
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1.2, delay: 0.2, ease }}
-            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[#151A21] origin-top"
+            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[#E63035] origin-top"
             style={{ marginLeft: "-0.5px" }}
           />
 
@@ -308,15 +308,15 @@ function Timeline() {
                     initial={{ scale: 0 }}
                     animate={inView ? { scale: 1 } : {}}
                     transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 + i * 0.12 }}
-                    className="absolute top-1 w-3 h-3 rounded-full bg-[#294B68] border-2 border-[#162B3D]"
+                    className="absolute top-1 w-3 h-3 rounded-full bg-[#E63035] border-2 border-[#1A1A1A]"
                     style={{ left: isRight ? "auto" : "-6px", right: isRight ? "-6px" : "auto", [isRight ? "right" : "left"]: "calc(100% - 5px)" }}
                   />
                   {/* Mobile dot */}
-                  <div className="lg:hidden absolute left-0 top-1.5 w-2 h-2 rounded-full bg-[#294B68]" />
+                  <div className="lg:hidden absolute left-0 top-1.5 w-2 h-2 rounded-full bg-[#E63035]" />
 
-                  <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase mb-2">{item.period}</p>
-                  <h3 className="text-[#EDF1F5] font-light text-xl mb-3 leading-snug">{item.title}</h3>
-                  <p className="text-[#8A94A6] text-sm leading-[1.85]">{item.body}</p>
+                  <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase mb-2">{item.period}</p>
+                  <h3 className="text-[#F6F6F6] font-light text-xl mb-3 leading-snug">{item.title}</h3>
+                  <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
                 </motion.div>
               );
             })}
@@ -356,7 +356,7 @@ function Values() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#EDF1F5] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -369,31 +369,31 @@ function Values() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#162B3D] mb-16"
+          className="font-light text-[#1A1A1A] mb-16"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
         >
           What guides every decision.
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#C8D4DE]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#E63035]">
           {values.map((v, i) => (
             <motion.div
               key={v.n}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15 + i * 0.1, ease }}
-              className="bg-[#EDF1F5] p-10 md:p-14 group hover:bg-[#E4EBF3] transition-colors duration-300"
+              className="bg-[#F6F6F6] p-10 md:p-14 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300"
             >
-              <p className="text-[#C8D4DE] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
+              <p className="text-[#DCDCDC] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
               <h3
-                className="font-light text-[#162B3D] mb-5 leading-tight group-hover:text-[#294B68] transition-colors duration-300"
+                className="font-light text-[#1A1A1A] mb-5 leading-tight group-hover:text-[#E63035] transition-colors duration-300"
                 style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)" }}
               >
                 {v.title}
               </h3>
-              <p className="text-[#8A94A6] text-sm leading-[1.85]">{v.body}</p>
+              <p className="text-[#888888] text-sm leading-[1.85]">{v.body}</p>
               <motion.div
-                className="mt-8 h-px bg-[#294B68] origin-left"
+                className="mt-8 h-px bg-[#E63035] origin-left"
                 initial={{ scaleX: 0.15 }}
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.4, ease }}
@@ -413,18 +413,18 @@ function Quote() {
   const words = "I did not enter this race for titles. I entered it because the people of Ogun East deserve a senator who lives among them, listens to them, and fights for them every single day.".split(" ");
 
   return (
-    <section ref={ref} className="bg-[#151A21] py-28 md:py-44 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#E63035] py-28 md:py-44 px-6 md:px-12 lg:px-20">
       <div className="max-w-190 mx-auto text-center">
         <motion.p
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="w-10 h-px bg-[#294B68] mx-auto mb-12 origin-center"
+          className="w-10 h-px bg-[#F6F6F6] mx-auto mb-12 origin-center"
           style={{ display: "block" }}
         />
 
         <blockquote
-          className="font-light text-[#EDF1F5] leading-[1.45] mb-10"
+          className="font-light text-[#F6F6F6] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.1rem)", letterSpacing: "-0.01em" }}
         >
           &ldquo;
@@ -446,7 +446,7 @@ function Quote() {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8, ease }}
-          className="text-[#294B68] text-[11px] tracking-[0.3em] uppercase"
+          className="text-[#F6F6F6]/70 text-[11px] tracking-[0.3em] uppercase"
         >
           Alhaji Omoowo &mdash; PDP Candidate, Ogun East 2027
         </motion.p>
@@ -468,24 +468,24 @@ function Stats() {
   ];
 
   return (
-    <section ref={ref} className="bg-[#162B3D] py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#151A21]">
+    <section ref={ref} className="bg-[#008B4D] py-20 px-6 md:px-12 lg:px-20">
+      <div className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#E63035]">
         {data.map((d, i) => (
           <motion.div
             key={d.label}
             initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
             animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
             transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
-            className="bg-[#162B3D] px-8 py-10 group hover:bg-[rgba(41,75,104,0.6)] transition-colors duration-250 cursor-default"
+            className="bg-[#008B4D] px-8 py-10 group hover:bg-[#E63035] transition-colors duration-250 cursor-default"
           >
             <p
-              className="font-light text-[#EDF1F5] leading-none mb-3 group-hover:text-[#C8D4DE] transition-colors duration-250"
+              className="font-light text-[#F6F6F6] leading-none mb-3 group-hover:text-[#DCDCDC] transition-colors duration-250"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.03em" }}
             >
               {d.value}
             </p>
-            <p className="text-[#C8D4DE] text-sm mb-1 group-hover:text-[#EDF1F5] transition-colors duration-250">{d.label}</p>
-            <p className="text-[#8A94A6] text-[11px] leading-relaxed">{d.sub}</p>
+            <p className="text-[#DCDCDC] text-sm mb-1 group-hover:text-[#F6F6F6] transition-colors duration-250">{d.label}</p>
+            <p className="text-[#888888] text-[11px] leading-relaxed">{d.sub}</p>
           </motion.div>
         ))}
       </div>
@@ -499,14 +499,14 @@ function ProfileCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#EDF1F5] py-28 md:py-36 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-36 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#8A94A6] text-[10px] tracking-[0.4em] uppercase mb-4"
+            className="text-[#888888] text-[10px] tracking-[0.4em] uppercase mb-4"
           >
             Get Involved
           </motion.p>
@@ -514,7 +514,7 @@ function ProfileCTA() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#162B3D]"
+            className="font-light text-[#1A1A1A]"
             style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
           >
             Be part of the movement.
@@ -529,13 +529,13 @@ function ProfileCTA() {
         >
           <a
             href="/"
-            className="px-7 py-3 border border-[#C8D4DE] text-[#162B3D] text-[11px] tracking-[0.2em] uppercase hover:border-[#162B3D] transition-colors duration-200"
+            className="px-7 py-3 border border-[#DCDCDC] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:border-[#1A1A1A] transition-colors duration-200"
           >
             &larr; Back to Home
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#162B3D] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase hover:bg-[#151A21] transition-colors duration-200"
+            className="px-7 py-3 bg-[#E63035] text-[#F6F6F6] text-[11px] tracking-[0.2em] uppercase hover:bg-[#008B4D] transition-colors duration-200"
           >
             Join the Campaign
           </a>

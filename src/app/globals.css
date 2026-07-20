@@ -1,20 +1,24 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
-  --bg: #EDF1F5;
-  --ink: #162B3D;
-  --muted: #8A94A6;
-  --rule: #C8D4DE;
-  --accent: #294B68;
-  --dark-bg: #162B3D;
-  --dark-mid: #151A21;
+  --bg: #F6F6F6;
+  --ink: #1A1A1A;
+  --muted: #888888;
+  --rule: #DCDCDC;
+  --accent: #E63035;
+  --dark-bg: #1A1A1A;
+  --dark-mid: #111111;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-geist-sans), system-ui, sans-serif;

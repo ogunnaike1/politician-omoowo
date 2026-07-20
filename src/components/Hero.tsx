@@ -48,7 +48,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           initial={{ opacity: 0, scale: 0.88 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.6, ease }}
-          className="absolute border border-[#294B68]/50"
+          className="absolute border border-[#E63035]/50"
           style={{ inset: "-14px 14px 14px -14px", zIndex: 0 }}
         />
 
@@ -71,7 +71,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           {/* Subtle bottom fade */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(11,14,19,0.5) 80%, rgba(11,14,19,0.88) 100%)" }}
+            style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(0,139,77,0.5) 80%, rgba(0,139,77,0.9) 100%)" }}
           />
 
           {/* Glass name badge */}
@@ -83,19 +83,19 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             style={{
               backdropFilter: "blur(14px) saturate(1.4)",
               WebkitBackdropFilter: "blur(14px) saturate(1.4)",
-              background: "rgba(11,14,19,0.38)",
-              border: "1px solid rgba(237,241,245,0.10)",
-              boxShadow: "0 8px 32px rgba(11,14,19,0.25), inset 0 1px 0 rgba(237,241,245,0.07)",
+              background: "rgba(0,139,77,0.85)",
+              border: "1px solid rgba(246,246,246,0.10)",
+              boxShadow: "0 8px 32px rgba(26,26,26,0.25), inset 0 1px 0 rgba(246,246,246,0.07)",
             }}
           >
-            <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(237,241,245,0.18), transparent)" }} />
+            <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(246,246,246,0.18), transparent)" }} />
             <div className="px-5 py-4 flex items-center justify-between">
               <div>
-                <p className="text-[#EDF1F5] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
-                <p className="text-[#294B68] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
+                <p className="text-[#F6F6F6] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
+                <p className="text-[#E63035] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
               </div>
-              <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(62,92,118,0.3)", border: "1px solid rgba(62,92,118,0.5)" }}>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3" fill="#294B68" /></svg>
+              <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(230,48,53,0.3)", border: "1px solid rgba(230,48,53,0.5)" }}>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3" fill="#E63035" /></svg>
               </div>
             </div>
           </motion.div>
@@ -117,7 +117,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             className="absolute"
             style={{ ...pos, zIndex: 2, transform: `rotate(${pos.rotate})` }}
           >
-            <path d="M1 21 L1 1 L21 1" stroke="#294B68" strokeWidth="1.5" fill="none" />
+            <path d="M1 21 L1 1 L21 1" stroke="#E63035" strokeWidth="1.5" fill="none" />
           </motion.svg>
         ))}
 
@@ -126,14 +126,14 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 1.5, ease }}
-          className="absolute -right-5 top-1/3 w-2 h-2 rounded-full bg-[#294B68]"
+          className="absolute -right-5 top-1/3 w-2 h-2 rounded-full bg-[#E63035]"
           style={{ zIndex: 3 }}
         />
         <motion.div
           initial={{ opacity: 0, scaleY: 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{ duration: 0.6, delay: 1.55, ease }}
-          className="absolute -right-5 w-px bg-[#294B68]/30 origin-top"
+          className="absolute -right-5 w-px bg-[#E63035]/30 origin-top"
           style={{ zIndex: 3, top: "calc(33% + 10px)", height: "80px" }}
         />
       </motion.div>
@@ -157,12 +157,12 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen min-h-[640px] overflow-hidden bg-[#EDF1F5]">
+    <section ref={heroRef} className="relative h-screen min-h-[640px] overflow-hidden bg-[#F6F6F6]">
 
       {/* Subtle radial accent glow */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(62,92,118,0.08) 0%, transparent 65%)" }}
+        style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(230,48,53,0.08) 0%, transparent 65%)" }}
       />
 
       {/* Two-column layout */}
@@ -171,7 +171,7 @@ export default function Hero() {
         {/* Left â€” text */}
         <div className="flex flex-col justify-center">
           <motion.p
-            className="text-[#294B68] text-[11px] font-medium tracking-[0.4em] uppercase mb-7"
+            className="text-[#E63035] text-[11px] font-medium tracking-[0.4em] uppercase mb-7"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
@@ -180,7 +180,7 @@ export default function Hero() {
           </motion.p>
 
           <h1
-            className="text-[#162B3D] font-light leading-[1.04] mb-6"
+            className="text-[#1A1A1A] font-light leading-[1.04] mb-6"
             style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", letterSpacing: "-0.02em" }}
           >
             {headline.map((lineWords, li) => (
@@ -202,7 +202,7 @@ export default function Hero() {
           </h1>
 
           <motion.p
-            className="text-[#8A94A6] font-light leading-relaxed max-w-lg"
+            className="text-[#888888] font-light leading-relaxed max-w-lg"
             style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -220,13 +220,13 @@ export default function Hero() {
           >
             <a
               href="#involved"
-              className="px-7 py-3 bg-[#162B3D] text-[#EDF1F5] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#294B68] transition-colors duration-200"
+              className="px-7 py-3 bg-[#008B4D] text-[#F6F6F6] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#E63035] transition-colors duration-200"
             >
               Join the Campaign
             </a>
             <a
               href="/profile"
-              className="px-7 py-3 border border-[#294B68] text-[#162B3D] text-[11px] tracking-[0.2em] uppercase hover:bg-[#294B68] hover:text-[#EDF1F5] transition-all duration-200"
+              className="px-7 py-3 border border-[#E63035] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#F6F6F6] transition-all duration-200"
             >
               Meet Omoowo
             </a>
@@ -249,7 +249,7 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1.6 }}
       >
         <motion.div
-          className="w-px h-14 bg-[#294B68] origin-top"
+          className="w-px h-14 bg-[#E63035] origin-top"
           animate={{ scaleY: [0, 1, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />

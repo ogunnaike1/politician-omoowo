@@ -14,12 +14,12 @@ import { useRef, useState } from "react";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const C = {
-  dark: "#162B3D",
-  mid: "#294B68",
-  light: "#EDF1F5",
-  muted: "#8A94A6",
-  bg: "#E9EEF2",
-  border: "#C8D4DE",
+  dark: "#1A1A1A",
+  mid: "#E63035",
+  light: "#F6F6F6",
+  muted: "#888888",
+  bg: "#F6F6F6",
+  border: "#DCDCDC",
 } as const;
 
 /* ══════════════════════════════════════════
@@ -129,7 +129,7 @@ const CAT_STYLE: Record<NewsCategory, { bg: string; color: string }> = {
   "Press Release":   { bg: C.dark,   color: C.light  },
   "Campaign Update": { bg: C.mid,    color: C.light  },
   "Community":       { bg: C.border, color: C.dark   },
-  "Statement":       { bg: "rgba(138,148,166,0.22)", color: C.dark },
+  "Statement":       { bg: "rgba(136,136,136,0.22)", color: C.dark },
   "Speech":          { bg: C.dark,   color: C.light  },
 };
 
@@ -168,12 +168,12 @@ function NewsHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex flex-col"
-      style={{ minHeight: "100vh", background: C.dark }}
+      style={{ minHeight: "100vh", background: "#E63035" }}
     >
       {/* Subtle vertical rule */}
       <div
         className="absolute top-0 bottom-0 w-px pointer-events-none"
-        style={{ left: "clamp(1.5rem, 5vw, 5rem)", background: "rgba(237,241,245,0.05)" }}
+        style={{ left: "clamp(1.5rem, 5vw, 5rem)", background: "rgba(246,246,246,0.05)" }}
       />
 
       <motion.div
@@ -183,7 +183,7 @@ function NewsHero() {
         {/* Masthead */}
         <div
           className="flex items-center justify-between pt-32 md:pt-36 pb-5 border-b"
-          style={{ borderColor: "rgba(237,241,245,0.07)" }}
+          style={{ borderColor: "rgba(246,246,246,0.07)" }}
         >
           <motion.div
             initial={{ opacity: 0, x: -14 }}
@@ -192,7 +192,7 @@ function NewsHero() {
             className="flex items-center gap-4"
           >
             <div className="w-5 h-px" style={{ background: C.mid }} />
-            <span className="text-[10px] tracking-[0.42em] uppercase" style={{ color: "rgba(237,241,245,0.38)" }}>
+            <span className="text-[10px] tracking-[0.42em] uppercase" style={{ color: "rgba(246,246,246,0.38)" }}>
               Press &amp; News
             </span>
           </motion.div>
@@ -206,7 +206,7 @@ function NewsHero() {
               <div className="absolute inset-0 rounded-full bg-green-400 opacity-50 animate-ping" />
               <div className="rounded-full w-1.5 h-1.5 bg-green-400" />
             </div>
-            <span className="text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(237,241,245,0.28)" }}>
+            <span className="text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(246,246,246,0.28)" }}>
               Dispatches from the campaign
             </span>
           </motion.div>
@@ -249,7 +249,7 @@ function NewsHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 1.05, ease }}
               className="text-sm leading-[1.95] max-w-md"
-              style={{ color: "rgba(237,241,245,0.48)" }}
+              style={{ color: "rgba(246,246,246,0.48)" }}
             >
               All statements, updates, and dispatches from the Omoowo 2027 Senatorial Campaign —
               published directly, without filter or spin.
@@ -266,7 +266,7 @@ function NewsHero() {
         >
           <div
             className="border-t py-4 overflow-hidden"
-            style={{ borderColor: "rgba(237,241,245,0.07)" }}
+            style={{ borderColor: "rgba(246,246,246,0.07)" }}
           >
             <div className="flex items-center gap-6 mb-0">
               <span
@@ -283,7 +283,7 @@ function NewsHero() {
                   style={{
                     fontSize: "0.68rem",
                     letterSpacing: "0.12em",
-                    color: "rgba(237,241,245,0.35)",
+                    color: "rgba(246,246,246,0.35)",
                   }}
                 >
                   <span>{tickerText}</span>
@@ -325,7 +325,7 @@ function LeadStory() {
           animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
           transition={{ duration: 1.1, ease }}
           className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-0"
-          style={{ background: C.dark }}
+          style={{ background: "#E63035" }}
         >
           {/* Left — headline block */}
           <div className="p-10 md:p-14 lg:p-16 flex flex-col justify-between">
@@ -337,7 +337,7 @@ function LeadStory() {
                     <div className="absolute inset-0 rounded-full bg-green-400 opacity-60 animate-ping" />
                     <div className="rounded-full w-1.5 h-1.5 bg-green-400" />
                   </div>
-                  <span className="text-[8.5px] tracking-[0.28em] uppercase" style={{ color: "rgba(237,241,245,0.45)" }}>
+                  <span className="text-[8.5px] tracking-[0.28em] uppercase" style={{ color: "rgba(246,246,246,0.45)" }}>
                     Latest
                   </span>
                 </div>
@@ -356,15 +356,15 @@ function LeadStory() {
                 {LEAD.title}
               </h2>
               <div className="h-px mb-6 opacity-10" style={{ background: C.light }} />
-              <p className="text-sm leading-[1.95] mb-8" style={{ color: "rgba(237,241,245,0.58)" }}>
+              <p className="text-sm leading-[1.95] mb-8" style={{ color: "rgba(246,246,246,0.58)" }}>
                 {LEAD.excerpt}
               </p>
               <div className="flex items-center gap-5">
-                <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(237,241,245,0.3)" }}>
+                <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(246,246,246,0.3)" }}>
                   {LEAD.date}
                 </span>
-                <span style={{ color: "rgba(237,241,245,0.15)" }}>·</span>
-                <span className="text-[10px]" style={{ color: "rgba(237,241,245,0.3)" }}>
+                <span style={{ color: "rgba(246,246,246,0.15)" }}>·</span>
+                <span className="text-[10px]" style={{ color: "rgba(246,246,246,0.3)" }}>
                   {LEAD.readMin} min read
                 </span>
               </div>
@@ -374,7 +374,7 @@ function LeadStory() {
           {/* Right — large date block */}
           <div
             className="hidden lg:flex flex-col items-center justify-center p-14 relative overflow-hidden"
-            style={{ background: "rgba(41,75,104,0.5)" }}
+            style={{ background: "rgba(230,48,53,0.5)" }}
           >
             <div
               className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
@@ -384,7 +384,7 @@ function LeadStory() {
                 className="font-light leading-none"
                 style={{
                   fontSize: "clamp(10rem, 20vw, 18rem)",
-                  color: "rgba(237,241,245,0.04)",
+                  color: "rgba(246,246,246,0.04)",
                   letterSpacing: "-0.06em",
                 }}
               >
@@ -398,10 +398,10 @@ function LeadStory() {
               >
                 {LEAD.date.split(" ")[0]}
               </p>
-              <p className="text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: "rgba(237,241,245,0.4)" }}>
+              <p className="text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: "rgba(246,246,246,0.4)" }}>
                 {LEAD.date.split(" ")[1]} {LEAD.date.split(" ")[2]}
               </p>
-              <p className="text-[9px] tracking-[0.22em] uppercase" style={{ color: "rgba(237,241,245,0.22)" }}>
+              <p className="text-[9px] tracking-[0.22em] uppercase" style={{ color: "rgba(246,246,246,0.22)" }}>
                 Campaign Dispatch
               </p>
             </div>
@@ -466,7 +466,7 @@ function FeaturedPair() {
               {/* Headline with wipe-underline on hover */}
               <div className="mb-5">
                 <h3
-                  className="font-light leading-[1.18] group-hover:text-[#294B68] transition-colors duration-300"
+                  className="font-light leading-[1.18] group-hover:text-[#E63035] transition-colors duration-300"
                   style={{
                     fontSize: "clamp(1.1rem, 1.7vw, 1.5rem)",
                     color: C.dark,
@@ -520,7 +520,7 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.4, delay: i * 0.07 }}
       className="group grid grid-cols-1 md:grid-cols-[52px_1fr_auto] items-start gap-4 md:gap-10 py-8 border-t relative cursor-pointer overflow-hidden"
-      style={{ borderColor: "rgba(237,241,245,0.09)" }}
+      style={{ borderColor: "rgba(246,246,246,0.09)" }}
     >
       {/* Animated left accent line */}
       <motion.div
@@ -537,7 +537,7 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.08 + i * 0.07 }}
         className="font-light leading-none pt-1 pl-4"
-        style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", color: "rgba(237,241,245,0.12)", letterSpacing: "-0.04em" }}
+        style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", color: "rgba(246,246,246,0.12)", letterSpacing: "-0.04em" }}
       >
         {num}
       </motion.div>
@@ -550,19 +550,19 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
       >
         <div className="flex items-center gap-3 mb-3 flex-wrap">
           <CategoryPill cat={item.category} />
-          <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(237,241,245,0.3)" }}>
+          <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(246,246,246,0.3)" }}>
             {item.date}
           </span>
         </div>
         <h3
-          className="font-light leading-[1.22] group-hover:text-[rgba(237,241,245,0.9)] transition-colors duration-250"
-          style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.25rem)", color: "rgba(237,241,245,0.6)", letterSpacing: "-0.01em" }}
+          className="font-light leading-[1.22] group-hover:text-[rgba(246,246,246,0.9)] transition-colors duration-250"
+          style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.25rem)", color: "rgba(246,246,246,0.6)", letterSpacing: "-0.01em" }}
         >
           {item.title}
         </h3>
         <div
           className="h-px mt-3 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-          style={{ background: "rgba(237,241,245,0.2)" }}
+          style={{ background: "rgba(246,246,246,0.2)" }}
         />
       </motion.div>
 
@@ -573,7 +573,7 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
         transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
         className="shrink-0 flex flex-col items-end gap-2 pt-1"
       >
-        <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(237,241,245,0.25)" }}>
+        <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(246,246,246,0.25)" }}>
           {item.readMin} min
         </span>
         <span
@@ -609,7 +609,7 @@ function NewsIndex() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="text-[10px] tracking-[0.42em] uppercase mb-4"
-              style={{ color: "rgba(237,241,245,0.38)" }}
+              style={{ color: "rgba(246,246,246,0.38)" }}
             >
               All Dispatches
             </motion.p>
@@ -641,15 +641,15 @@ function NewsIndex() {
                 onClick={() => setActive(f)}
                 className="relative px-4 py-2 text-[9.5px] tracking-[0.22em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
                 style={{
-                  color: active === f ? C.light : "rgba(237,241,245,0.4)",
-                  border: `1px solid ${active === f ? "rgba(237,241,245,0.35)" : "rgba(237,241,245,0.1)"}`,
+                  color: active === f ? C.light : "rgba(246,246,246,0.4)",
+                  border: `1px solid ${active === f ? "rgba(246,246,246,0.35)" : "rgba(246,246,246,0.1)"}`,
                 }}
               >
                 {active === f && (
                   <motion.span
                     layoutId="news-filter-pill"
                     className="absolute inset-0"
-                    style={{ background: "rgba(237,241,245,0.1)" }}
+                    style={{ background: "rgba(246,246,246,0.1)" }}
                     transition={{ type: "spring", stiffness: 260, damping: 26 }}
                   />
                 )}
@@ -661,7 +661,7 @@ function NewsIndex() {
 
         {/* Dispatch count */}
         <div className="flex items-center justify-between mb-2">
-          <p className="text-[9.5px] tracking-[0.25em] uppercase" style={{ color: "rgba(237,241,245,0.22)" }}>
+          <p className="text-[9.5px] tracking-[0.25em] uppercase" style={{ color: "rgba(246,246,246,0.22)" }}>
             {filtered.length} dispatch{filtered.length !== 1 ? "es" : ""}
           </p>
         </div>
@@ -678,7 +678,7 @@ function NewsIndex() {
               />
             ))}
           </AnimatePresence>
-          <div className="h-px" style={{ background: "rgba(237,241,245,0.08)" }} />
+          <div className="h-px" style={{ background: "rgba(246,246,246,0.08)" }} />
         </div>
       </div>
     </section>
@@ -695,7 +695,7 @@ function NewsletterCTA() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: C.dark }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-28 items-end">
 
@@ -706,7 +706,7 @@ function NewsletterCTA() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="text-[10px] tracking-[0.42em] uppercase mb-5"
-              style={{ color: "rgba(237,241,245,0.28)" }}
+              style={{ color: "rgba(246,246,246,0.28)" }}
             >
               Stay Informed
             </motion.p>
@@ -714,7 +714,7 @@ function NewsletterCTA() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.1, ease }}
-              className="font-light text-[#EDF1F5] leading-[1.04] mb-7"
+              className="font-light text-[#F6F6F6] leading-[1.04] mb-7"
               style={{
                 fontSize: "clamp(2rem, 4.5vw, 5rem)",
                 letterSpacing: "-0.035em",
@@ -727,7 +727,7 @@ function NewsletterCTA() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.22, ease }}
               className="text-sm leading-[1.95]"
-              style={{ color: "rgba(237,241,245,0.44)" }}
+              style={{ color: "rgba(246,246,246,0.44)" }}
             >
               Every statement, update, and event notice from the Omoowo 2027 campaign —
               delivered directly to your inbox. No noise. Just the campaign, in your own time.
@@ -750,7 +750,7 @@ function NewsletterCTA() {
                 >
                   <div
                     className="flex flex-col sm:flex-row gap-0"
-                    style={{ border: "1px solid rgba(237,241,245,0.12)" }}
+                    style={{ border: "1px solid rgba(246,246,246,0.12)" }}
                   >
                     <input
                       type="email"
@@ -765,13 +765,13 @@ function NewsletterCTA() {
                     />
                     <button
                       onClick={() => value.includes("@") && setSent(true)}
-                      className="px-7 py-4 text-[10px] tracking-[0.22em] uppercase shrink-0 transition-colors duration-200 hover:bg-[#162B3D] focus-visible:outline-none focus-visible:bg-[#162B3D]"
+                      className="px-7 py-4 text-[10px] tracking-[0.22em] uppercase shrink-0 transition-colors duration-200 hover:bg-[#008B4D] focus-visible:outline-none focus-visible:bg-[#008B4D]"
                       style={{ background: C.mid, color: C.light }}
                     >
                       Subscribe
                     </button>
                   </div>
-                  <p className="text-[10px] mt-3" style={{ color: "rgba(237,241,245,0.2)" }}>
+                  <p className="text-[10px] mt-3" style={{ color: "rgba(246,246,246,0.2)" }}>
                     No spam. Unsubscribe at any time.
                   </p>
                 </motion.div>
@@ -795,7 +795,7 @@ function NewsletterCTA() {
                       Subscribed
                     </p>
                   </div>
-                  <p className="text-sm leading-[1.85]" style={{ color: "rgba(237,241,245,0.5)" }}>
+                  <p className="text-sm leading-[1.85]" style={{ color: "rgba(246,246,246,0.5)" }}>
                     You&apos;re on the list. Watch your inbox for dispatches from the campaign.
                   </p>
                 </motion.div>
@@ -815,8 +815,8 @@ function NewsletterCTA() {
                   href={l.href}
                   className="px-5 py-2.5 text-[9.5px] tracking-[0.22em] uppercase hover:opacity-60 transition-opacity duration-200"
                   style={{
-                    border: "1px solid rgba(237,241,245,0.08)",
-                    color: "rgba(237,241,245,0.38)",
+                    border: "1px solid rgba(246,246,246,0.08)",
+                    color: "rgba(246,246,246,0.38)",
                   }}
                 >
                   {l.label}

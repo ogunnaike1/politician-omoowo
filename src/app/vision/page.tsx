@@ -14,12 +14,12 @@ import { useRef, useEffect } from "react";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const C = {
-  dark: "#162B3D",
-  mid: "#294B68",
-  light: "#EDF1F5",
-  muted: "#8A94A6",
-  bg: "#E9EEF2",
-  border: "#C8D4DE",
+  dark: "#1A1A1A",
+  mid: "#E63035",
+  light: "#F6F6F6",
+  muted: "#888888",
+  bg: "#F6F6F6",
+  border: "#DCDCDC",
 } as const;
 
 /* ── Animated Counter ────────────────────── */
@@ -101,7 +101,7 @@ function VisionHero() {
           className="font-light leading-none select-none"
           style={{
             fontSize: "clamp(11rem, 33vw, 40rem)",
-            color: "rgba(41,75,104,0.045)",
+            color: "rgba(230,48,53,0.045)",
             letterSpacing: "-0.06em",
           }}
         >
@@ -233,7 +233,7 @@ function TheNumbers() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: C.dark }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-20">
           <motion.h2
@@ -250,7 +250,7 @@ function TheNumbers() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-[10px] tracking-[0.35em] uppercase"
-            style={{ color: "rgba(237,241,245,0.3)" }}
+            style={{ color: "rgba(246,246,246,0.3)" }}
           >
             What this mandate means
           </motion.p>
@@ -264,7 +264,7 @@ function TheNumbers() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
               className="grid grid-cols-1 md:grid-cols-[2fr_1fr_3fr] items-start gap-6 md:gap-14 py-10 border-t"
-              style={{ borderColor: "rgba(237,241,245,0.07)" }}
+              style={{ borderColor: "rgba(246,246,246,0.07)" }}
             >
               <div
                 className="font-light leading-none"
@@ -275,23 +275,23 @@ function TheNumbers() {
               <div className="md:pt-3">
                 <motion.div
                   className="h-px w-full mb-4 origin-left"
-                  style={{ background: "rgba(237,241,245,0.15)" }}
+                  style={{ background: "rgba(246,246,246,0.15)" }}
                   initial={{ scaleX: 0 }}
                   animate={inView ? { scaleX: 1 } : {}}
                   transition={{ duration: 0.8, delay: 0.25 + i * 0.1 }}
                 />
-                <p className="text-[10px] tracking-[0.18em] uppercase leading-[1.8]" style={{ color: "rgba(237,241,245,0.4)" }}>
+                <p className="text-[10px] tracking-[0.18em] uppercase leading-[1.8]" style={{ color: "rgba(246,246,246,0.4)" }}>
                   {s.label}
                 </p>
               </div>
-              <p className="text-sm leading-[1.95] md:pt-3" style={{ color: "rgba(237,241,245,0.5)" }}>
+              <p className="text-sm leading-[1.95] md:pt-3" style={{ color: "rgba(246,246,246,0.5)" }}>
                 {s.note}
               </p>
             </motion.div>
           ))}
           <motion.div
             className="h-px origin-left"
-            style={{ background: "rgba(237,241,245,0.07)" }}
+            style={{ background: "rgba(246,246,246,0.07)" }}
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -343,11 +343,11 @@ function VisionPillars() {
   const progressW = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div ref={outerRef} style={{ height: "400vh" }}>
+    <div ref={outerRef} style={{ height: "400vh", overflowX: "hidden" }}>
       <div className="sticky top-0 h-screen overflow-hidden">
 
         {/* Thin progress bar at very top */}
-        <div className="absolute top-0 inset-x-0 h-0.5 z-30" style={{ background: "rgba(200,212,222,0.2)" }}>
+        <div className="absolute top-0 inset-x-0 h-0.5 z-30" style={{ background: "rgba(246,246,246,0.2)" }}>
           <motion.div className="h-full" style={{ width: progressW, background: C.mid }} />
         </div>
 
@@ -364,7 +364,7 @@ function VisionPillars() {
                 className="absolute right-0 bottom-0 font-light leading-none pointer-events-none select-none"
                 style={{
                   fontSize: "clamp(16rem, 40vw, 44rem)",
-                  color: p.light ? "rgba(255,255,255,0.04)" : "rgba(41,75,104,0.06)",
+                  color: p.light ? "rgba(255,255,255,0.04)" : "rgba(230,48,53,0.06)",
                   letterSpacing: "-0.07em",
                   transform: "translate(8%, 8%)",
                 }}
@@ -381,13 +381,13 @@ function VisionPillars() {
                 <div className="flex items-center justify-between">
                   <span
                     className="text-[10px] tracking-[0.42em] uppercase"
-                    style={{ color: p.light ? "rgba(237,241,245,0.4)" : C.muted }}
+                    style={{ color: p.light ? "rgba(246,246,246,0.4)" : C.muted }}
                   >
                     Pillar {p.n}
                   </span>
                   <span
                     className="text-[10px] tracking-[0.25em] uppercase"
-                    style={{ color: p.light ? "rgba(237,241,245,0.3)" : C.border }}
+                    style={{ color: p.light ? "rgba(246,246,246,0.3)" : C.border }}
                   >
                     {i + 1} / {pillars.length}
                   </span>
@@ -407,7 +407,7 @@ function VisionPillars() {
                   </h2>
                   <p
                     className="text-base leading-[1.65] max-w-lg"
-                    style={{ color: p.light ? "rgba(237,241,245,0.65)" : C.muted }}
+                    style={{ color: p.light ? "rgba(246,246,246,0.65)" : C.muted }}
                   >
                     {p.sub}
                   </p>
@@ -417,7 +417,7 @@ function VisionPillars() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <p
                     className="text-sm leading-[1.95]"
-                    style={{ color: p.light ? "rgba(237,241,245,0.5)" : C.muted }}
+                    style={{ color: p.light ? "rgba(246,246,246,0.5)" : C.muted }}
                   >
                     {p.body}
                   </p>
@@ -426,11 +426,11 @@ function VisionPillars() {
                       <li
                         key={item}
                         className="flex items-start gap-3 text-[12.5px] leading-[1.6]"
-                        style={{ color: p.light ? "rgba(237,241,245,0.75)" : C.dark }}
+                        style={{ color: p.light ? "rgba(246,246,246,0.75)" : C.dark }}
                       >
                         <span
                           className="mt-[6px] w-3 h-px flex-shrink-0"
-                          style={{ background: p.light ? "rgba(237,241,245,0.4)" : C.border }}
+                          style={{ background: p.light ? "rgba(246,246,246,0.4)" : C.border }}
                         />
                         {item}
                       </li>
@@ -521,7 +521,7 @@ function Roadmap() {
               {/* Year number */}
               <div>
                 <div
-                  className="font-light leading-none group-hover:text-[#294B68] transition-colors duration-300"
+                  className="font-light leading-none group-hover:text-[#E63035] transition-colors duration-300"
                   style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)", color: C.border, letterSpacing: "-0.05em" }}
                 >
                   {r.yr}
@@ -560,7 +560,7 @@ function Roadmap() {
               </ul>
             </motion.div>
           ))}
-          <div className="h-px" style={{ background: C.border }} />
+          <div className="h-px" style={{ background: "rgba(246,246,246,0.15)" }} />
         </div>
       </div>
     </section>
@@ -583,7 +583,7 @@ function Manifesto() {
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: C.dark }}>
+    <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-14 lg:gap-28 items-start">
 
@@ -591,7 +591,7 @@ function Manifesto() {
           <div className="lg:pt-3">
             <motion.div
               className="w-8 h-px mb-6 origin-left"
-              style={{ background: "rgba(237,241,245,0.2)" }}
+              style={{ background: "rgba(246,246,246,0.2)" }}
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ duration: 0.7 }}
@@ -601,7 +601,7 @@ function Manifesto() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2, ease }}
               className="text-[10px] tracking-[0.38em] uppercase"
-              style={{ color: "rgba(237,241,245,0.3)" }}
+              style={{ color: "rgba(246,246,246,0.3)" }}
             >
               The Commitment
             </motion.p>
@@ -619,7 +619,7 @@ function Manifesto() {
                   style={{
                     fontSize: "clamp(1.6rem, 3.8vw, 4rem)",
                     letterSpacing: "-0.025em",
-                    color: s.strong ? C.light : "rgba(237,241,245,0.38)",
+                    color: s.strong ? C.light : "rgba(246,246,246,0.38)",
                   }}
                 >
                   {s.text}
@@ -635,10 +635,10 @@ function Manifesto() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.85 }}
           className="mt-20 pt-8 flex items-center gap-5"
-          style={{ borderTop: "1px solid rgba(237,241,245,0.07)" }}
+          style={{ borderTop: "1px solid rgba(246,246,246,0.07)" }}
         >
-          <div className="w-6 h-px shrink-0" style={{ background: "rgba(237,241,245,0.18)" }} />
-          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: "rgba(237,241,245,0.28)" }}>
+          <div className="w-6 h-px shrink-0" style={{ background: "rgba(246,246,246,0.18)" }} />
+          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: "rgba(246,246,246,0.28)" }}>
             Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo) &mdash; PDP Candidate, Ogun East 2027
           </p>
         </motion.div>
@@ -668,7 +668,7 @@ function VisionCTA() {
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease }}
-            className="font-light text-[#EDF1F5] leading-[1.05] mb-8"
+            className="font-light text-[#F6F6F6] leading-[1.05] mb-8"
             style={{ fontSize: "clamp(2.2rem, 5vw, 5.2rem)", letterSpacing: "-0.035em" }}
           >
             Be part of what comes next.
@@ -678,7 +678,7 @@ function VisionCTA() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease }}
             className="text-sm leading-[1.9] max-w-sm"
-            style={{ color: "rgba(237,241,245,0.6)" }}
+            style={{ color: "rgba(246,246,246,0.6)" }}
           >
             This vision only works if the people of Ogun East are part of it — not as spectators,
             but as partners. If you believe in what Omoowo is building, join the movement.
@@ -700,8 +700,8 @@ function VisionCTA() {
                 btn.variant === "solid"
                   ? { background: C.light, color: C.dark }
                   : btn.variant === "outline"
-                  ? { border: "1px solid rgba(237,241,245,0.35)", color: C.light }
-                  : { border: "1px solid rgba(237,241,245,0.12)", color: "rgba(237,241,245,0.5)" }
+                  ? { border: "1px solid rgba(246,246,246,0.35)", color: C.light }
+                  : { border: "1px solid rgba(246,246,246,0.12)", color: "rgba(246,246,246,0.5)" }
               }
             >
               {btn.label}

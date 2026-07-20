@@ -37,21 +37,21 @@ const cardVariants = {
     opacity: 1,
     rotateX: 0,
     y: 0,
-    backgroundColor: "rgba(44,74,98,0.55)",
+    backgroundColor: "rgba(230,48,53,0.12)",
     boxShadow: "0 0px 0px rgba(0,0,0,0)",
     transition: { type: "spring" as const, stiffness: 90, damping: 18, delay: 0.15 + i * 0.09 },
   }),
   hovered: {
     y: -10,
-    backgroundColor: "rgba(255,255,255,0.12)",
+    backgroundColor: "rgba(246,246,246,0.12)",
     boxShadow: "0 28px 48px rgba(0,0,0,0.2)",
     transition: { type: "spring" as const, stiffness: 300, damping: 24 },
   },
 };
 
 const numVariants = {
-  show: { color: "rgba(237,241,245,0.2)" },
-  hovered: { color: "rgba(237,241,245,0.7)", transition: { duration: 0.2 } },
+  show: { color: "rgba(246,246,246,0.2)" },
+  hovered: { color: "rgba(246,246,246,0.7)", transition: { duration: 0.2 } },
 };
 
 const titleVariants = {
@@ -60,10 +60,10 @@ const titleVariants = {
 };
 
 const barVariants = {
-  show: { width: 24, backgroundColor: "rgba(237,241,245,0.5)" },
+  show: { width: 24, backgroundColor: "rgba(246,246,246,0.5)" },
   hovered: {
     width: 56,
-    backgroundColor: "#EDF1F5",
+    backgroundColor: "#F6F6F6",
     transition: { type: "spring" as const, stiffness: 280, damping: 22 },
   },
 };
@@ -79,7 +79,7 @@ export default function Priorities() {
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
   return (
-    <section id="priorities" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#294B68" }}>
+    <section id="priorities" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
 
         {/* Header */}
@@ -90,7 +90,7 @@ export default function Priorities() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="text-[10px] tracking-[0.4em] uppercase mb-3"
-              style={{ color: "rgba(237,241,245,0.55)" }}
+              style={{ color: "rgba(246,246,246,0.55)" }}
             >
               Key Priorities
             </motion.p>
@@ -98,7 +98,7 @@ export default function Priorities() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#EDF1F5] leading-[1.1]"
+              className="font-light text-[#F6F6F6] leading-[1.1]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
             >
               What Omoowo will fight for.
@@ -109,7 +109,7 @@ export default function Priorities() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[11px] md:text-right max-w-xs leading-relaxed"
-            style={{ color: "rgba(237,241,245,0.6)" }}
+            style={{ color: "rgba(246,246,246,0.6)" }}
           >
             Five clear commitments to the people of Ogun East &mdash; each with a plan, not just a promise.
           </motion.p>
@@ -118,7 +118,7 @@ export default function Priorities() {
         {/* 3D perspective grid */}
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
-          style={{ perspective: "1200px", background: "rgba(237,241,245,0.12)" }}
+          style={{ perspective: "1200px", background: "rgba(246,246,246,0.12)" }}
         >
           {items.map((item, i) => (
             <motion.div
@@ -138,17 +138,17 @@ export default function Priorities() {
               <div className="flex items-center justify-between mb-4">
                 <motion.h3
                   variants={titleVariants}
-                  className="font-light text-[#EDF1F5] leading-[1.2]"
+                  className="font-light text-[#F6F6F6] leading-[1.2]"
                   style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.3rem)" }}
                 >
                   {item.title}
                 </motion.h3>
-                <motion.span variants={arrowVariants} className="text-[#EDF1F5]/60 text-lg shrink-0 ml-3">
+                <motion.span variants={arrowVariants} className="text-[#F6F6F6]/60 text-lg shrink-0 ml-3">
                   &rarr;
                 </motion.span>
               </div>
 
-              <p className="text-sm leading-[1.8]" style={{ color: "rgba(237,241,245,0.65)" }}>{item.body}</p>
+              <p className="text-sm leading-[1.8]" style={{ color: "rgba(246,246,246,0.65)" }}>{item.body}</p>
               <motion.div variants={barVariants} className="mt-8 h-px" />
             </motion.div>
           ))}
@@ -171,15 +171,15 @@ export default function Priorities() {
             initial="hidden"
             animate={inView ? "show" : "hidden"}
             whileHover="hovered"
-            style={{ transformOrigin: "bottom center", background: "#162B3D" }}
+            style={{ transformOrigin: "bottom center", background: "#E63035" }}
             className="p-8 md:p-10 flex flex-col justify-between"
           >
-            <p className="text-[#294B68] text-[10px] tracking-[0.3em] uppercase">Five Priorities</p>
+            <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase">Five Priorities</p>
             <div>
-              <p className="font-light text-[#EDF1F5] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
+              <p className="font-light text-[#F6F6F6] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
                 05
               </p>
-              <p className="text-[#8A94A6] text-[11px] tracking-[0.15em] uppercase">Clear commitments</p>
+              <p className="text-[#888888] text-[11px] tracking-[0.15em] uppercase">Clear commitments</p>
             </div>
           </motion.div>
         </div>

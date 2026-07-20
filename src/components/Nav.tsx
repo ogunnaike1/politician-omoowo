@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const links = [
   { label: "Home", href: "/" },
@@ -13,22 +14,23 @@ const links = [
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  // Nav bg: #294B68 â†’ #E8ECF1
-  const bgColor = useTransform(scrollY, [0, 80], ["#294B68", "#E8ECF1"]);
+  // Nav bg: #E63035 â†’ #F6F6F6
+  const bgColor = useTransform(scrollY, [0, 80], ["#E63035", "#F6F6F6"]);
   // Links & brand: light â†’ dark
-  const linkColor = useTransform(scrollY, [0, 80], ["#EDF1F5", "#162B3D"]);
-  // Button: bg inverts â€” #E8ECF1 â†’ #294B68, text #294B68 â†’ #EDF1F5
-  const btnBg = useTransform(scrollY, [0, 80], ["#E8ECF1", "#294B68"]);
-  const btnColor = useTransform(scrollY, [0, 80], ["#46494E", "#EDF1F5"]);
+  const linkColor = useTransform(scrollY, [0, 80], ["#F6F6F6", "#1A1A1A"]);
+  // Button: bg inverts â€” #F6F6F6 â†’ #E63035, text #E63035 â†’ #F6F6F6
+  const btnBg = useTransform(scrollY, [0, 80], ["#F6F6F6", "#E63035"]);
+  const btnColor = useTransform(scrollY, [0, 80], ["#333333", "#F6F6F6"]);
   const borderOpacity = useTransform(scrollY, [40, 80], [0, 1]);
 
   return (
     <motion.header className="fixed top-0 inset-x-0 z-50 h-15" style={{ background: bgColor }}>
       {/* Bottom border fades in when scrolled */}
       <motion.div
-        className="absolute inset-x-0 bottom-0 h-px bg-[#C8D4DE]"
+        className="absolute inset-x-0 bottom-0 h-px bg-[#E63035]"
         style={{ opacity: borderOpacity }}
       />
 
@@ -50,20 +52,34 @@ export default function Nav() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {links.map((l) => (
-            <motion.a
-              key={l.label}
-              href={l.href}
-              style={{ color: linkColor }}
-              className="relative text-[11.5px] font-medium tracking-[0.14em] uppercase group focus-visible:outline-none"
-            >
-              {l.label}
-              <span
-                className="absolute -bottom-0.5 left-0 w-full h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                style={{ background: "currentColor", opacity: 0.45 }}
-              />
-            </motion.a>
-          ))}
+          {links.map((l) => {
+            const isActive = l.href === "/"
+              ? pathname === "/"
+              : pathname.startsWith(l.href);
+            return (
+              <motion.a
+                key={l.label}
+                href={l.href}
+                style={{ color: linkColor }}
+                className="relative text-[11.5px] font-medium tracking-[0.14em] uppercase focus-visible:outline-none"
+                initial="rest"
+                whileHover="hover"
+                animate={isActive ? "active" : "rest"}
+              >
+                {l.label}
+                <motion.span
+                  className="absolute -bottom-0.5 left-0 w-full h-px"
+                  style={{ background: "currentColor", transformOrigin: "left" }}
+                  variants={{
+                    rest:   { scaleX: 0, opacity: 0.45 },
+                    hover:  { scaleX: 1, opacity: 0.45 },
+                    active: { scaleX: 1, opacity: 0.8 },
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+              </motion.a>
+            );
+          })}
           <motion.a
             href="#involved"
             style={{ background: btnBg, color: btnColor }}

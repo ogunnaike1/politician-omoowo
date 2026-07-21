@@ -10,9 +10,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const C = {
   dark: "#1A1A1A",
   mid: "#E63035",
-  light: "#F6F6F6",
+  light: "#F6F3F3",
   muted: "#888888",
-  bg: "#F6F6F6",
+  bg: "#F6F3F3",
   border: "#DCDCDC",
 } as const;
 
@@ -237,7 +237,7 @@ function EventsHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex flex-col"
-      style={{ minHeight: "100vh", background: "#E63035" }}
+      style={{ minHeight: "100vh", background: "#094e7d" }}
     >
       {/* Ghost grid lines */}
       <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.04 }}>
@@ -621,7 +621,7 @@ function PastEvents() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: C.mid }}>
+    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
       <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
@@ -713,7 +713,7 @@ function AttendCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
       <div className="max-w-300 mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-28 items-end mb-16">
@@ -731,7 +731,7 @@ function AttendCTA() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.1, ease }}
-              className="font-light text-[#F6F6F6] leading-[1.04]"
+              className="font-light text-[#F6F3F3] leading-[1.04]"
               style={{
                 fontSize: "clamp(2rem, 5vw, 5.5rem)",
                 letterSpacing: "-0.035em",
@@ -784,7 +784,7 @@ function AttendCTA() {
                 {card.label}
               </p>
               <h3
-                className="font-light text-[#F6F6F6] leading-tight mb-4"
+                className="font-light text-[#F6F3F3] leading-tight mb-4"
                 style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)", letterSpacing: "-0.01em" }}
               >
                 {card.headline}

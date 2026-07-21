@@ -13,7 +13,7 @@ export default function Vision() {
   const words = quoteText.split(" ");
 
   return (
-    <section id="vision" ref={ref} className="bg-[#F6F6F6] py-28 md:py-44 px-6 md:px-12 lg:px-20">
+    <section id="vision" ref={ref} className="bg-[#F6F3F3] py-28 md:py-44 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <div className="max-w-190">
 
@@ -89,7 +89,7 @@ export default function Vision() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.9 + i * 0.15 }}
               whileHover={{ y: -5, transition: { type: "spring", stiffness: 280, damping: 24 } }}
-              className="bg-[#F6F6F6] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300 cursor-default"
+              className="bg-[#F6F3F3] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300 cursor-default"
             >
               <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase mb-5 group-hover:tracking-[0.45em] transition-all duration-300">0{i + 1}</p>
               <h3 className="text-[#1A1A1A] font-light text-lg mb-4 leading-snug group-hover:text-[#E63035] transition-colors duration-300">{p.title}</h3>

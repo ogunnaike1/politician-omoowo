@@ -71,7 +71,7 @@ export default function Involved() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#F6F6F6] mb-16"
+          className="font-light text-[#F6F3F3] mb-16"
           style={{ fontSize: "clamp(1.7rem, 3.5vw, 3.2rem)", letterSpacing: "-0.02em" }}
         >
           Ogun East wins together.
@@ -80,7 +80,7 @@ export default function Involved() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(246,246,246,0.12)" }}>
           {cards.map((c, i) => {
             const anim = cardAnimations[i];
-            const cardBg = c.dark ? "#E63035" : "#F6F6F6";
+            const cardBg = c.dark ? "#E63035" : "#F6F3F3";
             return (
               <motion.div
                 key={c.id}
@@ -99,7 +99,7 @@ export default function Involved() {
                 </p>
                 <h3
                   className="font-light leading-tight mb-5"
-                  style={{ fontSize: "clamp(1.3rem, 1.8vw, 1.7rem)", color: c.dark ? "#F6F6F6" : "#1A1A1A" }}
+                  style={{ fontSize: "clamp(1.3rem, 1.8vw, 1.7rem)", color: c.dark ? "#F6F3F3" : "#1A1A1A" }}
                 >
                   {c.title}
                 </h3>
@@ -119,7 +119,7 @@ export default function Involved() {
                       onFocus={(e) => (e.currentTarget.style.borderColor = "#008B4D")}
                       onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.25)")}
                     />
-                    <button className="px-5 py-2.5 bg-[#008B4D] text-[#F6F6F6] text-[11px] shrink-0 font-medium hover:bg-[#E63035] transition-colors duration-200">
+                    <button className="px-5 py-2.5 bg-[#008B4D] text-[#F6F3F3] text-[11px] shrink-0 font-medium hover:bg-[#E63035] transition-colors duration-200">
                       &rarr;
                     </button>
                   </div>
@@ -127,7 +127,7 @@ export default function Involved() {
                   <a
                     href={`#${c.id}`}
                     className="inline-flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase pb-1 w-fit transition-all duration-300 hover:gap-5"
-                    style={{ color: c.dark ? "#F6F6F6" : "#008B4D", borderBottom: `1px solid ${c.dark ? "rgba(246,246,246,0.35)" : "rgba(0,139,77,0.35)"}` }}
+                    style={{ color: c.dark ? "#F6F3F3" : "#008B4D", borderBottom: `1px solid ${c.dark ? "rgba(246,246,246,0.35)" : "rgba(0,139,77,0.35)"}` }}
                   >
                     {c.cta} <span>&rarr;</span>
                   </a>

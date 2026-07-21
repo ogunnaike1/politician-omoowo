@@ -59,7 +59,7 @@ export default function Candidate() {
             {/* Bottom gradient fade */}
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(0,139,77,0.75) 100%)" }}
+              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(9,78,125,0.75) 100%)" }}
             />
 
             {/* Glass name badge */}
@@ -71,7 +71,7 @@ export default function Candidate() {
               style={{
                 backdropFilter: "blur(16px) saturate(1.5)",
                 WebkitBackdropFilter: "blur(16px) saturate(1.5)",
-                background: "rgba(0,139,77,0.85)",
+                background: "rgba(9,78,125,0.85)",
                 border: "1px solid rgba(246,246,246,0.12)",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(246,246,246,0.08)",
               }}
@@ -83,7 +83,7 @@ export default function Candidate() {
               />
               <div className="px-5 py-4 flex items-center justify-between">
                 <div>
-                  <p className="text-[#F6F6F6] text-[11px] font-medium tracking-[0.22em] uppercase mb-0.5">
+                  <p className="text-[#F6F3F3] text-[11px] font-medium tracking-[0.22em] uppercase mb-0.5">
                     Alhaji Omoowo
                   </p>
                   <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
@@ -114,7 +114,7 @@ export default function Candidate() {
                 border: "1px solid rgba(246,246,246,0.12)",
               }}
             >
-              <p className="text-[#F6F6F6]/70 text-[9px] tracking-[0.3em] uppercase">2027</p>
+              <p className="text-[#F6F3F3]/70 text-[9px] tracking-[0.3em] uppercase">2027</p>
             </motion.div>
           </motion.div>
         </div>
@@ -132,7 +132,7 @@ export default function Candidate() {
               <div className="mb-7">
                 <MaskedLine
                   delay={0.45}
-                  className="font-light text-[#F6F6F6] leading-[1.1]"
+                  className="font-light text-[#F6F3F3] leading-[1.1]"
                   style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
                 >
                   A lifelong servant of Ogun East and its people.
@@ -173,7 +173,7 @@ export default function Candidate() {
                   <a
                     href="/profile"
                     className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 hover:gap-5 transition-all duration-300"
-                    style={{ color: "#F6F6F6", borderBottom: "1px solid rgba(246,246,246,0.35)" }}
+                    style={{ color: "#F6F3F3", borderBottom: "1px solid rgba(246,246,246,0.35)" }}
                   >
                     Read Full Profile <span style={{ color: "rgba(246,246,246,0.6)" }}>&rarr;</span>
                   </a>
@@ -194,7 +194,7 @@ export default function Candidate() {
                     ["Ogun East", "Senatorial District"],
                   ].map(([num, label]) => (
                     <div key={label}>
-                      <p className="font-light text-[#F6F6F6] leading-none mb-1.5" style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}>
+                      <p className="font-light text-[#F6F3F3] leading-none mb-1.5" style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}>
                         {num}
                       </p>
                       <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.5)" }}>{label}</p>

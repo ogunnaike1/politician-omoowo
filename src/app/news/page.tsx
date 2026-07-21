@@ -16,9 +16,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const C = {
   dark: "#1A1A1A",
   mid: "#E63035",
-  light: "#F6F6F6",
+  light: "#F6F3F3",
   muted: "#888888",
-  bg: "#F6F6F6",
+  bg: "#F6F3F3",
   border: "#DCDCDC",
 } as const;
 
@@ -168,7 +168,7 @@ function NewsHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex flex-col"
-      style={{ minHeight: "100vh", background: "#E63035" }}
+      style={{ minHeight: "100vh", background: "#094e7d" }}
     >
       {/* Subtle vertical rule */}
       <div
@@ -325,7 +325,7 @@ function LeadStory() {
           animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
           transition={{ duration: 1.1, ease }}
           className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-0"
-          style={{ background: "#E63035" }}
+          style={{ background: "#094e7d" }}
         >
           {/* Left — headline block */}
           <div className="p-10 md:p-14 lg:p-16 flex flex-col justify-between">
@@ -714,7 +714,7 @@ function NewsletterCTA() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.1, ease }}
-              className="font-light text-[#F6F6F6] leading-[1.04] mb-7"
+              className="font-light text-[#F6F3F3] leading-[1.04] mb-7"
               style={{
                 fontSize: "clamp(2rem, 4.5vw, 5rem)",
                 letterSpacing: "-0.035em",

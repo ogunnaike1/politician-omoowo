@@ -17,13 +17,13 @@ export default function Nav() {
   const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  // Nav bg: #E63035 â†’ #F6F6F6
-  const bgColor = useTransform(scrollY, [0, 80], ["#E63035", "#F6F6F6"]);
+  // Nav bg: #E63035 â†’ #F6F3F3
+  const bgColor = useTransform(scrollY, [0, 80], ["#094e7d", "#F6F3F3"]);
   // Links & brand: light â†’ dark
-  const linkColor = useTransform(scrollY, [0, 80], ["#F6F6F6", "#1A1A1A"]);
-  // Button: bg inverts â€” #F6F6F6 â†’ #E63035, text #E63035 â†’ #F6F6F6
-  const btnBg = useTransform(scrollY, [0, 80], ["#F6F6F6", "#E63035"]);
-  const btnColor = useTransform(scrollY, [0, 80], ["#333333", "#F6F6F6"]);
+  const linkColor = useTransform(scrollY, [0, 80], ["#F6F3F3", "#094e7d"]);
+  // Button: bg inverts â€” #F6F3F3 â†’ #E63035, text #E63035 â†’ #F6F3F3
+  const btnBg = useTransform(scrollY, [0, 80], ["#E63035", "#094e7d"]);
+  const btnColor = useTransform(scrollY, [0, 80], ["#F6F3F3", "#F6F3F3"]);
   const borderOpacity = useTransform(scrollY, [40, 80], [0, 1]);
 
   return (

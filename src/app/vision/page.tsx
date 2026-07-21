@@ -16,9 +16,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const C = {
   dark: "#1A1A1A",
   mid: "#E63035",
-  light: "#F6F6F6",
+  light: "#F6F3F3",
   muted: "#888888",
-  bg: "#F6F6F6",
+  bg: "#F6F3F3",
   border: "#DCDCDC",
 } as const;
 
@@ -233,7 +233,7 @@ function TheNumbers() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
       <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-20">
           <motion.h2
@@ -583,7 +583,7 @@ function Manifesto() {
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
+    <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-14 lg:gap-28 items-start">
 
@@ -668,7 +668,7 @@ function VisionCTA() {
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease }}
-            className="font-light text-[#F6F6F6] leading-[1.05] mb-8"
+            className="font-light text-[#F6F3F3] leading-[1.05] mb-8"
             style={{ fontSize: "clamp(2.2rem, 5vw, 5.2rem)", letterSpacing: "-0.035em" }}
           >
             Be part of what comes next.

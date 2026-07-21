@@ -71,7 +71,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           {/* Subtle bottom fade */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(0,139,77,0.5) 80%, rgba(0,139,77,0.9) 100%)" }}
+            style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(9,78,125,0.5) 80%, rgba(9,78,125,0.9) 100%)" }}
           />
 
           {/* Glass name badge */}
@@ -83,7 +83,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             style={{
               backdropFilter: "blur(14px) saturate(1.4)",
               WebkitBackdropFilter: "blur(14px) saturate(1.4)",
-              background: "rgba(0,139,77,0.85)",
+              background: "rgba(9,78,125,0.85)",
               border: "1px solid rgba(246,246,246,0.10)",
               boxShadow: "0 8px 32px rgba(26,26,26,0.25), inset 0 1px 0 rgba(246,246,246,0.07)",
             }}
@@ -91,7 +91,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(246,246,246,0.18), transparent)" }} />
             <div className="px-5 py-4 flex items-center justify-between">
               <div>
-                <p className="text-[#F6F6F6] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
+                <p className="text-[#F6F3F3] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
                 <p className="text-[#E63035] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
               </div>
               <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(230,48,53,0.3)", border: "1px solid rgba(230,48,53,0.5)" }}>
@@ -157,7 +157,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen min-h-[640px] overflow-hidden bg-[#F6F6F6]">
+    <section ref={heroRef} className="relative h-screen min-h-[640px] overflow-hidden bg-[#F6F3F3]">
 
       {/* Subtle radial accent glow */}
       <div
@@ -220,13 +220,13 @@ export default function Hero() {
           >
             <a
               href="#involved"
-              className="px-7 py-3 bg-[#008B4D] text-[#F6F6F6] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#E63035] transition-colors duration-200"
+              className="px-7 py-3 bg-[#008B4D] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#E63035] transition-colors duration-200"
             >
               Join the Campaign
             </a>
             <a
               href="/profile"
-              className="px-7 py-3 border border-[#E63035] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#F6F6F6] transition-all duration-200"
+              className="px-7 py-3 border border-[#E63035] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#F6F3F3] transition-all duration-200"
             >
               Meet Omoowo
             </a>

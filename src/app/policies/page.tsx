@@ -107,7 +107,7 @@ function PoliciesHero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden flex items-end" style={{ height: "60vh", minHeight: "420px", background: "#F6F6F6" }}>
+    <section ref={ref} className="relative overflow-hidden flex items-end" style={{ height: "60vh", minHeight: "420px", background: "#F6F3F3" }}>
       {/* Subtle background accents */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y }}>
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 30%, rgba(230,48,53,0.07) 0%, transparent 60%)" }} />
@@ -181,14 +181,14 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
   const inView = useInView(ref, { once: false, margin: "-80px" });
   const [expanded, setExpanded] = useState(false);
   const isLight = index % 2 !== 0;
-  const bg = isLight ? "#F6F6F6" : "#E63035";
-  const heading = isLight ? "#1A1A1A" : "#F6F6F6";
+  const bg = isLight ? "#F6F3F3" : "#094e7d";
+  const heading = isLight ? "#1A1A1A" : "#F6F3F3";
   const body = isLight ? "#888888" : "rgba(246,246,246,0.65)";
   const label = isLight ? "#E63035" : "rgba(246,246,246,0.45)";
   const divider = isLight ? "#DCDCDC" : "rgba(246,246,246,0.1)";
   const dotBg = isLight ? "rgba(230,48,53,0.12)" : "rgba(246,246,246,0.08)";
   const dotBorder = isLight ? "rgba(230,48,53,0.3)" : "rgba(246,246,246,0.15)";
-  const dotFill = isLight ? "#E63035" : "#F6F6F6";
+  const dotFill = isLight ? "#E63035" : "#F6F3F3";
 
   return (
     <section
@@ -296,7 +296,7 @@ function PolicySection({ policy, index }: { policy: typeof policies[0]; index: n
                 onClick={() => setExpanded(!expanded)}
                 className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 transition-all duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{
-                  color: isLight ? "#E63035" : "#F6F6F6",
+                  color: isLight ? "#E63035" : "#F6F3F3",
                   borderBottom: `1px solid ${isLight ? "#E63035" : "rgba(246,246,246,0.3)"}`,
                   "--tw-ring-color": isLight ? "rgba(230,48,53,0.5)" : "rgba(246,246,246,0.4)",
                 } as React.CSSProperties}
@@ -342,7 +342,7 @@ function CommitmentBanner() {
   const words = "These are not campaign promises. They are commitments â€” and Omoowo will be held to every one of them.".split(" ");
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#F6F6F6" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#F6F3F3" }}>
       <div className="max-w-190 mx-auto text-center">
         <motion.div
           initial={{ scaleX: 0 }}
@@ -388,7 +388,7 @@ function PoliciesCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-36 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-36 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <motion.p
@@ -424,13 +424,13 @@ function PoliciesCTA() {
           </a>
           <a
             href="/profile"
-            className="px-7 py-3 border border-[#E63035] text-[#E63035] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#F6F6F6] transition-all duration-200"
+            className="px-7 py-3 border border-[#E63035] text-[#E63035] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#F6F3F3] transition-all duration-200"
           >
             Meet Omoowo
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#E63035] text-[#F6F6F6] text-[11px] tracking-[0.2em] uppercase hover:bg-[#008B4D] transition-colors duration-200"
+            className="px-7 py-3 bg-[#008B4D] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
           >
             Join the Campaign
           </a>

@@ -61,7 +61,7 @@ export default function Endorsements() {
   };
 
   return (
-    <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#E63035" }}>
+    <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
       <div className="max-w-300 mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
@@ -94,12 +94,12 @@ export default function Endorsements() {
                 >
                   <p className="font-light leading-none mb-4" style={{ fontSize: "5rem", color: "rgba(246,246,246,0.18)" }}>&ldquo;</p>
                   <p
-                    className="font-light text-[#F6F6F6] leading-[1.45] mb-8"
+                    className="font-light text-[#F6F3F3] leading-[1.45] mb-8"
                     style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.45rem)" }}
                   >
                     {quotes[active].q}
                   </p>
-                  <p className="text-[#F6F6F6] text-sm font-medium mb-1">{quotes[active].name}</p>
+                  <p className="text-[#F6F3F3] text-sm font-medium mb-1">{quotes[active].name}</p>
                   <p className="text-[11px] tracking-wide" style={{ color: "rgba(246,246,246,0.6)" }}>{quotes[active].role}</p>
                 </motion.div>
               </AnimatePresence>
@@ -114,7 +114,7 @@ export default function Endorsements() {
                     style={{
                       width: active === i ? "1.75rem" : "0.375rem",
                       height: "0.375rem",
-                      background: active === i ? "#F6F6F6" : "rgba(246,246,246,0.3)",
+                      background: active === i ? "#F6F3F3" : "rgba(246,246,246,0.3)",
                     }}
                   />
                 ))}
@@ -144,9 +144,9 @@ export default function Endorsements() {
                   className="absolute left-0 top-0 bottom-0 w-0.5 origin-top"
                   animate={{ scaleY: active === i ? 1 : 0, opacity: active === i ? 1 : 0 }}
                   transition={{ duration: 0.35, ease }}
-                  style={{ background: "#F6F6F6" }}
+                  style={{ background: "#F6F3F3" }}
                 />
-                <p className="text-[#F6F6F6] text-sm leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
+                <p className="text-[#F6F3F3] text-sm leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
                 <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.5)" }}>{q.name}</p>
               </motion.button>
             ))}

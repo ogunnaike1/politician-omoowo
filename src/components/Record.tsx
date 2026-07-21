@@ -35,7 +35,7 @@ export default function Record() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section id="record" ref={ref} className="bg-[#F6F6F6] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section id="record" ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
@@ -68,7 +68,7 @@ export default function Record() {
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
               transition={{ duration: 0.75, delay: 0.2 + i * 0.15, ease }}
-              className="bg-[#F6F6F6] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
+              className="bg-[#F6F3F3] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
             >
               <p
                 className="font-light text-[#1A1A1A] tabular-nums leading-none mb-3 group-hover:text-[#E63035] transition-colors duration-250"
@@ -94,7 +94,7 @@ export default function Record() {
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.8 + i * 0.12, ease }}
-              className="bg-[#F6F6F6] px-8 py-6 flex items-start gap-5 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
+              className="bg-[#F6F3F3] px-8 py-6 flex items-start gap-5 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
             >
               <motion.div
                 className="w-px self-stretch bg-[#E63035] shrink-0"

@@ -16,9 +16,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const C = {
   dark: "#1A1A1A",
   mid: "#E63035",
-  light: "#F6F6F6",
+  light: "#F6F3F3",
   muted: "#888888",
-  bg: "#F6F6F6",
+  bg: "#F6F3F3",
   border: "#DCDCDC",
 } as const;
 
@@ -146,7 +146,7 @@ function ContactHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex flex-col"
-      style={{ minHeight: "72vh", background: "#E63035" }}
+      style={{ minHeight: "72vh", background: "#094e7d" }}
     >
       {/* Ghost "C" watermark */}
       <div
@@ -581,7 +581,7 @@ function Offices() {
   ];
 
   return (
-    <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
+    <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
       <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
@@ -598,7 +598,7 @@ function Offices() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#F6F6F6] leading-[1.08]"
+              className="font-light text-[#F6F3F3] leading-[1.08]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.025em" }}
             >
               Present in every LGA.
@@ -635,7 +635,7 @@ function Offices() {
                 {o.role}
               </p>
               <h3
-                className="font-light text-[#F6F6F6] leading-tight mb-5 group-hover:text-[#DCDCDC] transition-colors duration-250"
+                className="font-light text-[#F6F3F3] leading-tight mb-5 group-hover:text-[#DCDCDC] transition-colors duration-250"
                 style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)", letterSpacing: "-0.01em" }}
               >
                 {o.lga}
@@ -714,7 +714,7 @@ function Press() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.08 + i * 0.08, ease }}
-                className="bg-[#F6F6F6] p-8 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
+                className="bg-[#F6F3F3] p-8 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
               >
                 <h4 className="text-[#1A1A1A] text-sm font-medium mb-3 group-hover:text-[#E63035] transition-colors duration-250">
                   {card.heading}
@@ -764,7 +764,7 @@ function ContactCTA() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
-            className="font-light text-[#F6F6F6]"
+            className="font-light text-[#F6F3F3]"
             style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
           >
             Join Omoowo&apos;s movement.

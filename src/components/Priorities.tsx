@@ -63,7 +63,7 @@ const barVariants = {
   show: { width: 24, backgroundColor: "rgba(246,246,246,0.5)" },
   hovered: {
     width: 56,
-    backgroundColor: "#F6F6F6",
+    backgroundColor: "#F6F3F3",
     transition: { type: "spring" as const, stiffness: 280, damping: 22 },
   },
 };
@@ -79,7 +79,7 @@ export default function Priorities() {
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
   return (
-    <section id="priorities" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#008B4D" }}>
+    <section id="priorities" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
       <div className="max-w-300 mx-auto">
 
         {/* Header */}
@@ -98,7 +98,7 @@ export default function Priorities() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#F6F6F6] leading-[1.1]"
+              className="font-light text-[#F6F3F3] leading-[1.1]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
             >
               What Omoowo will fight for.
@@ -138,12 +138,12 @@ export default function Priorities() {
               <div className="flex items-center justify-between mb-4">
                 <motion.h3
                   variants={titleVariants}
-                  className="font-light text-[#F6F6F6] leading-[1.2]"
+                  className="font-light text-[#F6F3F3] leading-[1.2]"
                   style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.3rem)" }}
                 >
                   {item.title}
                 </motion.h3>
-                <motion.span variants={arrowVariants} className="text-[#F6F6F6]/60 text-lg shrink-0 ml-3">
+                <motion.span variants={arrowVariants} className="text-[#F6F3F3]/60 text-lg shrink-0 ml-3">
                   &rarr;
                 </motion.span>
               </div>
@@ -174,12 +174,12 @@ export default function Priorities() {
             style={{ transformOrigin: "bottom center", background: "#E63035" }}
             className="p-8 md:p-10 flex flex-col justify-between"
           >
-            <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase">Five Priorities</p>
+            <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>Five Priorities</p>
             <div>
-              <p className="font-light text-[#F6F6F6] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
+              <p className="font-light text-[#F6F3F3] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
                 05
               </p>
-              <p className="text-[#888888] text-[11px] tracking-[0.15em] uppercase">Clear commitments</p>
+              <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.65)" }}>Clear commitments</p>
             </div>
           </motion.div>
         </div>

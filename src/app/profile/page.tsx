@@ -41,7 +41,7 @@ function ProfileHero() {
         className="absolute inset-0"
         style={{
           opacity: overlayOpacity,
-          background: "linear-gradient(to bottom, rgba(0,139,77,0.2) 0%, rgba(0,139,77,0.55) 55%, rgba(0,139,77,0.95) 100%)",
+          background: "linear-gradient(to bottom, rgba(9,78,125,0.2) 0%, rgba(9,78,125,0.55) 55%, rgba(9,78,125,0.95) 100%)",
         }}
       />
 
@@ -71,7 +71,7 @@ function ProfileHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1, delay: 0.3, ease }}
-            className="font-light text-[#F6F6F6] leading-[1.0]"
+            className="font-light text-[#F6F3F3] leading-[1.0]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
           >
             Alhaji Abdulhameed
@@ -82,7 +82,7 @@ function ProfileHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1, delay: 0.42, ease }}
-            className="font-light text-[#F6F6F6] leading-[1.0]"
+            className="font-light text-[#F6F3F3] leading-[1.0]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
           >
             Oluwafemi Omotayo
@@ -99,7 +99,7 @@ function ProfileHero() {
           {["Known as Omoowo", "PDP Candidate", "Ogun East Senatorial District", "2027 Election"].map((tag) => (
             <span
               key={tag}
-              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#F6F6F6]/80 rounded-sm"
+              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#F6F3F3]/80 rounded-sm"
               style={{
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
@@ -122,7 +122,7 @@ function Biography() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-28 items-start">
 
         {/* Left â€” sticky photo accent */}
@@ -151,11 +151,11 @@ function Biography() {
                 style={{
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
-                  background: "rgba(0,139,77,0.75)",
+                  background: "rgba(9,78,125,0.75)",
                   borderTop: "1px solid rgba(246,246,246,0.08)",
                 }}
               >
-                <p className="text-[#F6F6F6]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
+                <p className="text-[#F6F3F3]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
                 <p className="text-[#E63035] text-[10px] tracking-[0.15em] uppercase mt-0.5">PDP &middot; Ogun East</p>
               </div>
             </div>
@@ -263,7 +263,7 @@ function Timeline() {
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-[#008B4D] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#094e7d] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -276,7 +276,7 @@ function Timeline() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#F6F6F6] mb-20"
+          className="font-light text-[#F6F3F3] mb-20"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
         >
           A life spent in service.
@@ -288,7 +288,7 @@ function Timeline() {
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1.2, delay: 0.2, ease }}
-            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[#E63035] origin-top"
+            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[rgba(246,243,243,0.25)] origin-top"
             style={{ marginLeft: "-0.5px" }}
           />
 
@@ -315,7 +315,7 @@ function Timeline() {
                   <div className="lg:hidden absolute left-0 top-1.5 w-2 h-2 rounded-full bg-[#E63035]" />
 
                   <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase mb-2">{item.period}</p>
-                  <h3 className="text-[#F6F6F6] font-light text-xl mb-3 leading-snug">{item.title}</h3>
+                  <h3 className="text-[#F6F3F3] font-light text-xl mb-3 leading-snug">{item.title}</h3>
                   <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
                 </motion.div>
               );
@@ -356,7 +356,7 @@ function Values() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -382,7 +382,7 @@ function Values() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15 + i * 0.1, ease }}
-              className="bg-[#F6F6F6] p-10 md:p-14 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300"
+              className="bg-[#F6F3F3] p-10 md:p-14 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300"
             >
               <p className="text-[#DCDCDC] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
               <h3
@@ -413,18 +413,18 @@ function Quote() {
   const words = "I did not enter this race for titles. I entered it because the people of Ogun East deserve a senator who lives among them, listens to them, and fights for them every single day.".split(" ");
 
   return (
-    <section ref={ref} className="bg-[#E63035] py-28 md:py-44 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#094e7d] py-28 md:py-44 px-6 md:px-12 lg:px-20">
       <div className="max-w-190 mx-auto text-center">
         <motion.p
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="w-10 h-px bg-[#F6F6F6] mx-auto mb-12 origin-center"
+          className="w-10 h-px bg-[#E63035] mx-auto mb-12 origin-center"
           style={{ display: "block" }}
         />
 
         <blockquote
-          className="font-light text-[#F6F6F6] leading-[1.45] mb-10"
+          className="font-light text-[#F6F3F3] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.1rem)", letterSpacing: "-0.01em" }}
         >
           &ldquo;
@@ -446,7 +446,7 @@ function Quote() {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8, ease }}
-          className="text-[#F6F6F6]/70 text-[11px] tracking-[0.3em] uppercase"
+          className="text-[rgba(246,243,243,0.6)] text-[11px] tracking-[0.3em] uppercase"
         >
           Alhaji Omoowo &mdash; PDP Candidate, Ogun East 2027
         </motion.p>
@@ -468,23 +468,23 @@ function Stats() {
   ];
 
   return (
-    <section ref={ref} className="bg-[#008B4D] py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#E63035]">
+    <section ref={ref} className="bg-[#094e7d] py-20 px-6 md:px-12 lg:px-20">
+      <div className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-[rgba(246,243,243,0.15)]">
         {data.map((d, i) => (
           <motion.div
             key={d.label}
             initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
             animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
             transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
-            className="bg-[#008B4D] px-8 py-10 group hover:bg-[#E63035] transition-colors duration-250 cursor-default"
+            className="bg-[#094e7d] px-8 py-10 group hover:bg-[#E63035] transition-colors duration-250 cursor-default"
           >
             <p
-              className="font-light text-[#F6F6F6] leading-none mb-3 group-hover:text-[#DCDCDC] transition-colors duration-250"
+              className="font-light text-[#F6F3F3] leading-none mb-3 group-hover:text-[#DCDCDC] transition-colors duration-250"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.03em" }}
             >
               {d.value}
             </p>
-            <p className="text-[#DCDCDC] text-sm mb-1 group-hover:text-[#F6F6F6] transition-colors duration-250">{d.label}</p>
+            <p className="text-[#DCDCDC] text-sm mb-1 group-hover:text-[#F6F3F3] transition-colors duration-250">{d.label}</p>
             <p className="text-[#888888] text-[11px] leading-relaxed">{d.sub}</p>
           </motion.div>
         ))}
@@ -499,7 +499,7 @@ function ProfileCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F6F6F6] py-28 md:py-36 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-36 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <motion.p
@@ -535,7 +535,7 @@ function ProfileCTA() {
           </a>
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#E63035] text-[#F6F6F6] text-[11px] tracking-[0.2em] uppercase hover:bg-[#008B4D] transition-colors duration-200"
+            className="px-7 py-3 bg-[#E63035] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
           >
             Join the Campaign
           </a>

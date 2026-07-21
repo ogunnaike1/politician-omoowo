@@ -10,9 +10,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const C = {
   dark: "#1A1A1A",
   mid: "#E63035",
-  light: "#F6F3F3",
+  light: "#FFFFFF",
   muted: "#888888",
-  bg: "#F6F3F3",
+  bg: "#FFFFFF",
   border: "#DCDCDC",
 } as const;
 
@@ -731,7 +731,7 @@ function AttendCTA() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.1, ease }}
-              className="font-light text-[#F6F3F3] leading-[1.04]"
+              className="font-light text-[#FFFFFF] leading-[1.04]"
               style={{
                 fontSize: "clamp(2rem, 5vw, 5.5rem)",
                 letterSpacing: "-0.035em",
@@ -784,7 +784,7 @@ function AttendCTA() {
                 {card.label}
               </p>
               <h3
-                className="font-light text-[#F6F3F3] leading-tight mb-4"
+                className="font-light text-[#FFFFFF] leading-tight mb-4"
                 style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)", letterSpacing: "-0.01em" }}
               >
                 {card.headline}

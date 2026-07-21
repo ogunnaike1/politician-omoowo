@@ -16,9 +16,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const C = {
   dark: "#1A1A1A",
   mid: "#E63035",
-  light: "#F6F3F3",
+  light: "#FFFFFF",
   muted: "#888888",
-  bg: "#F6F3F3",
+  bg: "#FFFFFF",
   border: "#DCDCDC",
 } as const;
 
@@ -668,7 +668,7 @@ function VisionCTA() {
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease }}
-            className="font-light text-[#F6F3F3] leading-[1.05] mb-8"
+            className="font-light text-[#FFFFFF] leading-[1.05] mb-8"
             style={{ fontSize: "clamp(2.2rem, 5vw, 5.2rem)", letterSpacing: "-0.035em" }}
           >
             Be part of what comes next.

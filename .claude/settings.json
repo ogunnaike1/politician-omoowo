@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:claude.ai)",
-      "WebFetch(domain:7d3ce985-712a-422a-b475-80147be4b529.claudeusercontent.com)"
+      "WebFetch(domain:7d3ce985-712a-422a-b475-80147be4b529.claudeusercontent.com)",
+      "Bash(xargs sed -i 's/#F6F3F3/#FFFFFF/g')"
     ]
   }
 }

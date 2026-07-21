@@ -30,7 +30,7 @@ const cards = [
     title: "Stay Informed",
     body: "Get campaign updates, policy announcements, and event schedules delivered directly to you. No spam, ever.",
     cta: "Subscribe",
-    bg: "#F6F3F3",
+    bg: "#FFFFFF",
     dark: false,
   },
 ];
@@ -63,7 +63,7 @@ export default function Involved() {
       id="involved"
       ref={ref}
       className="py-28 md:py-40 px-6 md:px-12 lg:px-20"
-      style={{ background: "#F6F3F3" }}
+      style={{ background: "#FFFFFF" }}
     >
       <div className="max-w-300 mx-auto">
 
@@ -96,9 +96,9 @@ export default function Involved() {
           {cards.map((c, i) => {
             const anim = cardAnimations[i];
             const labelColor  = c.dark ? "rgba(246,246,246,0.55)" : "#E63035";
-            const headingColor = c.dark ? "#F6F3F3" : "#1A1A1A";
+            const headingColor = c.dark ? "#FFFFFF" : "#1A1A1A";
             const bodyColor   = c.dark ? "rgba(246,246,246,0.65)" : "#888888";
-            const ctaColor    = c.dark ? "#F6F3F3" : "#008B4D";
+            const ctaColor    = c.dark ? "#FFFFFF" : "#008B4D";
             const ctaBorder   = c.dark ? "rgba(246,246,246,0.35)" : "rgba(0,139,77,0.35)";
 
             return (
@@ -146,7 +146,7 @@ export default function Involved() {
                       onFocus={(e) => (e.currentTarget.style.borderColor = "#008B4D")}
                       onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.2)")}
                     />
-                    <button className="px-5 py-2.5 bg-[#008B4D] text-[#F6F3F3] text-[11px] shrink-0 font-medium hover:bg-[#E63035] transition-colors duration-200">
+                    <button className="px-5 py-2.5 bg-[#008B4D] text-[#FFFFFF] text-[11px] shrink-0 font-medium hover:bg-[#E63035] transition-colors duration-200">
                       &rarr;
                     </button>
                   </div>

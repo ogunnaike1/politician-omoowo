@@ -27,13 +27,13 @@ export default function Footer() {
           className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 pb-10 border-b border-[rgba(246,246,246,0.2)]"
         >
           <div>
-            <p className="text-[#F6F3F3] text-sm font-medium tracking-wide mb-1.5">
+            <p className="text-[#FFFFFF] text-sm font-medium tracking-wide mb-1.5">
               Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)
             </p>
-            <p className="text-[#F6F3F3]/70 text-[11px] mb-1">
+            <p className="text-[#FFFFFF]/70 text-[11px] mb-1">
               PDP Candidate &mdash; Ogun East Senatorial District
             </p>
-            <p className="text-[#F6F3F3]/50 text-[11px]">
+            <p className="text-[#FFFFFF]/50 text-[11px]">
               2027 National Assembly Election Campaign
             </p>
           </div>
@@ -42,7 +42,7 @@ export default function Footer() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-[#F6F3F3]/55 text-[10px] tracking-[0.2em] uppercase hover:text-[#F6F3F3] transition-colors duration-200"
+                className="text-[#FFFFFF]/55 text-[10px] tracking-[0.2em] uppercase hover:text-[#FFFFFF] transition-colors duration-200"
               >
                 {l.label}
               </a>
@@ -56,7 +56,7 @@ export default function Footer() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-col md:flex-row justify-between gap-4 pt-8"
         >
-          <p className="text-[#F6F3F3]/50 text-[10px] max-w-lg leading-relaxed">
+          <p className="text-[#FFFFFF]/50 text-[10px] max-w-lg leading-relaxed">
             &copy; 2027 Omoowo Campaign. All rights reserved. Authorised by the Omoowo 2027 Campaign
             Committee. Registered with the Independent National Electoral Commission (INEC).
             Peoples Democratic Party (PDP) &mdash; Ogun East Senatorial District.
@@ -66,7 +66,7 @@ export default function Footer() {
               <a
                 key={t}
                 href="#"
-                className="text-[#F6F3F3]/50 text-[10px] tracking-[0.15em] uppercase hover:text-[#F6F3F3] transition-colors duration-200"
+                className="text-[#FFFFFF]/50 text-[10px] tracking-[0.15em] uppercase hover:text-[#FFFFFF] transition-colors duration-200"
               >
                 {t}
               </a>

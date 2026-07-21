@@ -19,10 +19,10 @@ export default function Nav() {
   const { scrollY } = useScroll();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const bgColor = useTransform(scrollY, [0, 80], ["#094e7d", "#F6F3F3"]);
-  const linkColor = useTransform(scrollY, [0, 80], ["#F6F3F3", "#094e7d"]);
+  const bgColor = useTransform(scrollY, [0, 80], ["#094e7d", "#FFFFFF"]);
+  const linkColor = useTransform(scrollY, [0, 80], ["#FFFFFF", "#094e7d"]);
   const btnBg = useTransform(scrollY, [0, 80], ["#E63035", "#094e7d"]);
-  const btnColor = useTransform(scrollY, [0, 80], ["#F6F3F3", "#F6F3F3"]);
+  const btnColor = useTransform(scrollY, [0, 80], ["#FFFFFF", "#FFFFFF"]);
   const borderOpacity = useTransform(scrollY, [40, 80], [0, 1]);
 
   return (
@@ -140,7 +140,7 @@ export default function Nav() {
                     transition={{ duration: 0.28, delay: 0.04 + i * 0.055 }}
                     className="flex items-center justify-between py-4 border-b text-[13px] tracking-[0.22em] uppercase font-light"
                     style={{
-                      color: isActive ? "#F6F3F3" : "rgba(246,246,246,0.6)",
+                      color: isActive ? "#FFFFFF" : "rgba(246,246,246,0.6)",
                       borderColor: "rgba(246,246,246,0.1)",
                     }}
                   >
@@ -163,7 +163,7 @@ export default function Nav() {
               <a
                 href="#involved"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full text-center py-4 bg-[#E63035] text-[#F6F3F3] text-[11px] tracking-[0.22em] uppercase font-medium"
+                className="block w-full text-center py-4 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.22em] uppercase font-medium"
               >
                 Support Us
               </a>

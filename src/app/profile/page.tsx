@@ -75,7 +75,7 @@ function ProfileHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1, delay: 0.3, ease }}
-            className="font-light text-[#F6F3F3] leading-[1.0]"
+            className="font-light text-[#FFFFFF] leading-[1.0]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
           >
             Alhaji Abdulhameed
@@ -86,7 +86,7 @@ function ProfileHero() {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 1, delay: 0.42, ease }}
-            className="font-light text-[#F6F3F3] leading-[1.0]"
+            className="font-light text-[#FFFFFF] leading-[1.0]"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
           >
             Oluwafemi Omotayo
@@ -103,7 +103,7 @@ function ProfileHero() {
           {["Known as Omoowo", "PDP Candidate", "Ogun East Senatorial District", "2027 Election"].map((tag, i) => (
             <span
               key={tag}
-              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#F6F3F3]/80 rounded-sm"
+              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#FFFFFF]/80 rounded-sm"
               style={{
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
@@ -151,7 +151,7 @@ function Biography() {
   ];
 
   return (
-    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-28 items-start">
 
         {/* Left — sticky photo */}
@@ -189,7 +189,7 @@ function Biography() {
                   <div className="flex-1 bg-[#008B4D]" />
                   <div className="flex-1 bg-[#E63035]" />
                 </div>
-                <p className="text-[#F6F3F3]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
+                <p className="text-[#FFFFFF]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
                 <p className="text-[10px] tracking-[0.15em] uppercase mt-0.5" style={{ color: "rgba(246,246,246,0.55)" }}>PDP &middot; Ogun East</p>
               </div>
             </div>
@@ -286,7 +286,7 @@ function Timeline() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#F6F3F3] mb-20"
+          className="font-light text-[#FFFFFF] mb-20"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
         >
           A life spent in service.
@@ -338,7 +338,7 @@ function Timeline() {
                   >
                     {item.period}
                   </p>
-                  <h3 className="text-[#F6F3F3] font-light text-xl mb-3 leading-snug">{item.title}</h3>
+                  <h3 className="text-[#FFFFFF] font-light text-xl mb-3 leading-snug">{item.title}</h3>
                   <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
                 </motion.div>
               );
@@ -374,7 +374,7 @@ function ValueCard({ v, i, inView }: { v: typeof values[0]; i: number; inView: b
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="p-10 md:p-14 cursor-default transition-colors duration-300"
-      style={{ backgroundColor: hovered ? hoverBg : "#F6F3F3" }}
+      style={{ backgroundColor: hovered ? hoverBg : "#FFFFFF" }}
     >
       <p className="text-[#DCDCDC] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
       <h3
@@ -400,7 +400,7 @@ function Values() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -454,7 +454,7 @@ function Quote() {
         </motion.div>
 
         <blockquote
-          className="font-light text-[#F6F3F3] leading-[1.45] mb-10"
+          className="font-light text-[#FFFFFF] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.1rem)", letterSpacing: "-0.01em" }}
         >
           &ldquo;
@@ -515,14 +515,14 @@ function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: st
         style={{
           fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
           letterSpacing: "-0.03em",
-          color: hovered ? "#F6F3F3" : "#F6F3F3",
+          color: hovered ? "#FFFFFF" : "#FFFFFF",
         }}
       >
         {d.value}
       </p>
       <p
         className="text-sm mb-1 transition-colors duration-250"
-        style={{ color: hovered ? "#F6F3F3" : "#DCDCDC" }}
+        style={{ color: hovered ? "#FFFFFF" : "#DCDCDC" }}
       >
         {d.label}
       </p>
@@ -562,7 +562,7 @@ function ProfileCTA() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-36 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-36 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <motion.p
@@ -594,14 +594,14 @@ function ProfileCTA() {
           {/* Green button */}
           <a
             href="/"
-            className="px-7 py-3 bg-[#008B4D] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
+            className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
           >
             &larr; Back to Home
           </a>
           {/* Red button */}
           <a
             href="/#involved"
-            className="px-7 py-3 bg-[#E63035] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
+            className="px-7 py-3 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
           >
             Join the Campaign
           </a>

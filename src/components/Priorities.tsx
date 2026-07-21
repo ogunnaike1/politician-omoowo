@@ -100,7 +100,7 @@ export default function Priorities() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
-              className="font-light text-[#F6F3F3] leading-[1.1]"
+              className="font-light text-[#FFFFFF] leading-[1.1]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
             >
               What Omoowo will fight for.
@@ -142,12 +142,12 @@ export default function Priorities() {
                 <div className="flex items-center justify-between mb-4">
                   <motion.h3
                     variants={titleVariants}
-                    className="font-light text-[#F6F3F3] leading-[1.2]"
+                    className="font-light text-[#FFFFFF] leading-[1.2]"
                     style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.3rem)" }}
                   >
                     {item.title}
                   </motion.h3>
-                  <motion.span variants={arrowVariants} className="text-[#F6F3F3]/60 text-lg shrink-0 ml-3">
+                  <motion.span variants={arrowVariants} className="text-[#FFFFFF]/60 text-lg shrink-0 ml-3">
                     &rarr;
                   </motion.span>
                 </div>
@@ -182,11 +182,11 @@ export default function Priorities() {
             {/* Split red/white accent bar at top */}
             <div className="absolute top-0 inset-x-0 flex h-0.75">
               <div className="flex-1 bg-[#E63035]" />
-              <div className="flex-1 bg-[#F6F3F3]/30" />
+              <div className="flex-1 bg-[#FFFFFF]/30" />
             </div>
             <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>Five Priorities</p>
             <div>
-              <p className="font-light text-[#F6F3F3] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
+              <p className="font-light text-[#FFFFFF] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>
                 05
               </p>
               <p className="text-[11px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.65)" }}>Clear commitments</p>

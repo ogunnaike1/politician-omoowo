@@ -58,7 +58,7 @@ function StatCard({
       onHoverEnd={() => setHovered(false)}
       className="px-8 py-10 cursor-default transition-colors duration-300"
       style={{
-        backgroundColor: hovered ? hoverBg : "#F6F3F3",
+        backgroundColor: hovered ? hoverBg : "#FFFFFF",
         borderTop: `3px solid ${accent}`,
       }}
     >
@@ -109,7 +109,7 @@ function TimelineCard({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="px-8 py-6 flex items-start gap-5 cursor-default transition-colors duration-300"
-      style={{ backgroundColor: hovered ? hoverBg : "#F6F3F3" }}
+      style={{ backgroundColor: hovered ? hoverBg : "#FFFFFF" }}
     >
       {/* Vertical accent bar — green or red per card */}
       <motion.div
@@ -149,7 +149,7 @@ export default function Record() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section id="record" ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section id="record" ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">

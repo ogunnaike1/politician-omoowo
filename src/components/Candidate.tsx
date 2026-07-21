@@ -32,7 +32,24 @@ export default function Candidate() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section id="candidate" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#E63035" }}>
+    <section
+      id="candidate"
+      ref={ref}
+      className="relative py-28 md:py-40 px-6 md:px-12 lg:px-20 overflow-hidden"
+      style={{
+        background: [
+          "radial-gradient(ellipse at 96% 8%, rgba(230,48,53,0.22) 0%, transparent 38%)",
+          "radial-gradient(ellipse at 4% 90%, rgba(0,139,77,0.18) 0%, transparent 36%)",
+          "#094e7d",
+        ].join(", "),
+      }}
+    >
+      {/* Dual-tone accent bar */}
+      <div className="absolute top-0 inset-x-0 flex h-0.75">
+        <div className="flex-1 bg-[#E63035]" />
+        <div className="flex-1 bg-[#008B4D]" />
+      </div>
+
       <div className="max-w-300 mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-14 md:gap-24 items-center">
 
         {/* Portrait â€” clipPath curtain reveal bottom-up */}
@@ -124,7 +141,8 @@ export default function Candidate() {
           {inView && (
             <>
               <div className="mb-5">
-                <MaskedLine delay={0.3} className="text-[10px] tracking-[0.4em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
+                <MaskedLine delay={0.3} className="flex items-center gap-2.5 text-[10px] tracking-[0.4em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
+                  <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
                   The Candidate
                 </MaskedLine>
               </div>
@@ -173,9 +191,9 @@ export default function Candidate() {
                   <a
                     href="/profile"
                     className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 hover:gap-5 transition-all duration-300"
-                    style={{ color: "#F6F3F3", borderBottom: "1px solid rgba(246,246,246,0.35)" }}
+                    style={{ color: "#F6F3F3", borderBottom: "1px solid #008B4D" }}
                   >
-                    Read Full Profile <span style={{ color: "rgba(246,246,246,0.6)" }}>&rarr;</span>
+                    Read Full Profile <span style={{ color: "#008B4D" }}>&rarr;</span>
                   </a>
                 </motion.div>
               </div>

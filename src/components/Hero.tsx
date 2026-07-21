@@ -157,7 +157,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen min-h-[640px] overflow-hidden bg-[#F6F3F3]">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-[#F6F3F3]">
 
       {/* Subtle radial accent glow */}
       <div
@@ -166,7 +166,7 @@ export default function Hero() {
       />
 
       {/* Two-column layout */}
-      <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 items-center pt-24 pb-20">
+      <div className="relative z-10 min-h-screen max-w-300 mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-8 lg:gap-20 items-center pt-24 pb-16 lg:pb-20">
 
         {/* Left â€” text */}
         <div className="flex flex-col justify-center">
@@ -233,9 +233,9 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right â€” portrait frame */}
-        <div className="hidden lg:flex items-center justify-center h-full py-16">
-          <div className="relative w-full max-w-[360px]" style={{ aspectRatio: "3/4" }}>
+        {/* Portrait: above text on mobile, right column on desktop */}
+        <div className=”order-first lg:order-last flex items-center justify-center py-6 lg:py-16 lg:h-full”>
+          <div className=”relative w-[220px] sm:w-[270px] lg:w-full lg:max-w-[360px]” style={{ aspectRatio: “3/4” }}>
             <PortraitFrame scrolled={scrolled} />
           </div>
         </div>

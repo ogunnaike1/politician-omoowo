@@ -7,7 +7,7 @@ const items = [
   {
     n: "01",
     title: "Infrastructure & Roads",
-    body: "Rehabilitating federal roads, bridges, and rural access routes across Ogun East â€” connecting communities to markets, schools, and hospitals.",
+    body: "Rehabilitating federal roads, bridges, and rural access routes across Ogun East — connecting communities to markets, schools, and hospitals.",
   },
   {
     n: "02",
@@ -31,27 +31,27 @@ const items = [
   },
 ];
 
+// Cards 01 03 05 → red, 02 04 → green
+const accentFor = (i: number) => (i % 2 === 0 ? "#E63035" : "#008B4D");
+
+type Custom = { i: number; accent: string }; // used by cardVariants
+
 const cardVariants = {
   hidden: { opacity: 0, rotateX: 55, y: 30 },
-  show: (i: number) => ({
+  show: ({ i, accent }: Custom) => ({
     opacity: 1,
     rotateX: 0,
     y: 0,
-    backgroundColor: "rgba(230,48,53,0.12)",
+    backgroundColor: accent === "#E63035" ? "rgba(230,48,53,0.12)" : "rgba(0,139,77,0.12)",
     boxShadow: "0 0px 0px rgba(0,0,0,0)",
     transition: { type: "spring" as const, stiffness: 90, damping: 18, delay: 0.15 + i * 0.09 },
   }),
   hovered: {
     y: -10,
-    backgroundColor: "rgba(246,246,246,0.12)",
+    backgroundColor: "rgba(246,246,246,0.10)",
     boxShadow: "0 28px 48px rgba(0,0,0,0.2)",
     transition: { type: "spring" as const, stiffness: 300, damping: 24 },
   },
-};
-
-const numVariants = {
-  show: { color: "rgba(246,246,246,0.2)" },
-  hovered: { color: "rgba(246,246,246,0.7)", transition: { duration: 0.2 } },
 };
 
 const titleVariants = {
@@ -59,14 +59,15 @@ const titleVariants = {
   hovered: { x: 4, transition: { type: "spring" as const, stiffness: 300, damping: 25 } },
 };
 
-const barVariants = {
-  show: { width: 24, backgroundColor: "rgba(246,246,246,0.5)" },
-  hovered: {
-    width: 56,
-    backgroundColor: "#F6F3F3",
-    transition: { type: "spring" as const, stiffness: 280, damping: 22 },
-  },
-};
+const makeNumVariants = (accent: string) => ({
+  show: { color: "rgba(246,246,246,0.2)" },
+  hovered: { color: accent, transition: { duration: 0.2 } },
+});
+
+const makeBarVariants = (accent: string) => ({
+  show: { width: 24, backgroundColor: "rgba(246,246,246,0.4)" },
+  hovered: { width: 56, backgroundColor: accent, transition: { type: "spring" as const, stiffness: 280, damping: 22 } },
+});
 
 const arrowVariants = {
   show: { opacity: 0, x: -6 },
@@ -89,9 +90,10 @@ export default function Priorities() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-[10px] tracking-[0.4em] uppercase mb-3"
+              className="flex items-center gap-2.5 text-[10px] tracking-[0.4em] uppercase mb-3"
               style={{ color: "rgba(246,246,246,0.55)" }}
             >
+              <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
               Key Priorities
             </motion.p>
             <motion.h2
@@ -120,40 +122,43 @@ export default function Priorities() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
           style={{ perspective: "1200px", background: "rgba(246,246,246,0.12)" }}
         >
-          {items.map((item, i) => (
-            <motion.div
-              key={item.n}
-              custom={i}
-              variants={cardVariants}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              whileHover="hovered"
-              style={{ transformOrigin: "bottom center", cursor: "default" }}
-              className="p-8 md:p-10 overflow-hidden"
-            >
-              <motion.p variants={numVariants} className="text-[11px] tracking-[0.25em] mb-6">
-                {item.n}
-              </motion.p>
+          {items.map((item, i) => {
+            const accent = accentFor(i);
+            return (
+              <motion.div
+                key={item.n}
+                custom={{ i, accent }}
+                variants={cardVariants}
+                initial="hidden"
+                animate={inView ? "show" : "hidden"}
+                whileHover="hovered"
+                style={{ transformOrigin: "bottom center", cursor: "default" }}
+                className="p-8 md:p-10 overflow-hidden"
+              >
+                <motion.p variants={makeNumVariants(accent)} className="text-[11px] tracking-[0.25em] mb-6">
+                  {item.n}
+                </motion.p>
 
-              <div className="flex items-center justify-between mb-4">
-                <motion.h3
-                  variants={titleVariants}
-                  className="font-light text-[#F6F3F3] leading-[1.2]"
-                  style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.3rem)" }}
-                >
-                  {item.title}
-                </motion.h3>
-                <motion.span variants={arrowVariants} className="text-[#F6F3F3]/60 text-lg shrink-0 ml-3">
-                  &rarr;
-                </motion.span>
-              </div>
+                <div className="flex items-center justify-between mb-4">
+                  <motion.h3
+                    variants={titleVariants}
+                    className="font-light text-[#F6F3F3] leading-[1.2]"
+                    style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.3rem)" }}
+                  >
+                    {item.title}
+                  </motion.h3>
+                  <motion.span variants={arrowVariants} className="text-[#F6F3F3]/60 text-lg shrink-0 ml-3">
+                    &rarr;
+                  </motion.span>
+                </div>
 
-              <p className="text-sm leading-[1.8]" style={{ color: "rgba(246,246,246,0.65)" }}>{item.body}</p>
-              <motion.div variants={barVariants} className="mt-8 h-px" />
-            </motion.div>
-          ))}
+                <p className="text-sm leading-[1.8]" style={{ color: "rgba(246,246,246,0.65)" }}>{item.body}</p>
+                <motion.div variants={makeBarVariants(accent)} className="mt-8 h-px" />
+              </motion.div>
+            );
+          })}
 
-          {/* Dark count cell */}
+          {/* Count cell */}
           <motion.div
             custom={5}
             variants={{
@@ -172,8 +177,13 @@ export default function Priorities() {
             animate={inView ? "show" : "hidden"}
             whileHover="hovered"
             style={{ transformOrigin: "bottom center", background: "#E63035" }}
-            className="p-8 md:p-10 flex flex-col justify-between"
+            className="relative p-8 md:p-10 flex flex-col justify-between overflow-hidden"
           >
+            {/* Split green/red accent bar at top */}
+            <div className="absolute top-0 inset-x-0 flex h-0.75">
+              <div className="flex-1 bg-[#008B4D]" />
+              <div className="flex-1 bg-[#F6F3F3]/30" />
+            </div>
             <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>Five Priorities</p>
             <div>
               <p className="font-light text-[#F6F3F3] leading-none mb-2" style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}>

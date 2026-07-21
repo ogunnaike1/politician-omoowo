@@ -6,6 +6,9 @@ import { useRef } from "react";
 const quoteText =
   "The people of Ogun East deserve more than promises. They deserve a representative who shows up, follows through, and fights for them every single day.";
 
+// Indices of words to highlight in green
+const greenWords = new Set([5, 10, 14, 15, 16, 17, 19]);
+
 export default function Vision() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
@@ -21,8 +24,9 @@ export default function Vision() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-12"
+            className="flex items-center gap-2.5 text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-12"
           >
+            <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
             His Vision
           </motion.p>
 
@@ -38,7 +42,7 @@ export default function Vision() {
                 initial={{ opacity: 0, filter: "blur(6px)", y: 18 }}
                 animate={inView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.04, ease: "easeOut" }}
-                style={{ display: "inline" }}
+                style={{ display: "inline", color: greenWords.has(i) ? "#008B4D" : undefined }}
               >
                 {word}{i < words.length - 1 ? " " : ""}
               </motion.span>
@@ -50,7 +54,7 @@ export default function Vision() {
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.55 }}
-            className="w-14 h-px bg-[#E63035] origin-left mb-10"
+            className="w-14 h-px bg-[#008B4D] origin-left mb-10"
           />
 
           <motion.p

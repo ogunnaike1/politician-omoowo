@@ -309,8 +309,8 @@ const pillars = [
     sub: "Every decision starts with one question: how does this change daily life?",
     body: "Not policy for policy's sake. Not legislation to fill a legislative record. Every bill Omoowo sponsors will be traceable — in plain language — to a real, measurable improvement in how the people of Ogun East live.",
     items: ["Town halls every quarter across all 3 LGAs", "Open constituency office — no appointment needed", "Voting record published and updated weekly", "Annual state-of-constituency report"],
-    bg: C.green,   /* green panel */
-    light: true,
+    bg: "#FFFFFF",
+    light: false,
   },
   {
     n: "II",
@@ -318,8 +318,8 @@ const pillars = [
     sub: "Development that reaches every community — not just the visible ones.",
     body: "Ogun East is not one community. Ogun Waterside has different needs from Ikenne. Ijebu-East has different challenges from both. Omoowo's agenda is calibrated for geographic equity — measured, tracked, and publicly reported.",
     items: ["Equal project distribution across all 3 LGAs", "Biannual equity report on resource allocation", "Special advocacy for underserved wards", "Infrastructure mapping published online"],
-    bg: C.bg,      /* white panel */
-    light: false,
+    bg: "#094E7D",
+    light: true,
   },
   {
     n: "III",
@@ -327,8 +327,8 @@ const pillars = [
     sub: "Power without accountability is just privilege.",
     body: "Omoowo does not see the Senate seat as a destination. He sees it as a contract. Every naira of constituency fund will be publicly documented. Every Senate vote will be explained to constituents within 48 hours.",
     items: ["Constituency fund expenditure published quarterly", "Senate votes explained in plain language within 48hrs", "Independent community oversight committee", "Annual performance audit open to all"],
-    bg: C.dark,    /* dark panel */
-    light: true,
+    bg: "#FFFFFF",
+    light: false,
   },
 ];
 
@@ -491,7 +491,7 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] items-start gap-6 md:gap-14 py-12 border-t"
-      style={{ borderColor: C.border }}
+      style={{ borderColor: "rgba(246,246,246,0.1)" }}
     >
       {/* Year number — accent on hover */}
       <div>
@@ -499,13 +499,13 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
           className="font-light leading-none transition-colors duration-300"
           style={{
             fontSize: "clamp(2.2rem, 4vw, 3.8rem)",
-            color: hovered ? r.accent : C.border,
+            color: hovered ? r.accent : "rgba(246,246,246,0.2)",
             letterSpacing: "-0.05em",
           }}
         >
           {r.yr}
         </div>
-        <p className="text-[9px] tracking-[0.25em] uppercase mt-1.5" style={{ color: C.muted }}>
+        <p className="text-[9px] tracking-[0.25em] uppercase mt-1.5" style={{ color: "rgba(246,246,246,0.4)" }}>
           {r.label}
         </p>
       </div>
@@ -514,17 +514,17 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
       <div>
         <h3
           className="font-light mb-4"
-          style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.45rem)", color: C.dark, letterSpacing: "-0.01em" }}
+          style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.45rem)", color: C.light, letterSpacing: "-0.01em" }}
         >
           {r.title}
         </h3>
-        <p className="text-sm leading-[1.95]" style={{ color: C.muted }}>{r.body}</p>
+        <p className="text-sm leading-[1.95]" style={{ color: "rgba(246,246,246,0.55)" }}>{r.body}</p>
       </div>
 
       {/* Action list — accent bullet lines */}
       <ul className="space-y-3 md:pt-1">
         {r.actions.map((a) => (
-          <li key={a} className="flex items-start gap-3 text-[12px] leading-[1.65]" style={{ color: C.dark }}>
+          <li key={a} className="flex items-start gap-3 text-[12px] leading-[1.65]" style={{ color: "rgba(246,246,246,0.75)" }}>
             <motion.span
               className="mt-[5px] flex-shrink-0 h-px"
               style={{ background: r.accent }}
@@ -546,7 +546,7 @@ function Roadmap() {
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: C.bg }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
       <div className="max-w-300 mx-auto">
         <div className="mb-20">
           <motion.p
@@ -564,7 +564,7 @@ function Roadmap() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
             className="font-light leading-[1.06]"
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.4rem)", color: C.dark, letterSpacing: "-0.025em", maxWidth: "560px" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.4rem)", color: C.light, letterSpacing: "-0.025em", maxWidth: "560px" }}
           >
             How four years become a legacy.
           </motion.h2>
@@ -574,7 +574,7 @@ function Roadmap() {
           {roadmap.map((r, i) => (
             <RoadmapRow key={r.yr} r={r} i={i} inView={inView} />
           ))}
-          <div className="h-px" style={{ background: C.border }} />
+          <div className="h-px" style={{ background: "rgba(246,246,246,0.1)" }} />
         </div>
       </div>
     </section>
@@ -598,7 +598,7 @@ function Manifesto() {
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
+    <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-14 lg:gap-28 items-start">
 
@@ -635,8 +635,8 @@ function Manifesto() {
                     fontSize: "clamp(1.6rem, 3.8vw, 4rem)",
                     letterSpacing: "-0.025em",
                     color: s.strong
-                      ? (s as { color?: string }).color ?? C.light
-                      : "rgba(246,246,246,0.38)",
+                      ? (s as { color?: string }).color ?? C.dark
+                      : "rgba(26,26,26,0.28)",
                   }}
                 >
                   {s.text}
@@ -652,10 +652,10 @@ function Manifesto() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.85 }}
           className="mt-20 pt-8 flex items-center gap-5"
-          style={{ borderTop: "1px solid rgba(246,246,246,0.07)" }}
+          style={{ borderTop: "1px solid rgba(26,26,26,0.08)" }}
         >
-          <div className="w-6 h-px shrink-0" style={{ background: "rgba(246,246,246,0.18)" }} />
-          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: "rgba(246,246,246,0.28)" }}>
+          <div className="w-6 h-px shrink-0" style={{ background: "rgba(26,26,26,0.15)" }} />
+          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: "rgba(26,26,26,0.35)" }}>
             Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo) &mdash; PDP Candidate, Ogun East 2027
           </p>
         </motion.div>

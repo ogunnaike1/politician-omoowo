@@ -52,7 +52,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           style={{ inset: "-14px 14px 14px -14px", zIndex: 0 }}
         />
 
-        {/* Main frame â€” clip reveal top-down */}
+        {/* Main frame - clip reveal top-down */}
         <motion.div
           initial={{ clipPath: "inset(0 0 100% 0)" }}
           animate={{ clipPath: "inset(0 0 0% 0)" }}
@@ -168,7 +168,7 @@ export default function Hero() {
       {/* Two-column layout */}
       <div className="relative z-10 min-h-screen max-w-300 mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-8 lg:gap-20 items-center pt-24 pb-16 lg:pb-20">
 
-        {/* Left â€” text */}
+        {/* Text column */}
         <div className="flex flex-col justify-center">
           <motion.p
             className="text-[#E63035] text-[11px] font-medium tracking-[0.4em] uppercase mb-7"
@@ -234,8 +234,11 @@ export default function Hero() {
         </div>
 
         {/* Portrait: above text on mobile, right column on desktop */}
-        <div className=”order-first lg:order-last flex items-center justify-center py-6 lg:py-16 lg:h-full”>
-          <div className=”relative w-[220px] sm:w-[270px] lg:w-full lg:max-w-[360px]” style={{ aspectRatio: “3/4” }}>
+        <div className="order-first lg:order-last flex items-center justify-center py-6 lg:py-16 lg:h-full">
+          <div
+            className="relative w-[220px] sm:w-[270px] lg:w-full lg:max-w-[360px]"
+            style={{ aspectRatio: "3/4" }}
+          >
             <PortraitFrame scrolled={scrolled} />
           </div>
         </div>
@@ -243,7 +246,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.6 }}

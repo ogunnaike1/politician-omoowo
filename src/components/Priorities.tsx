@@ -176,12 +176,12 @@ export default function Priorities() {
             initial="hidden"
             animate={inView ? "show" : "hidden"}
             whileHover="hovered"
-            style={{ transformOrigin: "bottom center", background: "#E63035" }}
+            style={{ transformOrigin: "bottom center", background: "#008B4D" }}
             className="relative p-8 md:p-10 flex flex-col justify-between overflow-hidden"
           >
-            {/* Split green/red accent bar at top */}
+            {/* Split red/white accent bar at top */}
             <div className="absolute top-0 inset-x-0 flex h-0.75">
-              <div className="flex-1 bg-[#008B4D]" />
+              <div className="flex-1 bg-[#E63035]" />
               <div className="flex-1 bg-[#F6F3F3]/30" />
             </div>
             <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>Five Priorities</p>

@@ -6,11 +6,16 @@ import { useRef, useEffect, useState } from "react";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const stats = [
-  { value: 9, suffix: "", label: "Local Governments", sub: "across Ogun East Senatorial District" },
-  { value: 3, suffix: "", label: "LGAs in District", sub: "Ijebu-East, Ogun Waterside, Ikenne" },
-  { value: 2027, suffix: "", label: "Election Year", sub: "National Assembly general elections" },
-  { value: 1, suffix: "", label: "Clear Mission", sub: "Serve the people of Ogun East" },
+  { value: 9,    suffix: "", label: "Local Governments", sub: "across Ogun East Senatorial District" },
+  { value: 3,    suffix: "", label: "LGAs in District",  sub: "Ijebu-East, Ogun Waterside, Ikenne" },
+  { value: 2027, suffix: "", label: "Election Year",     sub: "National Assembly general elections" },
+  { value: 1,    suffix: "", label: "Clear Mission",     sub: "Serve the people of Ogun East" },
 ];
+
+// 2 green : 2 red — perfect balance
+const statAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035"];
+// 2 green : 1 red — offsets the neutral gap lines
+const timeAccent = ["#008B4D", "#E63035", "#008B4D"];
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   const [display, setDisplay] = useState(0);
@@ -30,6 +35,115 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   return <span ref={ref}>{display.toLocaleString()}{suffix}</span>;
 }
 
+function StatCard({
+  s,
+  i,
+  accent,
+  inView,
+}: {
+  s: { value: number; suffix: string; label: string; sub: string };
+  i: number;
+  accent: string;
+  inView: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const hoverBg = accent === "#E63035" ? "rgba(230,48,53,0.12)" : "rgba(0,139,77,0.12)";
+
+  return (
+    <motion.div
+      initial={{ clipPath: "inset(0 100% 0 0)" }}
+      animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
+      transition={{ duration: 0.75, delay: 0.2 + i * 0.15, ease }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="px-8 py-10 cursor-default transition-colors duration-300"
+      style={{
+        backgroundColor: hovered ? hoverBg : "#F6F3F3",
+        borderTop: `3px solid ${accent}`,
+      }}
+    >
+      <p
+        className="font-light tabular-nums leading-none mb-3 transition-colors duration-300"
+        style={{
+          fontSize: "clamp(2rem, 4vw, 3.5rem)",
+          letterSpacing: "-0.03em",
+          color: hovered ? accent : "#1A1A1A",
+        }}
+      >
+        <AnimatedNumber value={s.value} suffix={s.suffix} />
+      </p>
+      <p
+        className="text-sm mb-1 transition-colors duration-300"
+        style={{ color: hovered ? accent : "#1A1A1A" }}
+      >
+        {s.label}
+      </p>
+      <p className="text-[#888888] text-[11px] leading-relaxed">{s.sub}</p>
+    </motion.div>
+  );
+}
+
+function TimelineCard({
+  yr,
+  role,
+  sub,
+  i,
+  accent,
+  inView,
+}: {
+  yr: string;
+  role: string;
+  sub: string;
+  i: number;
+  accent: string;
+  inView: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const hoverBg = accent === "#E63035" ? "rgba(230,48,53,0.12)" : "rgba(0,139,77,0.12)";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.7, delay: 0.8 + i * 0.12, ease }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="px-8 py-6 flex items-start gap-5 cursor-default transition-colors duration-300"
+      style={{ backgroundColor: hovered ? hoverBg : "#F6F3F3" }}
+    >
+      {/* Vertical accent bar — green or red per card */}
+      <motion.div
+        className="w-0.5 self-stretch shrink-0"
+        style={{ backgroundColor: accent, originY: 0 }}
+        initial={{ scaleY: 0 }}
+        animate={inView ? { scaleY: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.9 + i * 0.12 }}
+      />
+      <div>
+        <p
+          className="text-[10px] uppercase mb-1 transition-all duration-300"
+          style={{
+            color: accent,
+            letterSpacing: hovered ? "0.32em" : "0.2em",
+          }}
+        >
+          {yr}
+        </p>
+        <p
+          className="text-sm mb-0.5 transition-colors duration-300"
+          style={{ color: hovered ? accent : "#1A1A1A" }}
+        >
+          {role}
+        </p>
+        <p
+          className="text-[#888888] text-[11px]"
+          dangerouslySetInnerHTML={{ __html: sub }}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Record() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
@@ -44,8 +158,9 @@ export default function Record() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-3"
+              className="flex items-center gap-2.5 text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-3"
             >
+              <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
               The District
             </motion.p>
             <motion.h2
@@ -60,55 +175,37 @@ export default function Record() {
           </div>
         </div>
 
-        {/* Stats â€” horizontal clipPath wipe */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#E63035]">
+        {/* Stats grid — neutral gap so orange lines don't dominate */}
+        <div
+          className="grid grid-cols-2 lg:grid-cols-4 gap-px"
+          style={{ background: "rgba(26,26,26,0.07)" }}
+        >
           {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
-              transition={{ duration: 0.75, delay: 0.2 + i * 0.15, ease }}
-              className="bg-[#F6F3F3] px-8 py-10 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
-            >
-              <p
-                className="font-light text-[#1A1A1A] tabular-nums leading-none mb-3 group-hover:text-[#E63035] transition-colors duration-250"
-                style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", letterSpacing: "-0.03em" }}
-              >
-                <AnimatedNumber value={s.value} suffix={s.suffix} />
-              </p>
-              <p className="text-[#1A1A1A] text-sm mb-1 group-hover:text-[#E63035] transition-colors duration-250">{s.label}</p>
-              <p className="text-[#888888] text-[11px] leading-relaxed">{s.sub}</p>
-            </motion.div>
+            <StatCard key={s.label} s={s} i={i} accent={statAccent[i]} inView={inView} />
           ))}
         </div>
 
-        {/* Timeline */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#E63035]">
-          {[
-            ["Community Roots", "Grassroots Leadership", "Decades of service across Ogun East"],
-            ["PDP Candidate", "Party Nomination", "Peoples Democratic Party &middot; Ogun East"],
-            ["2027 Election", "National Assembly", "Senatorial District seat campaign"],
-          ].map(([yr, role, sub], i) => (
-            <motion.div
+        {/* Timeline — neutral gap */}
+        <div
+          className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px"
+          style={{ background: "rgba(26,26,26,0.07)" }}
+        >
+          {(
+            [
+              ["Community Roots", "Grassroots Leadership", "Decades of service across Ogun East"],
+              ["PDP Candidate",   "Party Nomination",      "Peoples Democratic Party &middot; Ogun East"],
+              ["2027 Election",   "National Assembly",     "Senatorial District seat campaign"],
+            ] as [string, string, string][]
+          ).map(([yr, role, sub], i) => (
+            <TimelineCard
               key={yr}
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.8 + i * 0.12, ease }}
-              className="bg-[#F6F3F3] px-8 py-6 flex items-start gap-5 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-250 cursor-default"
-            >
-              <motion.div
-                className="w-px self-stretch bg-[#E63035] shrink-0"
-                initial={{ scaleY: 0 }}
-                animate={inView ? { scaleY: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.9 + i * 0.12 }}
-                style={{ originY: 0 }}
-              />
-              <div>
-                <p className="text-[#E63035] text-[10px] tracking-[0.2em] uppercase mb-1 group-hover:tracking-[0.3em] transition-all duration-250">{yr}</p>
-                <p className="text-[#1A1A1A] text-sm mb-0.5 group-hover:text-[#E63035] transition-colors duration-250">{role}</p>
-                <p className="text-[#888888] text-[11px]" dangerouslySetInnerHTML={{ __html: sub }} />
-              </div>
-            </motion.div>
+              yr={yr}
+              role={role}
+              sub={sub}
+              i={i}
+              accent={timeAccent[i]}
+              inView={inView}
+            />
           ))}
         </div>
       </div>

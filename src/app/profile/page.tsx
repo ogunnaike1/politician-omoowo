@@ -4,18 +4,26 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-/* â”€â”€ helpers â”€â”€ */
+/* helper */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[#888888] text-[10px] tracking-[0.4em] uppercase mb-4">{children}</p>
   );
 }
 
-/* â”€â”€ 1. HERO â”€â”€ */
+/* ── 1. HERO ── */
+// Alternate hero tag accents: green, red, green, red
+const tagAccents = [
+  { bg: "rgba(0,139,77,0.22)",  border: "rgba(0,139,77,0.45)" },
+  { bg: "rgba(230,48,53,0.22)", border: "rgba(230,48,53,0.45)" },
+  { bg: "rgba(0,139,77,0.22)",  border: "rgba(0,139,77,0.45)" },
+  { bg: "rgba(230,48,53,0.22)", border: "rgba(230,48,53,0.45)" },
+];
+
 function ProfileHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -24,8 +32,6 @@ function ProfileHero() {
 
   return (
     <section ref={ref} className="relative h-[92vh] min-h-[580px] overflow-hidden flex items-end">
-
-      {/* Parallax photo */}
       <motion.div className="absolute inset-0" style={{ y: imgY }}>
         <Image
           src="https://res.cloudinary.com/dhmqhless/image/upload/v1784253381/ChatGPT_Image_Jul_17_2026_02_54_01_AM_y1wlyw.png"
@@ -36,7 +42,6 @@ function ProfileHero() {
         />
       </motion.div>
 
-      {/* Dark overlay */}
       <motion.div
         className="absolute inset-0"
         style={{
@@ -45,7 +50,6 @@ function ProfileHero() {
         }}
       />
 
-      {/* Grain */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
@@ -54,15 +58,15 @@ function ProfileHero() {
         }}
       />
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-300 mx-auto px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
-
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease }}
-          className="text-[#E63035] text-[10px] tracking-[0.45em] uppercase mb-5"
+          className="flex items-center gap-2.5 text-[10px] tracking-[0.45em] uppercase mb-5"
+          style={{ color: "rgba(246,246,246,0.7)" }}
         >
+          <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
           Candidate Profile
         </motion.p>
 
@@ -89,22 +93,22 @@ function ProfileHero() {
           </motion.h1>
         </div>
 
-        {/* Glass tag row */}
+        {/* Tags: alternating green / red */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease }}
           className="flex flex-wrap gap-3"
         >
-          {["Known as Omoowo", "PDP Candidate", "Ogun East Senatorial District", "2027 Election"].map((tag) => (
+          {["Known as Omoowo", "PDP Candidate", "Ogun East Senatorial District", "2027 Election"].map((tag, i) => (
             <span
               key={tag}
               className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#F6F3F3]/80 rounded-sm"
               style={{
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
-                background: "rgba(230,48,53,0.22)",
-                border: "1px solid rgba(230,48,53,0.4)",
+                background: tagAccents[i].bg,
+                border: `1px solid ${tagAccents[i].border}`,
               }}
             >
               {tag}
@@ -116,16 +120,41 @@ function ProfileHero() {
   );
 }
 
-/* â”€â”€ 2. BIO â”€â”€ */
+/* ── 2. BIOGRAPHY ── */
+function QuickFact({ label, val, i }: { label: string; val: string; i: number }) {
+  const [hovered, setHovered] = useState(false);
+  const hoverBg = i % 2 === 0 ? "rgba(0,139,77,0.07)" : "rgba(230,48,53,0.07)";
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="py-3 flex justify-between gap-4 transition-colors duration-200 cursor-default"
+      style={{ backgroundColor: hovered ? hoverBg : "transparent" }}
+    >
+      <p className="text-[#888888] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
+      <p className="text-[#1A1A1A] text-[11px] text-right leading-relaxed">{val}</p>
+    </div>
+  );
+}
+
 function Biography() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
+
+  const facts: [string, string][] = [
+    ["Full Name", "Alhaji Abdulhameed Oluwafemi Omotayo"],
+    ["Known As", "Omoowo"],
+    ["Party", "Peoples Democratic Party (PDP)"],
+    ["Constituency", "Ogun East Senatorial District"],
+    ["State", "Ogun State, Nigeria"],
+    ["Election", "2027 National Assembly"],
+  ];
 
   return (
     <section ref={ref} className="bg-[#F6F3F3] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-28 items-start">
 
-        {/* Left â€” sticky photo accent */}
+        {/* Left — sticky photo */}
         <div className="lg:sticky lg:top-32">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -133,9 +162,9 @@ function Biography() {
             transition={{ duration: 0.9, ease }}
             className="relative"
           >
-            {/* Decorative offset */}
+            {/* Offset border — green */}
             <div
-              className="absolute border border-[#E63035]/30"
+              className="absolute border border-[#008B4D]/30"
               style={{ inset: "12px -12px -12px 12px" }}
             />
             <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
@@ -145,7 +174,7 @@ function Biography() {
                 fill
                 style={{ objectFit: "cover", objectPosition: "center 10%" }}
               />
-              {/* Glass strip at bottom */}
+              {/* Glass strip — split accent bar top */}
               <div
                 className="absolute bottom-0 left-0 right-0 px-5 py-4"
                 style={{
@@ -155,43 +184,41 @@ function Biography() {
                   borderTop: "1px solid rgba(246,246,246,0.08)",
                 }}
               >
+                {/* Split green / red bar above name */}
+                <div className="flex h-0.5 mb-3">
+                  <div className="flex-1 bg-[#008B4D]" />
+                  <div className="flex-1 bg-[#E63035]" />
+                </div>
                 <p className="text-[#F6F3F3]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
-                <p className="text-[#E63035] text-[10px] tracking-[0.15em] uppercase mt-0.5">PDP &middot; Ogun East</p>
+                <p className="text-[10px] tracking-[0.15em] uppercase mt-0.5" style={{ color: "rgba(246,246,246,0.55)" }}>PDP &middot; Ogun East</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Quick facts */}
+          {/* Quick facts — alternating hover */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.35, ease }}
             className="mt-8 divide-y divide-[#DCDCDC]"
           >
-            {[
-              ["Full Name", "Alhaji Abdulhameed Oluwafemi Omotayo"],
-              ["Known As", "Omoowo"],
-              ["Party", "Peoples Democratic Party (PDP)"],
-              ["Constituency", "Ogun East Senatorial District"],
-              ["State", "Ogun State, Nigeria"],
-              ["Election", "2027 National Assembly"],
-            ].map(([label, val]) => (
-              <div key={label} className="py-3 flex justify-between gap-4 hover:bg-[rgba(230,48,53,0.06)] transition-colors duration-200 cursor-default">
-                <p className="text-[#888888] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
-                <p className="text-[#1A1A1A] text-[11px] text-right leading-relaxed">{val}</p>
-              </div>
+            {facts.map(([label, val], i) => (
+              <QuickFact key={label} label={label} val={val} i={i} />
             ))}
           </motion.div>
         </div>
 
-        {/* Right â€” biography text */}
+        {/* Right — biography text */}
         <div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <SectionLabel>Biography</SectionLabel>
+            <div className="flex items-center gap-2.5 mb-4">
+              <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
+              <SectionLabel>Biography</SectionLabel>
+            </div>
           </motion.div>
 
           <motion.h2
@@ -205,12 +232,12 @@ function Biography() {
           </motion.h2>
 
           {[
-            `Alhaji Abdulhameed Oluwafemi Omotayo â€” widely known and beloved across Ogun State as Omoowo â€” is a community leader, accomplished businessman, and long-standing pillar of the Peoples Democratic Party (PDP) in Ogun East. His story is inseparable from the story of the communities he has served throughout his life.`,
-            `Born and raised in Ogun East, Omoowo grew up with a firsthand understanding of the challenges facing ordinary families across the Senatorial District â€” the broken roads that cut communities off from opportunity, the schools that need investment, the healthcare centres that struggle without resources, and the young people whose potential goes unrealised for want of support.`,
-            `Rather than turn away from these realities, Omoowo built his career around confronting them. Through decades of grassroots engagement â€” from Ijebu-East to Ogun Waterside, from Ikenne to the remotest communities of the district â€” he has worked alongside traditional rulers, women's associations, youth groups, and business communities to drive the kind of development that begins at the grassroots.`,
-            `His reputation as a man of the people is not a political slogan. It is a track record visible in the communities where he has invested his time, resources, and energy. He is the kind of leader who shows up â€” not during election season, but consistently, year after year, building relationships and earning trust the old-fashioned way.`,
+            `Alhaji Abdulhameed Oluwafemi Omotayo — widely known and beloved across Ogun State as Omoowo — is a community leader, accomplished businessman, and long-standing pillar of the Peoples Democratic Party (PDP) in Ogun East. His story is inseparable from the story of the communities he has served throughout his life.`,
+            `Born and raised in Ogun East, Omoowo grew up with a firsthand understanding of the challenges facing ordinary families across the Senatorial District — the broken roads that cut communities off from opportunity, the schools that need investment, the healthcare centres that struggle without resources, and the young people whose potential goes unrealised for want of support.`,
+            `Rather than turn away from these realities, Omoowo built his career around confronting them. Through decades of grassroots engagement — from Ijebu-East to Ogun Waterside, from Ikenne to the remotest communities of the district — he has worked alongside traditional rulers, women's associations, youth groups, and business communities to drive the kind of development that begins at the grassroots.`,
+            `His reputation as a man of the people is not a political slogan. It is a track record visible in the communities where he has invested his time, resources, and energy. He is the kind of leader who shows up — not during election season, but consistently, year after year, building relationships and earning trust the old-fashioned way.`,
             `As the PDP candidate for the 2027 Ogun East Senatorial District election, Omoowo brings to the National Assembly a clear agenda grounded in his deep knowledge of the district's needs: infrastructure rehabilitation, education investment, healthcare access, security, and economic development for every LGA under Ogun East.`,
-            `His candidacy represents a new chapter â€” not just for him, but for every family in Ogun East that has waited too long for a senator who truly knows them, fights for them, and delivers for them.`,
+            `His candidacy represents a new chapter — not just for him, but for every family in Ogun East that has waited too long for a senator who truly knows them, fights for them, and delivers for them.`,
           ].map((para, i) => (
             <motion.p
               key={i}
@@ -229,34 +256,17 @@ function Biography() {
   );
 }
 
-/* â”€â”€ 3. TIMELINE â”€â”€ */
+/* ── 3. TIMELINE ── */
 const timelineItems = [
-  {
-    period: "Early Years",
-    title: "Roots in Ogun East",
-    body: "Born and raised in Ogun East, shaped by the daily realities of his community â€” its strengths, its challenges, and its enormous unrealised potential.",
-  },
-  {
-    period: "Community Leadership",
-    title: "Grassroots Organiser",
-    body: "Established himself as a trusted community voice across multiple LGAs in Ogun East, working with traditional institutions, youth groups, and women's cooperatives to drive local development.",
-  },
-  {
-    period: "Business & Philanthropy",
-    title: "Entrepreneur & Investor",
-    body: "Built a successful business career while consistently reinvesting in the communities of Ogun East through scholarships, infrastructure support, and economic empowerment programmes.",
-  },
-  {
-    period: "PDP Membership",
-    title: "Party Stalwart",
-    body: "A dedicated and active member of the Peoples Democratic Party (PDP), contributing to party building and electoral organisation across Ogun East over many years.",
-  },
-  {
-    period: "2027 Campaign",
-    title: "Senatorial Candidate",
-    body: "Emerged as the PDP candidate for the 2027 Ogun East Senatorial District election â€” bringing decades of community experience and a people-first agenda to the National Assembly.",
-  },
+  { period: "Early Years",          title: "Roots in Ogun East",      body: "Born and raised in Ogun East, shaped by the daily realities of his community — its strengths, its challenges, and its enormous unrealised potential." },
+  { period: "Community Leadership", title: "Grassroots Organiser",     body: "Established himself as a trusted community voice across multiple LGAs in Ogun East, working with traditional institutions, youth groups, and women's cooperatives to drive local development." },
+  { period: "Business & Philanthropy", title: "Entrepreneur & Investor", body: "Built a successful business career while consistently reinvesting in the communities of Ogun East through scholarships, infrastructure support, and economic empowerment programmes." },
+  { period: "PDP Membership",       title: "Party Stalwart",           body: "A dedicated and active member of the Peoples Democratic Party (PDP), contributing to party building and electoral organisation across Ogun East over many years." },
+  { period: "2027 Campaign",        title: "Senatorial Candidate",     body: "Emerged as the PDP candidate for the 2027 Ogun East Senatorial District election — bringing decades of community experience and a people-first agenda to the National Assembly." },
 ];
+
+// 5 items: green, red, green, red, green — 3 green : 2 red
+const timelineDotAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035", "#008B4D"];
 
 function Timeline() {
   const ref = useRef(null);
@@ -295,6 +305,7 @@ function Timeline() {
           <div className="space-y-0">
             {timelineItems.map((item, i) => {
               const isRight = i % 2 === 0;
+              const accent = timelineDotAccent[i];
               return (
                 <motion.div
                   key={item.period}
@@ -308,13 +319,25 @@ function Timeline() {
                     initial={{ scale: 0 }}
                     animate={inView ? { scale: 1 } : {}}
                     transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 + i * 0.12 }}
-                    className="absolute top-1 w-3 h-3 rounded-full bg-[#E63035] border-2 border-[#1A1A1A]"
-                    style={{ left: isRight ? "auto" : "-6px", right: isRight ? "-6px" : "auto", [isRight ? "right" : "left"]: "calc(100% - 5px)" }}
+                    className="absolute top-1 w-3 h-3 rounded-full border-2 border-[#094e7d]"
+                    style={{
+                      backgroundColor: accent,
+                      left: isRight ? "auto" : "-6px",
+                      right: isRight ? "calc(100% - 5px)" : "auto",
+                    }}
                   />
                   {/* Mobile dot */}
-                  <div className="lg:hidden absolute left-0 top-1.5 w-2 h-2 rounded-full bg-[#E63035]" />
+                  <div
+                    className="lg:hidden absolute left-0 top-1.5 w-2 h-2 rounded-full"
+                    style={{ backgroundColor: accent }}
+                  />
 
-                  <p className="text-[#E63035] text-[10px] tracking-[0.3em] uppercase mb-2">{item.period}</p>
+                  <p
+                    className="text-[10px] tracking-[0.3em] uppercase mb-2"
+                    style={{ color: accent }}
+                  >
+                    {item.period}
+                  </p>
                   <h3 className="text-[#F6F3F3] font-light text-xl mb-3 leading-snug">{item.title}</h3>
                   <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
                 </motion.div>
@@ -327,29 +350,50 @@ function Timeline() {
   );
 }
 
-/* â”€â”€ 4. VALUES â”€â”€ */
+/* ── 4. VALUES ── */
 const values = [
-  {
-    n: "01",
-    title: "Integrity",
-    body: "Leadership built on honesty. What Omoowo commits to publicly, he delivers privately. No double standards, no hidden agendas.",
-  },
-  {
-    n: "02",
-    title: "Community First",
-    body: "Every decision is filtered through one question: does this make life better for the people of Ogun East? That is the only metric that matters.",
-  },
-  {
-    n: "03",
-    title: "Inclusive Development",
-    body: "No LGA left behind. Development must reach the farmer in Ogun Waterside as much as the trader in Ijebu-East.",
-  },
-  {
-    n: "04",
-    title: "Youth & Future",
-    body: "The energy and potential of Ogun East's young people are its greatest asset. Omoowo is committed to unlocking that potential.",
-  },
+  { n: "01", title: "Integrity",             body: "Leadership built on honesty. What Omoowo commits to publicly, he delivers privately. No double standards, no hidden agendas." },
+  { n: "02", title: "Community First",        body: "Every decision is filtered through one question: does this make life better for the people of Ogun East? That is the only metric that matters." },
+  { n: "03", title: "Inclusive Development",  body: "No LGA left behind. Development must reach the farmer in Ogun Waterside as much as the trader in Ijebu-East." },
+  { n: "04", title: "Youth & Future",         body: "The energy and potential of Ogun East's young people are its greatest asset. Omoowo is committed to unlocking that potential." },
 ];
+
+// 4 values: green, red, green, red — perfect 2 : 2
+const valueAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035"];
+
+function ValueCard({ v, i, inView }: { v: typeof values[0]; i: number; inView: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  const accent = valueAccent[i];
+  const hoverBg = accent === "#E63035" ? "rgba(230,48,53,0.10)" : "rgba(0,139,77,0.10)";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: 0.15 + i * 0.1, ease }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="p-10 md:p-14 cursor-default transition-colors duration-300"
+      style={{ backgroundColor: hovered ? hoverBg : "#F6F3F3" }}
+    >
+      <p className="text-[#DCDCDC] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
+      <h3
+        className="font-light mb-5 leading-tight transition-colors duration-300"
+        style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)", color: hovered ? accent : "#1A1A1A" }}
+      >
+        {v.title}
+      </h3>
+      <p className="text-[#888888] text-sm leading-[1.85]">{v.body}</p>
+      <motion.div
+        className="mt-8 h-px origin-left"
+        style={{ backgroundColor: accent }}
+        initial={{ scaleX: 0.15 }}
+        animate={{ scaleX: hovered ? 1 : 0.15 }}
+        transition={{ duration: 0.4, ease }}
+      />
+    </motion.div>
+  );
+}
 
 function Values() {
   const ref = useRef(null);
@@ -375,30 +419,10 @@ function Values() {
           What guides every decision.
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#E63035]">
+        {/* Neutral gap — no orange lines */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: "rgba(26,26,26,0.07)" }}>
           {values.map((v, i) => (
-            <motion.div
-              key={v.n}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.15 + i * 0.1, ease }}
-              className="bg-[#F6F3F3] p-10 md:p-14 group hover:bg-[rgba(230,48,53,0.1)] transition-colors duration-300"
-            >
-              <p className="text-[#DCDCDC] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
-              <h3
-                className="font-light text-[#1A1A1A] mb-5 leading-tight group-hover:text-[#E63035] transition-colors duration-300"
-                style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)" }}
-              >
-                {v.title}
-              </h3>
-              <p className="text-[#888888] text-sm leading-[1.85]">{v.body}</p>
-              <motion.div
-                className="mt-8 h-px bg-[#E63035] origin-left"
-                initial={{ scaleX: 0.15 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.4, ease }}
-              />
-            </motion.div>
+            <ValueCard key={v.n} v={v} i={i} inView={inView} />
           ))}
         </div>
       </div>
@@ -406,37 +430,46 @@ function Values() {
   );
 }
 
-/* â”€â”€ 5. QUOTE â”€â”€ */
+/* ── 5. QUOTE ── */
+// Green words: "fights" (28), "listens" (24), "lives" (21), "deserve" (17)
+const quoteGreenWords = new Set([17, 21, 24, 28]);
+const quoteWords = "I did not enter this race for titles. I entered it because the people of Ogun East deserve a senator who lives among them, listens to them, and fights for them every single day.".split(" ");
+
 function Quote() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
-  const words = "I did not enter this race for titles. I entered it because the people of Ogun East deserve a senator who lives among them, listens to them, and fights for them every single day.".split(" ");
 
   return (
     <section ref={ref} className="bg-[#094e7d] py-28 md:py-44 px-6 md:px-12 lg:px-20">
       <div className="max-w-190 mx-auto text-center">
-        <motion.p
+        {/* Split green / red accent line */}
+        <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={inView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="w-10 h-px bg-[#E63035] mx-auto mb-12 origin-center"
-          style={{ display: "block" }}
-        />
+          className="flex w-20 mx-auto mb-12 h-px origin-center overflow-hidden"
+        >
+          <div className="flex-1 bg-[#008B4D]" />
+          <div className="flex-1 bg-[#E63035]" />
+        </motion.div>
 
         <blockquote
           className="font-light text-[#F6F3F3] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.1rem)", letterSpacing: "-0.01em" }}
         >
           &ldquo;
-          {words.map((word, i) => (
+          {quoteWords.map((word, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, filter: "blur(6px)", y: 14 }}
               animate={inView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.035, ease: "easeOut" }}
-              style={{ display: "inline" }}
+              style={{
+                display: "inline",
+                color: quoteGreenWords.has(i) ? "#008B4D" : undefined,
+              }}
             >
-              {word}{i < words.length - 1 ? " " : ""}
+              {word}{i < quoteWords.length - 1 ? " " : ""}
             </motion.span>
           ))}
           &rdquo;
@@ -446,7 +479,8 @@ function Quote() {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8, ease }}
-          className="text-[rgba(246,243,243,0.6)] text-[11px] tracking-[0.3em] uppercase"
+          className="text-[11px] tracking-[0.3em] uppercase"
+          style={{ color: "rgba(246,243,243,0.6)" }}
         >
           Alhaji Omoowo &mdash; PDP Candidate, Ogun East 2027
         </motion.p>
@@ -455,45 +489,74 @@ function Quote() {
   );
 }
 
-/* â”€â”€ 6. STATS â”€â”€ */
+/* ── 6. STATS ── */
+// 4 cells: green, red, green, red — perfect 2 : 2
+const statCellAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035"];
+
+function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: string }; i: number; inView: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  const accent = statCellAccent[i];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+      animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
+      transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="px-8 py-10 cursor-default transition-colors duration-250"
+      style={{
+        backgroundColor: hovered ? accent : "#094e7d",
+        borderTop: `2px solid ${accent}`,
+      }}
+    >
+      <p
+        className="font-light leading-none mb-3 transition-colors duration-250"
+        style={{
+          fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+          letterSpacing: "-0.03em",
+          color: hovered ? "#F6F3F3" : "#F6F3F3",
+        }}
+      >
+        {d.value}
+      </p>
+      <p
+        className="text-sm mb-1 transition-colors duration-250"
+        style={{ color: hovered ? "#F6F3F3" : "#DCDCDC" }}
+      >
+        {d.label}
+      </p>
+      <p className="text-[#888888] text-[11px] leading-relaxed">{d.sub}</p>
+    </motion.div>
+  );
+}
+
 function Stats() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
   const data = [
-    { value: "3", label: "LGAs", sub: "Ijebu-East, Ogun Waterside, Ikenne" },
-    { value: "PDP", label: "Party", sub: "Peoples Democratic Party" },
-    { value: "2027", label: "Election Year", sub: "National Assembly general elections" },
-    { value: "1", label: "Goal", sub: "Deliver real change for Ogun East" },
+    { value: "3",    label: "LGAs",          sub: "Ijebu-East, Ogun Waterside, Ikenne" },
+    { value: "PDP",  label: "Party",          sub: "Peoples Democratic Party" },
+    { value: "2027", label: "Election Year",  sub: "National Assembly general elections" },
+    { value: "1",    label: "Goal",           sub: "Deliver real change for Ogun East" },
   ];
 
   return (
     <section ref={ref} className="bg-[#094e7d] py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-[rgba(246,243,243,0.15)]">
+      <div
+        className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px"
+        style={{ background: "rgba(246,243,243,0.12)" }}
+      >
         {data.map((d, i) => (
-          <motion.div
-            key={d.label}
-            initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
-            animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
-            transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
-            className="bg-[#094e7d] px-8 py-10 group hover:bg-[#E63035] transition-colors duration-250 cursor-default"
-          >
-            <p
-              className="font-light text-[#F6F3F3] leading-none mb-3 group-hover:text-[#DCDCDC] transition-colors duration-250"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.03em" }}
-            >
-              {d.value}
-            </p>
-            <p className="text-[#DCDCDC] text-sm mb-1 group-hover:text-[#F6F3F3] transition-colors duration-250">{d.label}</p>
-            <p className="text-[#888888] text-[11px] leading-relaxed">{d.sub}</p>
-          </motion.div>
+          <StatCell key={d.label} d={d} i={i} inView={inView} />
         ))}
       </div>
     </section>
   );
 }
 
-/* â”€â”€ 7. CTA â”€â”€ */
+/* ── 7. CTA ── */
 function ProfileCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
@@ -506,8 +569,9 @@ function ProfileCTA() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#888888] text-[10px] tracking-[0.4em] uppercase mb-4"
+            className="flex items-center gap-2.5 text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-4"
           >
+            <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
             Get Involved
           </motion.p>
           <motion.h2
@@ -527,12 +591,14 @@ function ProfileCTA() {
           transition={{ duration: 0.7, delay: 0.3, ease }}
           className="flex flex-wrap gap-4 shrink-0"
         >
+          {/* Green button */}
           <a
             href="/"
-            className="px-7 py-3 border border-[#DCDCDC] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:border-[#1A1A1A] transition-colors duration-200"
+            className="px-7 py-3 bg-[#008B4D] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
           >
             &larr; Back to Home
           </a>
+          {/* Red button */}
           <a
             href="/#involved"
             className="px-7 py-3 bg-[#E63035] text-[#F6F3F3] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
@@ -545,7 +611,7 @@ function ProfileCTA() {
   );
 }
 
-/* â”€â”€ PAGE â”€â”€ */
+/* ── PAGE ── */
 export default function ProfilePage() {
   return (
     <>

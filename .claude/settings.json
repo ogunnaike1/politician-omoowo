@@ -3,7 +3,22 @@
     "allow": [
       "WebFetch(domain:claude.ai)",
       "WebFetch(domain:7d3ce985-712a-422a-b475-80147be4b529.claudeusercontent.com)",
-      "Bash(xargs sed -i 's/#F6F3F3/#FFFFFF/g')"
+      "Bash(xargs sed -i 's/#F6F3F3/#FFFFFF/g')",
+      "Bash(grep -rl \"hover\\\\\\\\\\\\\\\\:opacity-70\" \"c:/Workspace/politician-omoowo/.next\")",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(grep -w \"ws$\")",
+      "Bash(node -e \"console.log\\(require.resolve\\('ws'\\)\\)\")",
+      "Bash(CHROME=\"/c/Program Files/Google/Chrome/Application/chrome.exe\" *)",
+      "Bash(npm ls *)",
+      "Bash(npm view *)",
+      "Bash(mkdir -p \"/c/Users/usman/AppData/Local/Temp/claude/c--Workspace-politician-omoowo/6d4ab2e1-c0e8-4ecb-86cb-d31fb4868b57/scratchpad/overflow-check\")",
+      "Bash(npm init *)",
+      "Bash(node check.js)",
+      "Bash(node check2.js)",
+      "Bash(grep -rln \"initial={{ opacity: 0, x:\" --include=\"*.tsx\" .)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

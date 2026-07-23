@@ -150,9 +150,9 @@ type Filter = (typeof FILTERS)[number];
 const TYPE_PILL: Record<EventType, { bg: string; color: string }> = {
   "Rally":        { bg: C.red,                        color: C.light },
   "Town Hall":    { bg: C.green,                      color: C.light },
-  "Forum":        { bg: "rgba(246,246,246,0.12)",     color: "rgba(246,246,246,0.75)" },
+  "Forum":        { bg: "rgba(26,26,26,0.08)",        color: "rgba(26,26,26,0.75)" },
   "Summit":       { bg: C.green,                      color: C.light },
-  "Consultation": { bg: "rgba(246,246,246,0.08)",     color: "rgba(246,246,246,0.6)" },
+  "Consultation": { bg: "rgba(26,26,26,0.05)",         color: "rgba(26,26,26,0.6)" },
 };
 
 /* ══════════════════════════════════════════
@@ -273,7 +273,7 @@ function EventsHero() {
           >
             <div
               className="relative overflow-hidden p-8 md:p-10"
-              style={{ background: "#094e7d", border: "1px solid rgba(26,26,26,0.06)" }}
+              style={{ background: "#008B4D", border: "1px solid rgba(26,26,26,0.06)" }}
             >
               {/* Green top accent bar */}
               <div className="absolute inset-x-0 top-0 flex h-0.5">
@@ -339,13 +339,13 @@ function EventsHero() {
 }
 
 /* ══════════════════════════════════════════
-   2. UPCOMING EVENTS — #094E7D background
+   2. UPCOMING EVENTS — white background
 ══════════════════════════════════════════ */
 function EventRow({ event, index }: { event: CEvent; index: number }) {
   const [hovered, setHovered] = useState(false);
   const pill       = TYPE_PILL[event.type];
-  const hoverBg    = index % 2 === 0 ? "rgba(0,139,77,0.12)" : "rgba(230,48,53,0.12)";
-  const dateColor  = event.featured ? C.red : index % 2 === 0 ? C.green : "rgba(246,246,246,0.22)";
+  const hoverBg    = index % 2 === 0 ? "rgba(0,139,77,0.08)" : "rgba(230,48,53,0.08)";
+  const dateColor  = event.featured ? C.red : index % 2 === 0 ? C.green : "rgba(26,26,26,0.18)";
   const titleHover = index % 2 === 0 ? C.green : C.red;
 
   return (
@@ -359,7 +359,7 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
       onHoverEnd={() => setHovered(false)}
       className="group grid grid-cols-1 md:grid-cols-[100px_1fr_auto] items-center gap-4 md:gap-10 py-6 border-t cursor-default transition-colors duration-300"
       style={{
-        borderColor: "rgba(246,246,246,0.1)",
+        borderColor: "rgba(26,26,26,0.08)",
         backgroundColor: hovered ? hoverBg : "transparent",
       }}
     >
@@ -376,10 +376,10 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
           {event.day}
         </div>
         <div className="md:mt-1">
-          <p className="text-[10px] tracking-[0.22em] uppercase" style={{ color: "rgba(246,246,246,0.4)" }}>
+          <p className="text-[10px] tracking-[0.22em] uppercase" style={{ color: "rgba(26,26,26,0.4)" }}>
             {event.month} {event.year}
           </p>
-          <p className="text-[9px] tracking-[0.15em]" style={{ color: "rgba(246,246,246,0.25)" }}>
+          <p className="text-[9px] tracking-[0.15em]" style={{ color: "rgba(26,26,26,0.3)" }}>
             {event.time}
           </p>
         </div>
@@ -391,7 +391,7 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
           className="font-light leading-tight mb-1.5 transition-colors duration-300"
           style={{
             fontSize: event.featured ? "clamp(1.05rem, 1.6vw, 1.4rem)" : "clamp(0.95rem, 1.3vw, 1.15rem)",
-            color: hovered ? titleHover : "rgba(246,246,246,0.85)",
+            color: hovered ? titleHover : "rgba(26,26,26,0.85)",
             letterSpacing: "-0.01em",
           }}
         >
@@ -403,9 +403,9 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
           )}
         </p>
         <div className="flex items-center gap-2 flex-wrap">
-          <p className="text-[11px]" style={{ color: "rgba(246,246,246,0.45)" }}>{event.location}</p>
-          <span style={{ color: "rgba(246,246,246,0.25)" }}>·</span>
-          <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.3)" }}>{event.lga}</p>
+          <p className="text-[11px]" style={{ color: "rgba(26,26,26,0.5)" }}>{event.location}</p>
+          <span style={{ color: "rgba(26,26,26,0.3)" }}>·</span>
+          <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(26,26,26,0.35)" }}>{event.lga}</p>
         </div>
       </div>
 
@@ -416,7 +416,7 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
         </span>
         <motion.span
           className="text-lg"
-          style={{ color: "rgba(246,246,246,0.3)" }}
+          style={{ color: "rgba(26,26,26,0.3)" }}
           animate={{ x: hovered ? 4 : 0 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
         >
@@ -429,13 +429,13 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
 
 function UpcomingEvents() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState<Filter>("All");
 
   const filtered = active === "All" ? UPCOMING : UPCOMING.filter((e) => e.type === active);
 
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
+    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
 
         {/* Header row */}
@@ -456,7 +456,7 @@ function UpcomingEvents() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
               className="font-light leading-[1.06]"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.2rem)", color: C.light, letterSpacing: "-0.025em" }}
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.2rem)", color: C.dark, letterSpacing: "-0.025em" }}
             >
               Where Omoowo will be.
             </motion.h2>
@@ -473,10 +473,10 @@ function UpcomingEvents() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className="relative px-4 py-2 text-[10px] tracking-[0.22em] uppercase transition-colors duration-200 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                className={`relative px-4 py-2 text-[10px] tracking-[0.22em] uppercase transition-colors duration-200 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 ${active === f ? "" : "hover:opacity-70"}`}
                 style={{
-                  color: active === f ? C.light : "rgba(246,246,246,0.45)",
-                  border: `1px solid ${active === f ? C.red : "rgba(246,246,246,0.15)"}`,
+                  color: active === f ? C.light : "rgba(26,26,26,0.5)",
+                  border: `1px solid ${active === f ? C.red : "rgba(26,26,26,0.15)"}`,
                 }}
               >
                 {active === f && (
@@ -495,10 +495,10 @@ function UpcomingEvents() {
 
         {/* Count line */}
         <div className="flex items-center justify-between mb-2">
-          <p className="text-[10px] tracking-[0.25em] uppercase" style={{ color: "rgba(246,246,246,0.3)" }}>
+          <p className="text-[10px] tracking-[0.25em] uppercase" style={{ color: "rgba(26,26,26,0.35)" }}>
             {filtered.length} event{filtered.length !== 1 ? "s" : ""}
           </p>
-          <p className="text-[10px]" style={{ color: "rgba(246,246,246,0.3)" }}>
+          <p className="text-[10px]" style={{ color: "rgba(26,26,26,0.35)" }}>
             {active !== "All" ? active : "All types"}
           </p>
         </div>
@@ -510,7 +510,7 @@ function UpcomingEvents() {
               <EventRow key={event.id} event={event} index={i} />
             ))}
           </AnimatePresence>
-          <div className="h-px" style={{ background: "rgba(246,246,246,0.1)" }} />
+          <div className="h-px" style={{ background: "rgba(26,26,26,0.08)" }} />
         </div>
 
         {/* Footer note */}
@@ -519,7 +519,7 @@ function UpcomingEvents() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-[11px] mt-8 leading-relaxed"
-          style={{ color: "rgba(246,246,246,0.3)" }}
+          style={{ color: "rgba(26,26,26,0.4)" }}
         >
           Dates and venues subject to confirmation. Follow the campaign on social media or join the WhatsApp group for updates.
         </motion.p>
@@ -535,7 +535,7 @@ const pastAccent = [C.green, C.red, C.green];
 
 function PastEvents() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
@@ -611,11 +611,11 @@ function PastEvents() {
 }
 
 /* ══════════════════════════════════════════
-   4. ATTEND CTA — #094E7D, card 1 green / card 2 red
+   4. ATTEND CTA — white background, card 1 green / card 2 red
 ══════════════════════════════════════════ */
 function AttendCTA() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const cards = [
     {
@@ -623,19 +623,19 @@ function AttendCTA() {
       headline: "Get event alerts on WhatsApp",
       body: "Join the official Omoowo 2027 campaign WhatsApp group to receive event notices, venue updates, and campaign news directly on your phone.",
       action: "Join the Group →",
-      bg: "rgba(0,139,77,0.22)",   /* green */
+      bg: "#008B4D",   /* green */
     },
     {
       label: "Stay Informed",
       headline: "Follow the campaign",
       body: "Stay connected with the campaign on social media for live event coverage, speeches, and community stories from across all 3 LGAs of Ogun East.",
       action: "Follow Updates →",
-      bg: "rgba(230,48,53,0.22)",  /* red */
+      bg: "#E63035",  /* red */
     },
   ];
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-28 items-end mb-16">
@@ -645,7 +645,7 @@ function AttendCTA() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2.5 text-[10px] tracking-[0.42em] uppercase mb-5"
-              style={{ color: "rgba(246,246,246,0.45)" }}
+              style={{ color: "rgba(26,26,26,0.5)" }}
             >
               <span className="w-0.5 h-4 shrink-0 inline-block" style={{ background: C.green }} />
               Be There
@@ -654,7 +654,7 @@ function AttendCTA() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.1, ease }}
-              className="font-light text-[#FFFFFF] leading-[1.04]"
+              className="font-light text-[#1A1A1A] leading-[1.04]"
               style={{ fontSize: "clamp(2rem, 5vw, 5.5rem)", letterSpacing: "-0.035em" }}
             >
               Come and be counted.
@@ -665,7 +665,7 @@ function AttendCTA() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.25, ease }}
             className="text-sm leading-[1.95]"
-            style={{ color: "rgba(246,246,246,0.48)" }}
+            style={{ color: "rgba(26,26,26,0.55)" }}
           >
             Every rally, town hall, and forum is open to all residents of Ogun East. Omoowo campaigns
             without barriers. Your presence at these events is not just support — it is a statement
@@ -674,7 +674,7 @@ function AttendCTA() {
         </div>
 
         {/* Two option cards — green | red */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(246,246,246,0.06)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(26,26,26,0.06)" }}>
           {cards.map((card, i) => (
             <motion.div
               key={card.label}
@@ -684,7 +684,7 @@ function AttendCTA() {
               className="p-10 md:p-12 group hover:brightness-110 transition-all duration-300"
               style={{ background: card.bg }}
             >
-              <p className="text-[9px] tracking-[0.38em] uppercase mb-5" style={{ color: "rgba(246,246,246,0.35)" }}>
+              <p className="text-[9px] tracking-[0.38em] uppercase mb-5" style={{ color: "rgba(246,246,246,0.7)" }}>
                 {card.label}
               </p>
               <h3
@@ -693,12 +693,12 @@ function AttendCTA() {
               >
                 {card.headline}
               </h3>
-              <p className="text-sm leading-[1.9] mb-8" style={{ color: "rgba(246,246,246,0.5)" }}>
+              <p className="text-sm leading-[1.9] mb-8" style={{ color: "rgba(246,246,246,0.85)" }}>
                 {card.body}
               </p>
               <p
                 className="text-[11px] tracking-[0.2em] uppercase group-hover:translate-x-1.5 transition-transform duration-300"
-                style={{ color: "rgba(246,246,246,0.55)" }}
+                style={{ color: "rgba(246,246,246,0.9)" }}
               >
                 {card.action}
               </p>
@@ -714,18 +714,20 @@ function AttendCTA() {
           className="flex flex-wrap gap-4 mt-12"
         >
           {[
-            { label: "← Back to Home", href: "/",         style: { border: "1px solid rgba(246,246,246,0.1)",  color: "rgba(246,246,246,0.45)" } },
+            { label: "← Back to Home", href: "/",         style: { border: "1px solid rgba(26,26,26,0.15)",  color: "rgba(26,26,26,0.5)" } },
             { label: "View Policies",  href: "/policies",  style: { border: `1px solid ${C.green}`,              color: C.green } },
             { label: "Omoowo's Vision",href: "/vision",    style: { border: `1px solid ${C.red}`,                color: C.red   } },
           ].map((l) => (
-            <a
+            <motion.a
               key={l.label}
               href={l.href}
               className="px-6 py-3 text-[10px] tracking-[0.22em] uppercase transition-all duration-200 hover:opacity-70"
+              whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
               style={l.style}
             >
               {l.label}
-            </a>
+            </motion.a>
           ))}
         </motion.div>
       </div>

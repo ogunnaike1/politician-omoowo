@@ -15,10 +15,10 @@ const navLinks = [
 
 export default function Footer() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false });
+  const inView = useInView(ref, { once: true });
 
   return (
-    <footer ref={ref} className="bg-[#094e7d] py-16 px-6 md:px-12 lg:px-20">
+    <footer ref={ref} className="bg-[#008B4D] py-16 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

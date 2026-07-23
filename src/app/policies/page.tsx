@@ -172,11 +172,11 @@ function PoliciesHero() {
 /* ── POLICY SECTION ── */
 function PolicySection({ policy, index }: { policy: typeof policies[0]; index: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const [expanded, setExpanded] = useState(false);
 
-  const isLight  = index % 2 !== 0;
-  const bg       = isLight ? "#FFFFFF" : "#094E7D";
+  const isLight  = true;
+  const bg       = isLight ? "#FFFFFF" : "#008B4D";
   const accent   = policy.accent;
 
   /* text colours */
@@ -346,7 +346,7 @@ const bannerWords = "These are not campaign promises. They are commitments — a
 
 function CommitmentBanner() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
@@ -399,7 +399,7 @@ function CommitmentBanner() {
 /* ── CTA ── */
 function PoliciesCTA() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-36 px-6 md:px-12 lg:px-20">
@@ -432,26 +432,32 @@ function PoliciesCTA() {
           className="flex flex-wrap gap-4 shrink-0"
         >
           {/* Neutral */}
-          <a
+          <motion.a
             href="/"
             className="px-7 py-3 border border-[#DCDCDC] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:border-[#1A1A1A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
           >
             &larr; Back to Home
-          </a>
+          </motion.a>
           {/* Red */}
-          <a
+          <motion.a
             href="/profile"
-            className="px-7 py-3 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
+            className="px-7 py-3 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#006B3A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
           >
             Meet Omoowo
-          </a>
+          </motion.a>
           {/* Green */}
-          <a
+          <motion.a
             href="/#involved"
-            className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
+            className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#006B3A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
           >
             Join the Campaign
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

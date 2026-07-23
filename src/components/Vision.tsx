@@ -81,7 +81,7 @@ function PillarCard({
 
 export default function Vision() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
   const words = quoteText.split(" ");
 

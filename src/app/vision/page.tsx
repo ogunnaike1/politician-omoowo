@@ -26,7 +26,7 @@ const C = {
 /* ── Animated Counter ────────────────────── */
 function Counter({ to, suffix = "", duration = 2, color }: { to: number; suffix?: string; duration?: number; color: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   useEffect(() => {
     if (!inView || !ref.current) return;
@@ -219,10 +219,10 @@ const stats = [
 
 function TheNumbers() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-20">
           <motion.h2
@@ -230,7 +230,7 @@ function TheNumbers() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, ease }}
             className="font-light leading-[1.06]"
-            style={{ fontSize: "clamp(1.7rem, 3vw, 2.9rem)", color: C.light, letterSpacing: "-0.025em", maxWidth: "480px" }}
+            style={{ fontSize: "clamp(1.7rem, 3vw, 2.9rem)", color: C.dark, letterSpacing: "-0.025em", maxWidth: "480px" }}
           >
             The numbers behind the vision.
           </motion.h2>
@@ -239,7 +239,7 @@ function TheNumbers() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-[10px] tracking-[0.35em] uppercase"
-            style={{ color: "rgba(246,246,246,0.3)" }}
+            style={{ color: "rgba(26,26,26,0.3)" }}
           >
             What this mandate means
           </motion.p>
@@ -255,7 +255,7 @@ function TheNumbers() {
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                 className="grid grid-cols-1 md:grid-cols-[2fr_1fr_3fr] items-start gap-6 md:gap-14 py-10 border-t"
-                style={{ borderColor: "rgba(246,246,246,0.07)" }}
+                style={{ borderColor: "rgba(26,26,26,0.08)" }}
               >
                 {/* Large number — coloured */}
                 <div
@@ -274,12 +274,12 @@ function TheNumbers() {
                     animate={inView ? { scaleX: 1 } : {}}
                     transition={{ duration: 0.8, delay: 0.25 + i * 0.1 }}
                   />
-                  <p className="text-[10px] tracking-[0.18em] uppercase leading-[1.8]" style={{ color: "rgba(246,246,246,0.4)" }}>
+                  <p className="text-[10px] tracking-[0.18em] uppercase leading-[1.8]" style={{ color: "rgba(26,26,26,0.45)" }}>
                     {s.label}
                   </p>
                 </div>
 
-                <p className="text-sm leading-[1.95] md:pt-3" style={{ color: "rgba(246,246,246,0.5)" }}>
+                <p className="text-sm leading-[1.95] md:pt-3" style={{ color: "rgba(26,26,26,0.55)" }}>
                   {s.note}
                 </p>
               </motion.div>
@@ -287,7 +287,7 @@ function TheNumbers() {
           })}
           <motion.div
             className="h-px origin-left"
-            style={{ background: "rgba(246,246,246,0.07)" }}
+            style={{ background: "rgba(26,26,26,0.08)" }}
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -318,7 +318,7 @@ const pillars = [
     sub: "Development that reaches every community — not just the visible ones.",
     body: "Ogun East is not one community. Ogun Waterside has different needs from Ikenne. Ijebu-East has different challenges from both. Omoowo's agenda is calibrated for geographic equity — measured, tracked, and publicly reported.",
     items: ["Equal project distribution across all 3 LGAs", "Biannual equity report on resource allocation", "Special advocacy for underserved wards", "Infrastructure mapping published online"],
-    bg: "#094E7D",
+    bg: "#008B4D",
     light: true,
   },
   {
@@ -334,7 +334,7 @@ const pillars = [
 
 function PillarPanel({ p, i }: { p: typeof pillars[0]; i: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-100px" });
   const bulletColor = p.light ? "rgba(246,246,246,0.45)" : i === 1 ? C.red : C.green;
 
   return (
@@ -491,7 +491,7 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] items-start gap-6 md:gap-14 py-12 border-t"
-      style={{ borderColor: "rgba(246,246,246,0.1)" }}
+      style={{ borderColor: "rgba(26,26,26,0.08)" }}
     >
       {/* Year number — accent on hover */}
       <div>
@@ -499,13 +499,13 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
           className="font-light leading-none transition-colors duration-300"
           style={{
             fontSize: "clamp(2.2rem, 4vw, 3.8rem)",
-            color: hovered ? r.accent : "rgba(246,246,246,0.2)",
+            color: hovered ? r.accent : "rgba(26,26,26,0.18)",
             letterSpacing: "-0.05em",
           }}
         >
           {r.yr}
         </div>
-        <p className="text-[9px] tracking-[0.25em] uppercase mt-1.5" style={{ color: "rgba(246,246,246,0.4)" }}>
+        <p className="text-[9px] tracking-[0.25em] uppercase mt-1.5" style={{ color: "rgba(26,26,26,0.4)" }}>
           {r.label}
         </p>
       </div>
@@ -514,23 +514,23 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
       <div>
         <h3
           className="font-light mb-4"
-          style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.45rem)", color: C.light, letterSpacing: "-0.01em" }}
+          style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.45rem)", color: C.dark, letterSpacing: "-0.01em" }}
         >
           {r.title}
         </h3>
-        <p className="text-sm leading-[1.95]" style={{ color: "rgba(246,246,246,0.55)" }}>{r.body}</p>
+        <p className="text-sm leading-[1.95]" style={{ color: "rgba(26,26,26,0.55)" }}>{r.body}</p>
       </div>
 
       {/* Action list — accent bullet lines */}
       <ul className="space-y-3 md:pt-1">
         {r.actions.map((a) => (
-          <li key={a} className="flex items-start gap-3 text-[12px] leading-[1.65]" style={{ color: "rgba(246,246,246,0.75)" }}>
+          <li key={a} className="flex items-start gap-3 text-[12px] leading-[1.65]" style={{ color: "rgba(26,26,26,0.7)" }}>
             <motion.span
               className="mt-[5px] flex-shrink-0 h-px"
               style={{ background: r.accent }}
               initial={{ width: 0 }}
               whileInView={{ width: 12 }}
-              viewport={{ once: false, margin: "-80px" }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.4, delay: 0.15 }}
             />
             {a}
@@ -543,10 +543,10 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
 
 function Roadmap() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
+    <section ref={ref} className="py-28 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
         <div className="mb-20">
           <motion.p
@@ -564,7 +564,7 @@ function Roadmap() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease }}
             className="font-light leading-[1.06]"
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.4rem)", color: C.light, letterSpacing: "-0.025em", maxWidth: "560px" }}
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.4rem)", color: C.dark, letterSpacing: "-0.025em", maxWidth: "560px" }}
           >
             How four years become a legacy.
           </motion.h2>
@@ -574,7 +574,7 @@ function Roadmap() {
           {roadmap.map((r, i) => (
             <RoadmapRow key={r.yr} r={r} i={i} inView={inView} />
           ))}
-          <div className="h-px" style={{ background: "rgba(246,246,246,0.1)" }} />
+          <div className="h-px" style={{ background: "rgba(26,26,26,0.08)" }} />
         </div>
       </div>
     </section>
@@ -595,7 +595,7 @@ const sentences = [
 
 function Manifesto() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <section ref={ref} className="py-32 md:py-56 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
@@ -669,7 +669,7 @@ function Manifesto() {
 ══════════════════════════════════════════ */
 function VisionCTA() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const buttons = [
     { label: "← Back to Home", href: "/",           variant: "ghost"   as const },
@@ -678,14 +678,14 @@ function VisionCTA() {
   ];
 
   return (
-    <section ref={ref} className="py-32 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
+    <section ref={ref} className="py-32 md:py-44 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-28 items-end">
         <div>
           <motion.h2
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease }}
-            className="font-light text-[#FFFFFF] leading-[1.05] mb-8"
+            className="font-light text-[#1A1A1A] leading-[1.05] mb-8"
             style={{ fontSize: "clamp(2.2rem, 5vw, 5.2rem)", letterSpacing: "-0.035em" }}
           >
             Be part of what comes next.
@@ -695,7 +695,7 @@ function VisionCTA() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease }}
             className="text-sm leading-[1.9] max-w-sm"
-            style={{ color: "rgba(246,246,246,0.6)" }}
+            style={{ color: "rgba(26,26,26,0.6)" }}
           >
             This vision only works if the people of Ogun East are part of it &mdash; not as spectators,
             but as partners. If you believe in what Omoowo is building, join the movement.
@@ -709,20 +709,22 @@ function VisionCTA() {
           className="flex flex-col gap-3"
         >
           {buttons.map((btn) => (
-            <a
+            <motion.a
               key={btn.label}
               href={btn.href}
               className="px-8 py-4 text-center text-[11px] tracking-[0.22em] uppercase transition-all duration-200 hover:opacity-80"
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
               style={
                 btn.variant === "green"
                   ? { background: C.green, color: C.light }
                   : btn.variant === "red"
                   ? { background: C.red, color: C.light }
-                  : { border: "1px solid rgba(246,246,246,0.18)", color: "rgba(246,246,246,0.5)" }
+                  : { border: "1px solid rgba(26,26,26,0.18)", color: "rgba(26,26,26,0.55)" }
               }
             >
               {btn.label}
-            </a>
+            </motion.a>
           ))}
         </motion.div>
       </div>

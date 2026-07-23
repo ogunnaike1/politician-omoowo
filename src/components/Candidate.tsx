@@ -29,7 +29,7 @@ function MaskedLine({ children, delay, className, style }: {
 
 export default function Candidate() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section
@@ -38,9 +38,9 @@ export default function Candidate() {
       className="relative py-28 md:py-40 px-6 md:px-12 lg:px-20 overflow-hidden"
       style={{
         background: [
-          "radial-gradient(ellipse at 96% 8%, rgba(230,48,53,0.22) 0%, transparent 38%)",
-          "radial-gradient(ellipse at 4% 90%, rgba(0,139,77,0.18) 0%, transparent 36%)",
-          "#094e7d",
+          "radial-gradient(ellipse at 96% 8%, rgba(230,48,53,0.12) 0%, transparent 38%)",
+          "radial-gradient(ellipse at 4% 90%, rgba(0,139,77,0.10) 0%, transparent 36%)",
+          "#FFFFFF",
         ].join(", "),
       }}
     >
@@ -56,7 +56,7 @@ export default function Candidate() {
         <div className="relative">
           {/* Offset decorative border behind the frame */}
           <div
-            className="absolute border border-[rgba(246,246,246,0.2)]"
+            className="absolute border border-[rgba(26,26,26,0.15)]"
             style={{ inset: "-12px 12px 12px -12px" }}
           />
 
@@ -76,7 +76,7 @@ export default function Candidate() {
             {/* Bottom gradient fade */}
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(9,78,125,0.75) 100%)" }}
+              style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(0,139,77,0.75) 100%)" }}
             />
 
             {/* Glass name badge */}
@@ -88,7 +88,7 @@ export default function Candidate() {
               style={{
                 backdropFilter: "blur(16px) saturate(1.5)",
                 WebkitBackdropFilter: "blur(16px) saturate(1.5)",
-                background: "rgba(9,78,125,0.85)",
+                background: "rgba(0,139,77,0.85)",
                 border: "1px solid rgba(246,246,246,0.12)",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(246,246,246,0.08)",
               }}
@@ -141,7 +141,7 @@ export default function Candidate() {
           {inView && (
             <>
               <div className="mb-5">
-                <MaskedLine delay={0.3} className="flex items-center gap-2.5 text-[10px] tracking-[0.4em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
+                <MaskedLine delay={0.3} className="flex items-center gap-2.5 text-[10px] tracking-[0.4em] uppercase" style={{ color: "rgba(26,26,26,0.55)" }}>
                   <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
                   The Candidate
                 </MaskedLine>
@@ -150,7 +150,7 @@ export default function Candidate() {
               <div className="mb-7">
                 <MaskedLine
                   delay={0.45}
-                  className="font-light text-[#FFFFFF] leading-[1.1]"
+                  className="font-light text-[#1A1A1A] leading-[1.1]"
                   style={{ fontSize: "clamp(1.7rem, 3vw, 2.7rem)", letterSpacing: "-0.02em" }}
                 >
                   A lifelong servant of Ogun East and its people.
@@ -161,7 +161,7 @@ export default function Candidate() {
                 <MaskedLine
                   delay={0.6}
                   className="leading-[1.8]"
-                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(246,246,246,0.72)" }}
+                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(26,26,26,0.72)" }}
                 >
                   Alhaji Abdulhameed Oluwafemi Omotayo, widely known as Omoowo, is a prominent community
                   leader, businessman, and PDP stalwart with deep roots across the Ogun East Senatorial
@@ -174,7 +174,7 @@ export default function Candidate() {
                 <MaskedLine
                   delay={0.72}
                   className="leading-[1.8]"
-                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(246,246,246,0.72)" }}
+                  style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(26,26,26,0.72)" }}
                 >
                   As the PDP candidate for the 2027 Ogun East Senatorial District election, Omoowo brings
                   a clear, people-first agenda to the National Assembly &mdash; focused on infrastructure,
@@ -191,7 +191,7 @@ export default function Candidate() {
                   <a
                     href="/profile"
                     className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase pb-1 hover:gap-5 transition-all duration-300"
-                    style={{ color: "#FFFFFF", borderBottom: "1px solid #008B4D" }}
+                    style={{ color: "#1A1A1A", borderBottom: "1px solid #008B4D" }}
                   >
                     Read Full Profile <span style={{ color: "#008B4D" }}>&rarr;</span>
                   </a>
@@ -204,7 +204,7 @@ export default function Candidate() {
                   animate={{ y: "0%" }}
                   transition={{ duration: 0.85, delay: 0.9, ease }}
                   className="flex gap-8 pt-8"
-                  style={{ borderTop: "1px solid rgba(246,246,246,0.15)" }}
+                  style={{ borderTop: "1px solid rgba(26,26,26,0.12)" }}
                 >
                   {[
                     ["PDP", "Party Affiliation"],
@@ -212,10 +212,10 @@ export default function Candidate() {
                     ["Ogun East", "Senatorial District"],
                   ].map(([num, label]) => (
                     <div key={label}>
-                      <p className="font-light text-[#FFFFFF] leading-none mb-1.5" style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}>
+                      <p className="font-light text-[#1A1A1A] leading-none mb-1.5" style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)" }}>
                         {num}
                       </p>
-                      <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.5)" }}>{label}</p>
+                      <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(26,26,26,0.5)" }}>{label}</p>
                     </div>
                   ))}
                 </motion.div>

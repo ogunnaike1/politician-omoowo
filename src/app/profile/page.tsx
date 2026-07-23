@@ -46,7 +46,7 @@ function ProfileHero() {
         className="absolute inset-0"
         style={{
           opacity: overlayOpacity,
-          background: "linear-gradient(to bottom, rgba(9,78,125,0.2) 0%, rgba(9,78,125,0.55) 55%, rgba(9,78,125,0.95) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,139,77,0.2) 0%, rgba(0,139,77,0.55) 55%, rgba(0,139,77,0.95) 100%)",
         }}
       />
 
@@ -139,7 +139,7 @@ function QuickFact({ label, val, i }: { label: string; val: string; i: number })
 
 function Biography() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const facts: [string, string][] = [
     ["Full Name", "Alhaji Abdulhameed Oluwafemi Omotayo"],
@@ -180,7 +180,7 @@ function Biography() {
                 style={{
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
-                  background: "rgba(9,78,125,0.75)",
+                  background: "rgba(0,139,77,0.75)",
                   borderTop: "1px solid rgba(246,246,246,0.08)",
                 }}
               >
@@ -270,10 +270,10 @@ const timelineDotAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035", "#008B4D"
 
 function Timeline() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-[#094e7d] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-300 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -286,7 +286,7 @@ function Timeline() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1, ease }}
-          className="font-light text-[#FFFFFF] mb-20"
+          className="font-light text-[#1A1A1A] mb-20"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
         >
           A life spent in service.
@@ -298,7 +298,7 @@ function Timeline() {
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1.2, delay: 0.2, ease }}
-            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[rgba(246,243,243,0.25)] origin-top"
+            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[rgba(26,26,26,0.15)] origin-top"
             style={{ marginLeft: "-0.5px" }}
           />
 
@@ -319,7 +319,7 @@ function Timeline() {
                     initial={{ scale: 0 }}
                     animate={inView ? { scale: 1 } : {}}
                     transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 + i * 0.12 }}
-                    className="absolute top-1 w-3 h-3 rounded-full border-2 border-[#094e7d]"
+                    className="absolute top-1 w-3 h-3 rounded-full border-2 border-[#FFFFFF]"
                     style={{
                       backgroundColor: accent,
                       left: isRight ? "auto" : "-6px",
@@ -338,7 +338,7 @@ function Timeline() {
                   >
                     {item.period}
                   </p>
-                  <h3 className="text-[#FFFFFF] font-light text-xl mb-3 leading-snug">{item.title}</h3>
+                  <h3 className="text-[#1A1A1A] font-light text-xl mb-3 leading-snug">{item.title}</h3>
                   <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
                 </motion.div>
               );
@@ -397,7 +397,7 @@ function ValueCard({ v, i, inView }: { v: typeof values[0]; i: number; inView: b
 
 function Values() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
@@ -437,10 +437,10 @@ const quoteWords = "I did not enter this race for titles. I entered it because t
 
 function Quote() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-[#094e7d] py-28 md:py-44 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-44 px-6 md:px-12 lg:px-20">
       <div className="max-w-190 mx-auto text-center">
         {/* Split green / red accent line */}
         <motion.div
@@ -454,7 +454,7 @@ function Quote() {
         </motion.div>
 
         <blockquote
-          className="font-light text-[#FFFFFF] leading-[1.45] mb-10"
+          className="font-light text-[#1A1A1A] leading-[1.45] mb-10"
           style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.1rem)", letterSpacing: "-0.01em" }}
         >
           &ldquo;
@@ -480,7 +480,7 @@ function Quote() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8, ease }}
           className="text-[11px] tracking-[0.3em] uppercase"
-          style={{ color: "rgba(246,243,243,0.6)" }}
+          style={{ color: "rgba(26,26,26,0.5)" }}
         >
           Alhaji Omoowo &mdash; PDP Candidate, Ogun East 2027
         </motion.p>
@@ -506,7 +506,7 @@ function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: st
       onHoverEnd={() => setHovered(false)}
       className="px-8 py-10 cursor-default transition-colors duration-250"
       style={{
-        backgroundColor: hovered ? accent : "#094e7d",
+        backgroundColor: hovered ? accent : "#FFFFFF",
         borderTop: `2px solid ${accent}`,
       }}
     >
@@ -515,14 +515,14 @@ function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: st
         style={{
           fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
           letterSpacing: "-0.03em",
-          color: hovered ? "#FFFFFF" : "#FFFFFF",
+          color: hovered ? "#FFFFFF" : "#1A1A1A",
         }}
       >
         {d.value}
       </p>
       <p
         className="text-sm mb-1 transition-colors duration-250"
-        style={{ color: hovered ? "#FFFFFF" : "#DCDCDC" }}
+        style={{ color: hovered ? "#FFFFFF" : "#888888" }}
       >
         {d.label}
       </p>
@@ -533,7 +533,7 @@ function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: st
 
 function Stats() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const data = [
     { value: "3",    label: "LGAs",          sub: "Ijebu-East, Ogun Waterside, Ikenne" },
@@ -543,10 +543,10 @@ function Stats() {
   ];
 
   return (
-    <section ref={ref} className="bg-[#094e7d] py-20 px-6 md:px-12 lg:px-20">
+    <section ref={ref} className="bg-[#FFFFFF] py-20 px-6 md:px-12 lg:px-20">
       <div
         className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px"
-        style={{ background: "rgba(246,243,243,0.12)" }}
+        style={{ background: "rgba(26,26,26,0.08)" }}
       >
         {data.map((d, i) => (
           <StatCell key={d.label} d={d} i={i} inView={inView} />
@@ -559,7 +559,7 @@ function Stats() {
 /* ── 7. CTA ── */
 function ProfileCTA() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-36 px-6 md:px-12 lg:px-20">
@@ -592,19 +592,23 @@ function ProfileCTA() {
           className="flex flex-wrap gap-4 shrink-0"
         >
           {/* Green button */}
-          <a
+          <motion.a
             href="/"
-            className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
+            className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#006B3A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
           >
             &larr; Back to Home
-          </a>
+          </motion.a>
           {/* Red button */}
-          <a
+          <motion.a
             href="/#involved"
-            className="px-7 py-3 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#094e7d] transition-colors duration-200"
+            className="px-7 py-3 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#006B3A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
           >
             Join the Campaign
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

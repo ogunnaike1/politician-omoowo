@@ -190,15 +190,15 @@ function NewsHero() {
 }
 
 /* ══════════════════════════════════════════
-   2. LEAD STORY — #094E7D background
+   2. LEAD STORY — white background
       Card: white left panel, green right panel
 ══════════════════════════════════════════ */
 function LeadStory() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-20 md:py-32 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
+    <section ref={ref} className="py-20 md:py-32 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
 
         <motion.p
@@ -217,7 +217,7 @@ function LeadStory() {
           animate={inView ? { clipPath: "inset(0 0% 0 0)" } : {}}
           transition={{ duration: 1.1, ease }}
           className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-0"
-          style={{ background: C.light }}
+          style={{ background: C.light, border: "1px solid rgba(26,26,26,0.08)" }}
         >
           {/* Left — white panel, dark text */}
           <div className="p-10 md:p-14 lg:p-16 flex flex-col justify-between" style={{ background: C.light }}>
@@ -328,7 +328,7 @@ function FeaturedCard({ item, i, inView }: { item: NewsItem; i: number; inView: 
 
 function FeaturedPair() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: C.bg }}>
@@ -366,14 +366,14 @@ function FeaturedPair() {
 }
 
 /* ══════════════════════════════════════════
-   4. NEWS INDEX — #094E7D background
+   4. NEWS INDEX — white background
       Accent bars alternate green / red per row
 ══════════════════════════════════════════ */
 const indexAccent = [C.green, C.red, C.green, C.red, C.green] as string[];
 
 function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
   const accent = indexAccent[i % indexAccent.length];
 
   return (
@@ -385,7 +385,7 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.4, delay: i * 0.07 }}
       className="group grid grid-cols-1 md:grid-cols-[52px_1fr_auto] items-start gap-4 md:gap-10 py-8 border-t relative cursor-pointer overflow-hidden"
-      style={{ borderColor: "rgba(246,246,246,0.1)" }}
+      style={{ borderColor: "rgba(26,26,26,0.08)" }}
     >
       {/* Animated left accent bar — alternating green / red */}
       <motion.div
@@ -402,7 +402,7 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.08 + i * 0.07 }}
         className="font-light leading-none pt-1 pl-4"
-        style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", color: "rgba(246,246,246,0.12)", letterSpacing: "-0.04em" }}
+        style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", color: "rgba(26,26,26,0.1)", letterSpacing: "-0.04em" }}
       >
         {num}
       </motion.div>
@@ -415,11 +415,11 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
       >
         <div className="flex items-center gap-3 mb-3 flex-wrap">
           <CategoryPill cat={item.category} />
-          <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(246,246,246,0.3)" }}>{item.date}</span>
+          <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(26,26,26,0.4)" }}>{item.date}</span>
         </div>
         <h3
           className="font-light leading-[1.22] transition-colors duration-300"
-          style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.25rem)", color: "rgba(246,246,246,0.6)", letterSpacing: "-0.01em" }}
+          style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.25rem)", color: "rgba(26,26,26,0.85)", letterSpacing: "-0.01em" }}
         >
           {item.title}
         </h3>
@@ -437,10 +437,10 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
         transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
         className="shrink-0 flex flex-col items-end gap-2 pt-1"
       >
-        <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(246,246,246,0.25)" }}>{item.readMin} min</span>
+        <span className="text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(26,26,26,0.35)" }}>{item.readMin} min</span>
         <span
           className="text-lg opacity-0 group-hover:opacity-60 group-hover:translate-x-1 transition-all duration-300"
-          style={{ color: C.light }}
+          style={{ color: C.dark }}
         >
           &rarr;
         </span>
@@ -451,13 +451,13 @@ function IndexRow({ item, num, i }: { item: NewsItem; num: string; i: number }) 
 
 function NewsIndex() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState<Filter>("All");
 
   const filtered = active === "All" ? INDEX_NEWS : INDEX_NEWS.filter((n) => n.category === active);
 
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
+    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
@@ -477,7 +477,7 @@ function NewsIndex() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease }}
               className="font-light leading-[1.06]"
-              style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", color: C.light, letterSpacing: "-0.025em" }}
+              style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", color: C.dark, letterSpacing: "-0.025em" }}
             >
               Every word, on the record.
             </motion.h2>
@@ -493,10 +493,10 @@ function NewsIndex() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className="relative px-4 py-2 text-[9.5px] tracking-[0.22em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
+                className={`relative px-4 py-2 text-[9.5px] tracking-[0.22em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black/20 ${active === f ? "" : "hover:opacity-70"}`}
                 style={{
-                  color: active === f ? C.light : "rgba(246,246,246,0.4)",
-                  border: `1px solid ${active === f ? C.red : "rgba(246,246,246,0.15)"}`,
+                  color: active === f ? C.light : "rgba(26,26,26,0.45)",
+                  border: `1px solid ${active === f ? C.red : "rgba(26,26,26,0.15)"}`,
                 }}
               >
                 {active === f && (
@@ -514,7 +514,7 @@ function NewsIndex() {
         </div>
 
         <div className="flex items-center justify-between mb-2">
-          <p className="text-[9.5px] tracking-[0.25em] uppercase" style={{ color: "rgba(246,246,246,0.25)" }}>
+          <p className="text-[9.5px] tracking-[0.25em] uppercase" style={{ color: "rgba(26,26,26,0.35)" }}>
             {filtered.length} dispatch{filtered.length !== 1 ? "es" : ""}
           </p>
         </div>
@@ -525,7 +525,7 @@ function NewsIndex() {
               <IndexRow key={item.id} item={item} num={String(i + 1).padStart(2, "0")} i={i} />
             ))}
           </AnimatePresence>
-          <div className="h-px" style={{ background: "rgba(246,246,246,0.08)" }} />
+          <div className="h-px" style={{ background: "rgba(26,26,26,0.08)" }} />
         </div>
       </div>
     </section>
@@ -537,7 +537,7 @@ function NewsIndex() {
 ══════════════════════════════════════════ */
 function NewsletterCTA() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const [value, setValue] = useState("");
   const [sent, setSent] = useState(false);
 
@@ -636,14 +636,16 @@ function NewsletterCTA() {
                 { label: "Vision",    href: "/vision",     style: { border: `1px solid ${C.red}`,             color: C.red    } },
                 { label: "Policies",  href: "/policies",   style: { border: `1px solid ${C.border}`,          color: C.muted  } },
               ].map((l) => (
-                <a
+                <motion.a
                   key={l.label}
                   href={l.href}
                   className="px-5 py-2.5 text-[9.5px] tracking-[0.22em] uppercase hover:opacity-70 transition-opacity duration-200"
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.97 }}
                   style={l.style}
                 >
                   {l.label}
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>

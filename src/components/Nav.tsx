@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import SupportModal from "@/components/SupportModal";
 
 const links = [
   { label: "Home", href: "/" },
@@ -17,11 +18,12 @@ const links = [
 export default function Nav() {
   const pathname = usePathname();
   const { scrollY } = useScroll();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen,    setMenuOpen]    = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
 
-  const bgColor = useTransform(scrollY, [0, 80], ["#094e7d", "#FFFFFF"]);
-  const linkColor = useTransform(scrollY, [0, 80], ["#FFFFFF", "#094e7d"]);
-  const btnBg = useTransform(scrollY, [0, 80], ["#E63035", "#094e7d"]);
+  const bgColor = useTransform(scrollY, [0, 80], ["#008B4D", "#FFFFFF"]);
+  const linkColor = useTransform(scrollY, [0, 80], ["#FFFFFF", "#008B4D"]);
+  const btnBg = useTransform(scrollY, [0, 80], ["#E63035", "#008B4D"]);
   const btnColor = useTransform(scrollY, [0, 80], ["#FFFFFF", "#FFFFFF"]);
   const borderOpacity = useTransform(scrollY, [40, 80], [0, 1]);
 
@@ -40,6 +42,7 @@ export default function Nav() {
             style={{ color: linkColor }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            whileHover={{ opacity: 0.7, transition: { duration: 0.2, delay: 0 } }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Omoowo &middot; 2027
@@ -78,13 +81,15 @@ export default function Nav() {
                 </motion.a>
               );
             })}
-            <motion.a
-              href="#involved"
+            <motion.button
+              onClick={() => setSupportOpen(true)}
               style={{ background: btnBg, color: btnColor }}
-              className="ml-2 px-5 py-2 text-[11px] font-medium tracking-[0.16em] uppercase hover:opacity-80 transition-opacity duration-200"
+              className="ml-2 px-5 py-2 text-[11px] font-medium tracking-[0.16em] uppercase"
+              whileHover={{ scale: 1.06, opacity: 0.85, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.96 }}
             >
               Support Us
-            </motion.a>
+            </motion.button>
           </motion.div>
 
           {/* Hamburger — mobile only */}
@@ -95,6 +100,7 @@ export default function Nav() {
             aria-label="Toggle menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            whileHover={{ opacity: 0.7, transition: { duration: 0.2, delay: 0 } }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <motion.span
@@ -116,6 +122,8 @@ export default function Nav() {
         </nav>
       </motion.header>
 
+      <SupportModal open={supportOpen} onClose={() => setSupportOpen(false)} />
+
       {/* Mobile menu overlay */}
       <AnimatePresence>
         {menuOpen && (
@@ -124,7 +132,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 top-15 z-40 bg-[#094e7d] flex flex-col px-8 pt-10 pb-10 lg:hidden overflow-y-auto"
+            className="fixed inset-0 top-15 z-40 bg-[#008B4D] flex flex-col px-8 pt-10 pb-10 lg:hidden overflow-y-auto"
           >
             {/* Nav links */}
             <div className="flex flex-col">
@@ -137,6 +145,7 @@ export default function Nav() {
                     onClick={() => setMenuOpen(false)}
                     initial={{ opacity: 0, x: -18 }}
                     animate={{ opacity: 1, x: 0 }}
+                    whileHover={{ opacity: 0.7, transition: { duration: 0.2, delay: 0 } }}
                     transition={{ duration: 0.28, delay: 0.04 + i * 0.055 }}
                     className="flex items-center justify-between py-4 border-b text-[13px] tracking-[0.22em] uppercase font-light"
                     style={{
@@ -160,13 +169,12 @@ export default function Nav() {
               transition={{ delay: 0.42 }}
               className="mt-auto pt-10"
             >
-              <a
-                href="#involved"
-                onClick={() => setMenuOpen(false)}
-                className="block w-full text-center py-4 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.22em] uppercase font-medium"
+              <button
+                onClick={() => { setMenuOpen(false); setSupportOpen(true); }}
+                className="block w-full text-center py-4 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.22em] uppercase font-medium hover:opacity-80 transition-opacity duration-200"
               >
                 Support Us
-              </a>
+              </button>
               <p
                 className="text-center mt-6 text-[10px] tracking-[0.28em] uppercase"
                 style={{ color: "rgba(246,246,246,0.3)" }}

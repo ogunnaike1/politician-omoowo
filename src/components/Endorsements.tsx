@@ -38,7 +38,7 @@ const quotes = [
 export default function Endorsements() {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   const panelRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
@@ -61,14 +61,14 @@ export default function Endorsements() {
   };
 
   return (
-    <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#094e7d" }}>
+    <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
           className="text-[10px] tracking-[0.4em] uppercase mb-14"
-          style={{ color: "rgba(246,246,246,0.55)" }}
+          style={{ color: "rgba(26,26,26,0.55)" }}
         >
           Voices of Support
         </motion.p>
@@ -92,15 +92,15 @@ export default function Endorsements() {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.55, ease }}
                 >
-                  <p className="font-light leading-none mb-4" style={{ fontSize: "5rem", color: "rgba(246,246,246,0.18)" }}>&ldquo;</p>
+                  <p className="font-light leading-none mb-4" style={{ fontSize: "5rem", color: "rgba(26,26,26,0.15)" }}>&ldquo;</p>
                   <p
-                    className="font-light text-[#FFFFFF] leading-[1.45] mb-8"
+                    className="font-light text-[#1A1A1A] leading-[1.45] mb-8"
                     style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.45rem)" }}
                   >
                     {quotes[active].q}
                   </p>
-                  <p className="text-[#FFFFFF] text-sm font-medium mb-1">{quotes[active].name}</p>
-                  <p className="text-[11px] tracking-wide" style={{ color: "rgba(246,246,246,0.6)" }}>{quotes[active].role}</p>
+                  <p className="text-[#1A1A1A] text-sm font-medium mb-1">{quotes[active].name}</p>
+                  <p className="text-[11px] tracking-wide" style={{ color: "rgba(26,26,26,0.6)" }}>{quotes[active].role}</p>
                 </motion.div>
               </AnimatePresence>
 
@@ -110,11 +110,11 @@ export default function Endorsements() {
                     key={i}
                     onClick={() => setActive(i)}
                     aria-label={`Endorsement ${i + 1}`}
-                    className="rounded-full transition-all duration-300"
+                    className="rounded-full transition-all duration-300 hover:opacity-70"
                     style={{
                       width: active === i ? "1.75rem" : "0.375rem",
                       height: "0.375rem",
-                      background: active === i ? "#FFFFFF" : "rgba(246,246,246,0.3)",
+                      background: active === i ? "#008B4D" : "rgba(26,26,26,0.2)",
                     }}
                   />
                 ))}
@@ -123,7 +123,7 @@ export default function Endorsements() {
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(246,246,246,0.15)" }} />
+          <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(26,26,26,0.12)" }} />
 
           {/* Right list */}
           <div className="hidden lg:block lg:pl-20" style={{ borderTop: "none" }}>
@@ -131,23 +131,23 @@ export default function Endorsements() {
               <motion.button
                 key={i}
                 initial={{ opacity: 0, x: 30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
+                animate={inView ? { opacity: active === i ? 1 : 0.45, x: 0 } : {}}
+                whileHover={{ opacity: active === i ? 1 : 0.75 }}
                 transition={{ duration: 0.6, delay: 0.15 + i * 0.09, ease }}
                 onClick={() => setActive(i)}
                 className="relative w-full text-left py-6 pl-5 transition-all duration-200 group focus-visible:outline-none"
                 style={{
-                  opacity: active === i ? 1 : 0.35,
-                  borderBottom: "1px solid rgba(246,246,246,0.12)",
+                  borderBottom: "1px solid rgba(26,26,26,0.1)",
                 }}
               >
                 <motion.div
                   className="absolute left-0 top-0 bottom-0 w-0.5 origin-top"
                   animate={{ scaleY: active === i ? 1 : 0, opacity: active === i ? 1 : 0 }}
                   transition={{ duration: 0.35, ease }}
-                  style={{ background: "#FFFFFF" }}
+                  style={{ background: "#008B4D" }}
                 />
-                <p className="text-[#FFFFFF] text-sm leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
-                <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.5)" }}>{q.name}</p>
+                <p className="text-[#1A1A1A] text-sm leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
+                <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(26,26,26,0.5)" }}>{q.name}</p>
               </motion.button>
             ))}
           </div>

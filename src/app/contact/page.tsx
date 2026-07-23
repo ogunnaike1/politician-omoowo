@@ -234,7 +234,7 @@ function ContactHero() {
 }
 
 /* ══════════════════════════════════════════
-   2. CONTACT FORM + INFO — #094E7D background
+   2. CONTACT FORM + INFO — white background
 ══════════════════════════════════════════ */
 const SUBJECTS = ["General Enquiry", "Media & Press", "Volunteer", "Constituency Issue"] as const;
 type Subject = (typeof SUBJECTS)[number];
@@ -254,11 +254,11 @@ function ContactInfoItem({ item, i, inView }: { item: { label: string; lines: st
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="py-6 cursor-default transition-colors duration-200"
-      style={{ borderColor: "rgba(246,246,246,0.1)", backgroundColor: hovered ? "rgba(255,255,255,0.04)" : "transparent" }}
+      style={{ borderColor: "rgba(26,26,26,0.08)", backgroundColor: hovered ? "rgba(26,26,26,0.03)" : "transparent" }}
     >
       <p
         className="text-[9px] tracking-[0.32em] uppercase mb-2.5 transition-colors duration-200"
-        style={{ color: hovered ? accent : "rgba(246,246,246,0.4)" }}
+        style={{ color: hovered ? accent : "rgba(26,26,26,0.45)" }}
       >
         {item.label}
       </p>
@@ -266,7 +266,7 @@ function ContactInfoItem({ item, i, inView }: { item: { label: string; lines: st
         <p
           key={j}
           className="text-[13px] leading-[1.7]"
-          style={{ color: j === 0 ? "rgba(246,246,246,0.85)" : "rgba(246,246,246,0.45)" }}
+          style={{ color: j === 0 ? "rgba(26,26,26,0.85)" : "rgba(26,26,26,0.5)" }}
           dangerouslySetInnerHTML={{ __html: line }}
         />
       ))}
@@ -276,7 +276,7 @@ function ContactInfoItem({ item, i, inView }: { item: { label: string; lines: st
 
 function ContactMain() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const [subject, setSubject] = useState<Subject>("General Enquiry");
   const [name,    setName]    = useState("");
@@ -290,12 +290,12 @@ function ContactMain() {
     if (name && email && message) setSent(true);
   };
 
-  /* Field theme for navy background */
+  /* Field theme for white background */
   const fieldTheme = {
     focusColor: C.green,
-    restBorder: "rgba(246,246,246,0.2)",
-    textColor:  "rgba(246,246,246,0.9)",
-    labelColor: "rgba(246,246,246,0.4)",
+    restBorder: "rgba(26,26,26,0.2)",
+    textColor:  C.dark,
+    labelColor: "rgba(26,26,26,0.45)",
   };
 
   const infoItems = [
@@ -306,7 +306,7 @@ function ContactMain() {
   ];
 
   return (
-    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
+    <section ref={ref} className="py-24 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-20 lg:gap-32 items-start">
 
@@ -316,11 +316,11 @@ function ContactMain() {
               <span className="w-0.5 h-4 shrink-0 inline-block" style={{ background: C.green }} />
               Reach Us
             </p>
-            <h2 className="font-light leading-[1.08] mb-12" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.6rem)", letterSpacing: "-0.02em", color: C.light }}>
+            <h2 className="font-light leading-[1.08] mb-12" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.6rem)", letterSpacing: "-0.02em", color: C.dark }}>
               We respond to every message.
             </h2>
 
-            <div className="space-y-0 divide-y" style={{ borderColor: "rgba(246,246,246,0.1)" }}>
+            <div className="space-y-0 divide-y" style={{ borderColor: "rgba(26,26,26,0.08)" }}>
               {infoItems.map((item, i) => (
                 <ContactInfoItem key={item.label} item={item} i={i} inView={inView} />
               ))}
@@ -335,15 +335,15 @@ function ContactMain() {
 
                   {/* Subject tabs */}
                   <div className="mb-10">
-                    <p className="text-[9px] tracking-[0.32em] uppercase mb-4" style={{ color: "rgba(246,246,246,0.4)" }}>Subject</p>
+                    <p className="text-[9px] tracking-[0.32em] uppercase mb-4" style={{ color: "rgba(26,26,26,0.45)" }}>Subject</p>
                     <div className="flex flex-wrap gap-2">
                       {SUBJECTS.map((s) => (
                         <button
                           key={s} type="button" onClick={() => setSubject(s)}
-                          className="relative px-4 py-2 text-[10px] tracking-[0.18em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                          className={`relative px-4 py-2 text-[10px] tracking-[0.18em] uppercase overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/15 ${subject === s ? "" : "hover:opacity-70"}`}
                           style={{
-                            color: subject === s ? C.light : "rgba(246,246,246,0.5)",
-                            border: `1px solid ${subject === s ? C.red : "rgba(246,246,246,0.2)"}`,
+                            color: subject === s ? C.light : "rgba(26,26,26,0.55)",
+                            border: `1px solid ${subject === s ? C.red : "rgba(26,26,26,0.2)"}`,
                           }}
                         >
                           {subject === s && (
@@ -389,7 +389,7 @@ function ContactMain() {
                         &rarr;
                       </motion.span>
                     </motion.button>
-                    <p className="text-[10px] mt-4" style={{ color: "rgba(246,246,246,0.25)" }}>
+                    <p className="text-[10px] mt-4" style={{ color: "rgba(26,26,26,0.35)" }}>
                       We typically respond within 2 business days.
                     </p>
                   </motion.div>
@@ -402,11 +402,11 @@ function ContactMain() {
                   </motion.svg>
                   <motion.div className="w-10 h-px mb-6" style={{ background: C.green }} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.5, delay: 0.3 }} />
                   <p className="text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: C.green }}>Message Received</p>
-                  <h3 className="font-light leading-[1.2] mb-6" style={{ fontSize: "clamp(1.4rem, 2.2vw, 2rem)", letterSpacing: "-0.02em", color: C.light }}>
+                  <h3 className="font-light leading-[1.2] mb-6" style={{ fontSize: "clamp(1.4rem, 2.2vw, 2rem)", letterSpacing: "-0.02em", color: C.dark }}>
                     Thank you, {name.split(" ")[0]}.
                   </h3>
-                  <p className="text-sm leading-[1.85] mb-10" style={{ color: "rgba(246,246,246,0.55)" }}>
-                    Your message has been received by the Omoowo 2027 campaign team. We will respond to <strong style={{ color: C.light, fontWeight: 500 }}>{email}</strong> within 2 business days.
+                  <p className="text-sm leading-[1.85] mb-10" style={{ color: "rgba(26,26,26,0.6)" }}>
+                    Your message has been received by the Omoowo 2027 campaign team. We will respond to <strong style={{ color: C.dark, fontWeight: 500 }}>{email}</strong> within 2 business days.
                   </p>
                   <button
                     onClick={() => { setSent(false); setName(""); setEmail(""); setPhone(""); setMessage(""); }}
@@ -433,7 +433,7 @@ const officeAccent = [C.green, C.red, C.green] as string[];
 
 function Offices() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const offices = [
     { lga: "Ijebu-East",    role: "Campaign Headquarters", address: "Omoowo 2027 Campaign HQ\nIjebu-Ode, Ogun State", hours: "Mon – Sat · 8am – 6pm WAT" },
@@ -502,7 +502,7 @@ function Offices() {
 }
 
 /* ══════════════════════════════════════════
-   4. PRESS ENQUIRIES — #094E7D background
+   4. PRESS ENQUIRIES — white background
    Cards alternate green / red hover
 ══════════════════════════════════════════ */
 const pressAccent = [C.green, C.red, C.green, C.red] as string[];
@@ -525,15 +525,15 @@ function PressCard({ card, i, inView }: { card: typeof pressCards[0]; i: number;
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="p-8 cursor-default transition-colors duration-250"
-      style={{ background: hovered ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)" }}
+      style={{ background: hovered ? "rgba(26,26,26,0.035)" : "rgba(26,26,26,0.015)" }}
     >
       <h4
         className="text-sm font-medium mb-3 transition-colors duration-250"
-        style={{ color: hovered ? accent : "rgba(246,246,246,0.85)" }}
+        style={{ color: hovered ? accent : "rgba(26,26,26,0.85)" }}
       >
         {card.heading}
       </h4>
-      <p className="text-[12px] leading-[1.85] mb-6" style={{ color: "rgba(246,246,246,0.45)" }}>{card.body}</p>
+      <p className="text-[12px] leading-[1.85] mb-6" style={{ color: "rgba(26,26,26,0.5)" }}>{card.body}</p>
       <a
         href={card.href}
         className="relative inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase focus-visible:outline-none"
@@ -549,10 +549,10 @@ function PressCard({ card, i, inView }: { card: typeof pressCards[0]; i: number;
 
 function Press() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#094E7D" }}>
+    <section ref={ref} className="py-24 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
       <div className="max-w-300 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-28 items-start">
 
@@ -561,12 +561,12 @@ function Press() {
               <span className="w-0.5 h-4 shrink-0 inline-block" style={{ background: C.green }} />
               Media &amp; Press
             </p>
-            <h2 className="font-light leading-[1.1]" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", letterSpacing: "-0.02em", color: C.light }}>
+            <h2 className="font-light leading-[1.1]" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", letterSpacing: "-0.02em", color: C.dark }}>
               For journalists and broadcasters.
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: "rgba(246,246,246,0.08)" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: "rgba(26,26,26,0.06)" }}>
             {pressCards.map((card, i) => (
               <PressCard key={card.heading} card={card} i={i} inView={inView} />
             ))}
@@ -582,7 +582,7 @@ function Press() {
 ══════════════════════════════════════════ */
 function ContactCTA() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="py-28 md:py-36 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>
@@ -609,17 +609,17 @@ function ContactCTA() {
           className="flex flex-wrap gap-4 shrink-0"
         >
           {/* neutral */}
-          <a href="/" className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-200" style={{ border: `1px solid ${C.border}`, color: C.muted }}>
+          <motion.a href="/" className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase hover:opacity-60 transition-opacity duration-200" whileHover={{ scale: 1.04, transition: { duration: 0.2 } }} whileTap={{ scale: 0.97 }} style={{ border: `1px solid ${C.border}`, color: C.muted }}>
             &larr; Back to Home
-          </a>
+          </motion.a>
           {/* green */}
-          <a href="/events" className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity duration-200" style={{ background: C.green, color: C.light }}>
+          <motion.a href="/events" className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity duration-200" whileHover={{ scale: 1.04, transition: { duration: 0.2 } }} whileTap={{ scale: 0.97 }} style={{ background: C.green, color: C.light }}>
             View Events
-          </a>
+          </motion.a>
           {/* red */}
-          <a href="/#involved" className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity duration-200" style={{ background: C.red, color: C.light }}>
+          <motion.a href="/#involved" className="px-7 py-3 text-[11px] tracking-[0.2em] uppercase hover:opacity-80 transition-opacity duration-200" whileHover={{ scale: 1.04, transition: { duration: 0.2 } }} whileTap={{ scale: 0.97 }} style={{ background: C.red, color: C.light }}>
             Get Involved
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

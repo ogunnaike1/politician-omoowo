@@ -20,7 +20,7 @@ const timeAccent = ["#008B4D", "#E63035", "#008B4D"];
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   const [display, setDisplay] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false });
+  const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!inView) return;
@@ -146,7 +146,7 @@ function TimelineCard({
 
 export default function Record() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section id="record" ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">

@@ -71,7 +71,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           {/* Subtle bottom fade */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(9,78,125,0.5) 80%, rgba(9,78,125,0.9) 100%)" }}
+            style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(0,139,77,0.5) 80%, rgba(0,139,77,0.9) 100%)" }}
           />
 
           {/* Glass name badge */}
@@ -83,7 +83,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             style={{
               backdropFilter: "blur(14px) saturate(1.4)",
               WebkitBackdropFilter: "blur(14px) saturate(1.4)",
-              background: "rgba(9,78,125,0.85)",
+              background: "rgba(0,139,77,0.85)",
               border: "1px solid rgba(246,246,246,0.10)",
               boxShadow: "0 8px 32px rgba(26,26,26,0.25), inset 0 1px 0 rgba(246,246,246,0.07)",
             }}
@@ -92,7 +92,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             <div className="px-5 py-4 flex items-center justify-between">
               <div>
                 <p className="text-[#FFFFFF] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
-                <p className="text-[#E63035] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
+                <p className="text-[#FFFFFF] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
               </div>
               <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(230,48,53,0.3)", border: "1px solid rgba(230,48,53,0.5)" }}>
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="3" fill="#E63035" /></svg>
@@ -218,18 +218,22 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1, ease }}
           >
-            <a
+            <motion.a
               href="#involved"
               className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-[#E63035] transition-colors duration-200"
+              whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
             >
               Join the Campaign
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="/profile"
               className="px-7 py-3 border border-[#E63035] text-[#1A1A1A] text-[11px] tracking-[0.2em] uppercase hover:bg-[#E63035] hover:text-[#FFFFFF] transition-all duration-200"
+              whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
             >
               Meet Omoowo
-            </a>
+            </motion.a>
           </motion.div>
         </div>
 

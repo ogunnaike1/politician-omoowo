@@ -16,7 +16,7 @@ export interface HeroProps {
 }
 
 const DEFAULTS: Required<HeroProps> = {
-  headlineLine1: "Alhaji Omoowo",
+  headlineLine1: "Alhaji Omoowo ",
   headlineLine2: "Omotayo.",
   subtitle: "PDP · Ogun East Senatorial District · 2027",
   body: "Bringing experienced, community-driven leadership to the National Assembly for the people of Ogun East.",

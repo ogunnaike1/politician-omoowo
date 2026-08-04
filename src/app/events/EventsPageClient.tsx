@@ -224,7 +224,7 @@ function EventsHero({ nextEvent }: { nextEvent: NextEventInfo | null }) {
           <div>
             <h1
               className="font-light leading-[0.97] mb-10"
-              style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)", letterSpacing: "-0.04em", color: C.dark }}
+              style={{ fontSize: "clamp(2rem, 5vw, 4.8rem)", letterSpacing: "-0.04em", color: C.dark }}
             >
               {[
                 { words: ["On", "the"], d: 0.4 },
@@ -357,16 +357,16 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
       transition={{ duration: 0.45, delay: index * 0.06, ease }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className="group grid grid-cols-1 md:grid-cols-[100px_1fr_auto] items-center gap-4 md:gap-10 py-6 border-t cursor-default transition-colors duration-300"
+      className="group grid grid-cols-1 md:grid-cols-[116px_1fr_auto] items-center gap-4 md:gap-10 py-6 border-t cursor-default transition-colors duration-300"
       style={{
         borderColor: "rgba(26,26,26,0.08)",
         backgroundColor: hovered ? hoverBg : "transparent",
       }}
     >
       {/* Date */}
-      <div className="flex md:flex-col items-baseline md:items-start gap-2 md:gap-0">
+      <div className="flex md:flex-col items-baseline md:items-start gap-3 md:gap-0">
         <div
-          className="font-light leading-none transition-colors duration-300"
+          className="font-light leading-none transition-colors duration-300 shrink-0"
           style={{
             fontSize: event.featured ? "clamp(2rem, 3.5vw, 3.2rem)" : "clamp(1.8rem, 3vw, 2.8rem)",
             color: dateColor,
@@ -375,11 +375,11 @@ function EventRow({ event, index }: { event: CEvent; index: number }) {
         >
           {event.day}
         </div>
-        <div className="md:mt-1">
-          <p className="text-[10px] tracking-[0.22em] uppercase" style={{ color: "rgba(26,26,26,0.4)" }}>
+        <div className="md:mt-1 min-w-0">
+          <p className="text-[10px] tracking-[0.22em] uppercase whitespace-nowrap" style={{ color: "rgba(26,26,26,0.4)" }}>
             {event.month} {event.year}
           </p>
-          <p className="text-[9px] tracking-[0.15em]" style={{ color: "rgba(26,26,26,0.3)" }}>
+          <p className="text-[9px] tracking-[0.1em] uppercase whitespace-nowrap mt-0.5" style={{ color: "rgba(26,26,26,0.3)" }}>
             {event.time}
           </p>
         </div>

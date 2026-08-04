@@ -115,7 +115,7 @@ function NewsHero() {
         {/* Headline */}
         <div className="flex-1 flex items-center py-16 md:py-20">
           <div>
-            <h1 className="font-light leading-[0.96] mb-10" style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)", letterSpacing: "-0.04em", color: C.dark }}>
+            <h1 className="font-light leading-[0.96] mb-10" style={{ fontSize: "clamp(2rem, 5vw, 4.8rem)", letterSpacing: "-0.04em", color: C.dark }}>
               {headline.map(({ words, d }) => (
                 <span key={d} style={{ display: "block" }}>
                   {words.map((word, wi) => (

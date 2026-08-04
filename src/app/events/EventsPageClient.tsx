@@ -82,22 +82,22 @@ function Countdown({ target }: { target: string }) {
   ];
 
   return (
-    <div className="flex items-end">
+    <div className="flex items-end flex-wrap gap-y-2">
       {units.map(({ v, label }, i) => (
         <div key={label} className="flex items-end">
           {i > 0 && (
-            <span className="font-light pb-5 px-1.5 md:px-2 text-xl md:text-2xl" style={{ color: "rgba(246,246,246,0.18)" }}>
+            <span className="font-light pb-1 px-1 text-xs" style={{ color: "rgba(246,246,246,0.18)" }}>
               :
             </span>
           )}
           <div className="text-center">
             <div
               className="font-light leading-none tabular-nums"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 5rem)", color: C.light, letterSpacing: "-0.045em" }}
+              style={{ fontSize: "clamp(1.15rem, 3.4vw, 1.5rem)", color: C.light, letterSpacing: "-0.02em" }}
             >
               {String(v).padStart(2, "0")}
             </div>
-            <p className="text-[8px] tracking-[0.32em] uppercase mt-2" style={{ color: "rgba(246,246,246,0.32)" }}>
+            <p className="text-[7px] tracking-[0.22em] uppercase mt-1.5" style={{ color: "rgba(246,246,246,0.32)" }}>
               {label}
             </p>
           </div>

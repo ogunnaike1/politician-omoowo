@@ -1,0 +1,628 @@
+"use client";
+
+import Image from "next/image";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
+
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+/* helper */
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[#888888] text-[10px] tracking-[0.4em] uppercase mb-4">{children}</p>
+  );
+}
+
+/* ── 1. HERO ── */
+// Alternate hero tag accents: green, red, green, red
+const tagAccents = [
+  { bg: "rgba(0,139,77,0.22)",  border: "rgba(0,139,77,0.45)" },
+  { bg: "rgba(230,48,53,0.22)", border: "rgba(230,48,53,0.45)" },
+  { bg: "rgba(0,139,77,0.22)",  border: "rgba(0,139,77,0.45)" },
+  { bg: "rgba(230,48,53,0.22)", border: "rgba(230,48,53,0.45)" },
+];
+
+function ProfileHero({ imageUrl }: { imageUrl: string }) {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [0.55, 0.9]);
+
+  return (
+    <section ref={ref} className="relative h-[92vh] min-h-[580px] overflow-hidden flex items-end">
+      <motion.div className="absolute inset-0" style={{ y: imgY }}>
+        <Image
+          src={imageUrl}
+          alt="Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center 15%" }}
+          priority
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          opacity: overlayOpacity,
+          background: "linear-gradient(to bottom, rgba(0,139,77,0.2) 0%, rgba(0,139,77,0.55) 55%, rgba(0,139,77,0.95) 100%)",
+        }}
+      />
+
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          backgroundSize: "200px",
+        }}
+      />
+
+      <div className="relative z-10 w-full max-w-300 mx-auto px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease }}
+          className="flex items-center gap-2.5 text-[10px] tracking-[0.45em] uppercase mb-5"
+          style={{ color: "rgba(246,246,246,0.7)" }}
+        >
+          <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
+          Candidate Profile
+        </motion.p>
+
+        <div className="overflow-hidden mb-3">
+          <motion.h1
+            initial={{ y: "100%" }}
+            animate={{ y: "0%" }}
+            transition={{ duration: 1, delay: 0.3, ease }}
+            className="font-light text-[#FFFFFF] leading-[1.0]"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
+          >
+            Alhaji Abdulhameed
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden mb-8">
+          <motion.h1
+            initial={{ y: "100%" }}
+            animate={{ y: "0%" }}
+            transition={{ duration: 1, delay: 0.42, ease }}
+            className="font-light text-[#FFFFFF] leading-[1.0]"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}
+          >
+            Oluwafemi Omotayo
+          </motion.h1>
+        </div>
+
+        {/* Tags: alternating green / red */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7, ease }}
+          className="flex flex-wrap gap-3"
+        >
+          {["Known as Omoowo", "PDP Candidate", "Ogun East Senatorial District", "2027 Election"].map((tag, i) => (
+            <span
+              key={tag}
+              className="px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#FFFFFF]/80 rounded-sm"
+              style={{
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                background: tagAccents[i].bg,
+                border: `1px solid ${tagAccents[i].border}`,
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ── 2. BIOGRAPHY ── */
+function QuickFact({ label, val, i }: { label: string; val: string; i: number }) {
+  const [hovered, setHovered] = useState(false);
+  const hoverBg = i % 2 === 0 ? "rgba(0,139,77,0.07)" : "rgba(230,48,53,0.07)";
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="py-3 flex justify-between gap-4 transition-colors duration-200 cursor-default"
+      style={{ backgroundColor: hovered ? hoverBg : "transparent" }}
+    >
+      <p className="text-[#888888] text-[10px] tracking-[0.15em] uppercase shrink-0">{label}</p>
+      <p className="text-[#1A1A1A] text-[11px] text-right leading-relaxed">{val}</p>
+    </div>
+  );
+}
+
+function Biography({ imageUrl, bioParagraphs }: { imageUrl: string; bioParagraphs: string[] }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const facts: [string, string][] = [
+    ["Full Name", "Alhaji Abdulhameed Oluwafemi Omotayo"],
+    ["Known As", "Omoowo"],
+    ["Party", "Peoples Democratic Party (PDP)"],
+    ["Constituency", "Ogun East Senatorial District"],
+    ["State", "Ogun State, Nigeria"],
+    ["Election", "2027 National Assembly"],
+  ];
+
+  return (
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+      <div className="max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 lg:gap-28 items-start">
+
+        {/* Left — sticky photo */}
+        <div className="lg:sticky lg:top-32">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.9, ease }}
+            className="relative"
+          >
+            {/* Offset border — green */}
+            <div
+              className="absolute border border-[#008B4D]/30"
+              style={{ inset: "12px -12px -12px 12px" }}
+            />
+            <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
+              <Image
+                src={imageUrl}
+                alt="Omoowo"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center 10%" }}
+              />
+              {/* Glass strip — split accent bar top */}
+              <div
+                className="absolute bottom-0 left-0 right-0 px-5 py-4"
+                style={{
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  background: "rgba(0,139,77,0.75)",
+                  borderTop: "1px solid rgba(246,246,246,0.08)",
+                }}
+              >
+                {/* Split green / red bar above name */}
+                <div className="flex h-0.5 mb-3">
+                  <div className="flex-1 bg-[#008B4D]" />
+                  <div className="flex-1 bg-[#E63035]" />
+                </div>
+                <p className="text-[#FFFFFF]/90 text-[11px] tracking-[0.2em] uppercase">Omoowo</p>
+                <p className="text-[10px] tracking-[0.15em] uppercase mt-0.5" style={{ color: "rgba(246,246,246,0.55)" }}>PDP &middot; Ogun East</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Quick facts — alternating hover */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.35, ease }}
+            className="mt-8 divide-y divide-[#DCDCDC]"
+          >
+            {facts.map(([label, val], i) => (
+              <QuickFact key={label} label={label} val={val} i={i} />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Right — biography text */}
+        <div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-2.5 mb-4">
+              <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
+              <SectionLabel>Biography</SectionLabel>
+            </div>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 28 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.1, ease }}
+            className="font-light text-[#1A1A1A] leading-[1.1] mb-10"
+            style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.5rem)", letterSpacing: "-0.02em" }}
+          >
+            A son of Ogun East, built by its people, fighting for its future.
+          </motion.h2>
+
+          {bioParagraphs.map((para, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 + i * 0.08, ease }}
+              className="text-[#888888] leading-[1.9] mb-6"
+              style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)" }}
+            >
+              {para}
+            </motion.p>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── 3. TIMELINE ── */
+const timelineItems = [
+  { period: "Early Years",          title: "Roots in Ogun East",      body: "Born and raised in Ogun East, shaped by the daily realities of his community — its strengths, its challenges, and its enormous unrealised potential." },
+  { period: "Community Leadership", title: "Grassroots Organiser",     body: "Established himself as a trusted community voice across multiple LGAs in Ogun East, working with traditional institutions, youth groups, and women's cooperatives to drive local development." },
+  { period: "Business & Philanthropy", title: "Entrepreneur & Investor", body: "Built a successful business career while consistently reinvesting in the communities of Ogun East through scholarships, infrastructure support, and economic empowerment programmes." },
+  { period: "PDP Membership",       title: "Party Stalwart",           body: "A dedicated and active member of the Peoples Democratic Party (PDP), contributing to party building and electoral organisation across Ogun East over many years." },
+  { period: "2027 Campaign",        title: "Senatorial Candidate",     body: "Emerged as the PDP candidate for the 2027 Ogun East Senatorial District election — bringing decades of community experience and a people-first agenda to the National Assembly." },
+];
+
+// 5 items: green, red, green, red, green — 3 green : 2 red
+const timelineDotAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035", "#008B4D"];
+
+function Timeline() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+      <div className="max-w-300 mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <SectionLabel>Journey</SectionLabel>
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, delay: 0.1, ease }}
+          className="font-light text-[#1A1A1A] mb-20"
+          style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
+        >
+          A life spent in service.
+        </motion.h2>
+
+        <div className="relative">
+          {/* Vertical spine */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={inView ? { scaleY: 1 } : {}}
+            transition={{ duration: 1.2, delay: 0.2, ease }}
+            className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-[rgba(26,26,26,0.15)] origin-top"
+            style={{ marginLeft: "-0.5px" }}
+          />
+
+          <div className="space-y-0">
+            {timelineItems.map((item, i) => {
+              const isRight = i % 2 === 0;
+              const accent = timelineDotAccent[i];
+              return (
+                <motion.div
+                  key={item.period}
+                  initial={{ opacity: 0, x: isRight ? -40 : 40 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.75, delay: 0.25 + i * 0.12, ease }}
+                  className={`relative pl-10 lg:pl-0 lg:w-1/2 pb-14 ${isRight ? "lg:pr-16" : "lg:ml-auto lg:pl-16"}`}
+                >
+                  {/* Dot on spine */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={inView ? { scale: 1 } : {}}
+                    transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.35 + i * 0.12 }}
+                    className="absolute top-1 w-3 h-3 rounded-full border-2 border-[#FFFFFF]"
+                    style={{
+                      backgroundColor: accent,
+                      left: isRight ? "auto" : "-6px",
+                      right: isRight ? "calc(100% - 5px)" : "auto",
+                    }}
+                  />
+                  {/* Mobile dot */}
+                  <div
+                    className="lg:hidden absolute left-0 top-1.5 w-2 h-2 rounded-full"
+                    style={{ backgroundColor: accent }}
+                  />
+
+                  <p
+                    className="text-[10px] tracking-[0.3em] uppercase mb-2"
+                    style={{ color: accent }}
+                  >
+                    {item.period}
+                  </p>
+                  <h3 className="text-[#1A1A1A] font-light text-xl mb-3 leading-snug">{item.title}</h3>
+                  <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── 4. VALUES ── */
+const values = [
+  { n: "01", title: "Integrity",             body: "Leadership built on honesty. What Omoowo commits to publicly, he delivers privately. No double standards, no hidden agendas." },
+  { n: "02", title: "Community First",        body: "Every decision is filtered through one question: does this make life better for the people of Ogun East? That is the only metric that matters." },
+  { n: "03", title: "Inclusive Development",  body: "No LGA left behind. Development must reach the farmer in Ogun Waterside as much as the trader in Ijebu-East." },
+  { n: "04", title: "Youth & Future",         body: "The energy and potential of Ogun East's young people are its greatest asset. Omoowo is committed to unlocking that potential." },
+];
+
+// 4 values: green, red, green, red — perfect 2 : 2
+const valueAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035"];
+
+function ValueCard({ v, i, inView }: { v: typeof values[0]; i: number; inView: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  const accent = valueAccent[i];
+  const hoverBg = accent === "#E63035" ? "rgba(230,48,53,0.10)" : "rgba(0,139,77,0.10)";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: 0.15 + i * 0.1, ease }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="p-10 md:p-14 cursor-default transition-colors duration-300"
+      style={{ backgroundColor: hovered ? hoverBg : "#FFFFFF" }}
+    >
+      <p className="text-[#DCDCDC] text-[11px] tracking-[0.3em] mb-6">{v.n}</p>
+      <h3
+        className="font-light mb-5 leading-tight transition-colors duration-300"
+        style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)", color: hovered ? accent : "#1A1A1A" }}
+      >
+        {v.title}
+      </h3>
+      <p className="text-[#888888] text-sm leading-[1.85]">{v.body}</p>
+      <motion.div
+        className="mt-8 h-px origin-left"
+        style={{ backgroundColor: accent }}
+        initial={{ scaleX: 0.15 }}
+        animate={{ scaleX: hovered ? 1 : 0.15 }}
+        transition={{ duration: 0.4, ease }}
+      />
+    </motion.div>
+  );
+}
+
+function Values() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-40 px-6 md:px-12 lg:px-20">
+      <div className="max-w-300 mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <SectionLabel>Core Values</SectionLabel>
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, delay: 0.1, ease }}
+          className="font-light text-[#1A1A1A] mb-16"
+          style={{ fontSize: "clamp(1.7rem, 3vw, 2.8rem)", letterSpacing: "-0.02em" }}
+        >
+          What guides every decision.
+        </motion.h2>
+
+        {/* Neutral gap — no orange lines */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: "rgba(26,26,26,0.07)" }}>
+          {values.map((v, i) => (
+            <ValueCard key={v.n} v={v} i={i} inView={inView} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── 5. QUOTE ── */
+// Green words: "fights" (28), "listens" (24), "lives" (21), "deserve" (17)
+const quoteGreenWords = new Set([17, 21, 24, 28]);
+const quoteWords = "I did not enter this race for titles. I entered it because the people of Ogun East deserve a senator who lives among them, listens to them, and fights for them every single day.".split(" ");
+
+function Quote() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-44 px-6 md:px-12 lg:px-20">
+      <div className="max-w-190 mx-auto text-center">
+        {/* Split green / red accent line */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={inView ? { opacity: 1, scaleX: 1 } : {}}
+          transition={{ duration: 0.6 }}
+          className="flex w-20 mx-auto mb-12 h-px origin-center overflow-hidden"
+        >
+          <div className="flex-1 bg-[#008B4D]" />
+          <div className="flex-1 bg-[#E63035]" />
+        </motion.div>
+
+        <blockquote
+          className="font-light text-[#1A1A1A] leading-[1.45] mb-10"
+          style={{ fontSize: "clamp(1.3rem, 2.5vw, 2.1rem)", letterSpacing: "-0.01em" }}
+        >
+          &ldquo;
+          {quoteWords.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, filter: "blur(6px)", y: 14 }}
+              animate={inView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.035, ease: "easeOut" }}
+              style={{
+                display: "inline",
+                color: quoteGreenWords.has(i) ? "#008B4D" : undefined,
+              }}
+            >
+              {word}{i < quoteWords.length - 1 ? " " : ""}
+            </motion.span>
+          ))}
+          &rdquo;
+        </blockquote>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8, ease }}
+          className="text-[11px] tracking-[0.3em] uppercase"
+          style={{ color: "rgba(26,26,26,0.5)" }}
+        >
+          Alhaji Omoowo &mdash; PDP Candidate, Ogun East 2027
+        </motion.p>
+      </div>
+    </section>
+  );
+}
+
+/* ── 6. STATS ── */
+// 4 cells: green, red, green, red — perfect 2 : 2
+const statCellAccent = ["#008B4D", "#E63035", "#008B4D", "#E63035"];
+
+function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: string }; i: number; inView: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  const accent = statCellAccent[i];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+      animate={inView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
+      transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="px-8 py-10 cursor-default transition-colors duration-250"
+      style={{
+        backgroundColor: hovered ? accent : "#FFFFFF",
+        borderTop: `2px solid ${accent}`,
+      }}
+    >
+      <p
+        className="font-light leading-none mb-3 transition-colors duration-250"
+        style={{
+          fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+          letterSpacing: "-0.03em",
+          color: hovered ? "#FFFFFF" : "#1A1A1A",
+        }}
+      >
+        {d.value}
+      </p>
+      <p
+        className="text-sm mb-1 transition-colors duration-250"
+        style={{ color: hovered ? "#FFFFFF" : "#888888" }}
+      >
+        {d.label}
+      </p>
+      <p className="text-[#888888] text-[11px] leading-relaxed">{d.sub}</p>
+    </motion.div>
+  );
+}
+
+function Stats() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const data = [
+    { value: "3",    label: "LGAs",          sub: "Ijebu-East, Ogun Waterside, Ikenne" },
+    { value: "PDP",  label: "Party",          sub: "Peoples Democratic Party" },
+    { value: "2027", label: "Election Year",  sub: "National Assembly general elections" },
+    { value: "1",    label: "Goal",           sub: "Deliver real change for Ogun East" },
+  ];
+
+  return (
+    <section ref={ref} className="bg-[#FFFFFF] py-20 px-6 md:px-12 lg:px-20">
+      <div
+        className="max-w-300 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px"
+        style={{ background: "rgba(26,26,26,0.08)" }}
+      >
+        {data.map((d, i) => (
+          <StatCell key={d.label} d={d} i={i} inView={inView} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ── 7. CTA ── */
+function ProfileCTA() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section ref={ref} className="bg-[#FFFFFF] py-28 md:py-36 px-6 md:px-12 lg:px-20">
+      <div className="max-w-300 mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
+        <div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-2.5 text-[#E63035] text-[10px] tracking-[0.4em] uppercase mb-4"
+          >
+            <span className="w-0.5 h-4 bg-[#008B4D] shrink-0 inline-block" />
+            Get Involved
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 28 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.1, ease }}
+            className="font-light text-[#1A1A1A]"
+            style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", letterSpacing: "-0.02em" }}
+          >
+            Be part of the movement.
+          </motion.h2>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.3, ease }}
+          className="flex flex-wrap gap-4 shrink-0"
+        >
+          {/* Green button */}
+          <motion.a
+            href="/"
+            className="px-7 py-3 bg-[#008B4D] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#006B3A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
+          >
+            &larr; Back to Home
+          </motion.a>
+          {/* Red button */}
+          <motion.a
+            href="/#involved"
+            className="px-7 py-3 bg-[#E63035] text-[#FFFFFF] text-[11px] tracking-[0.2em] uppercase hover:bg-[#006B3A] transition-colors duration-200"
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Join the Campaign
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ── PAGE (client) ── */
+export default function ProfilePageClient({
+  imageUrl,
+  bioParagraphs,
+}: {
+  imageUrl: string;
+  bioParagraphs: string[];
+}) {
+  return (
+    <>
+      <ProfileHero imageUrl={imageUrl} />
+      <Biography imageUrl={imageUrl} bioParagraphs={bioParagraphs} />
+      <Timeline />
+      <Values />
+      <Quote />
+      <Stats />
+      <ProfileCTA />
+    </>
+  );
+}

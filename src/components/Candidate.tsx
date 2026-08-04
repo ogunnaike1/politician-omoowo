@@ -27,9 +27,25 @@ function MaskedLine({ children, delay, className, style }: {
   );
 }
 
-export default function Candidate() {
+export interface CandidateProps {
+  bioParagraphs?: string[];
+  imageUrl?: string;
+  knownAs?: string;
+}
+
+const DEFAULT_BIO = [
+  "Alhaji Abdulhameed Oluwafemi Omotayo, widely known as Omoowo, is a prominent community leader, businessman, and PDP stalwart with deep roots across the Ogun East Senatorial District. He has dedicated years to grassroots development, youth empowerment, and championing the welfare of ordinary people in Ogun State.",
+  "As the PDP candidate for the 2027 Ogun East Senatorial District election, Omoowo brings a clear, people-first agenda to the National Assembly — focused on infrastructure, education, security, and economic opportunity for every community in Ogun East.",
+];
+
+export default function Candidate({
+  bioParagraphs = DEFAULT_BIO,
+  imageUrl = "https://res.cloudinary.com/dhmqhless/image/upload/v1784255332/omoowo4_wyrzo8.png",
+  knownAs = "Omoowo",
+}: CandidateProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [bio1, bio2] = bioParagraphs.length >= 2 ? bioParagraphs : [bioParagraphs[0] ?? "", ""];
 
   return (
     <section
@@ -67,7 +83,7 @@ export default function Candidate() {
             transition={{ duration: 1.3, ease }}
           >
             <Image
-              src="https://res.cloudinary.com/dhmqhless/image/upload/v1784255332/omoowo4_wyrzo8.png"
+              src={imageUrl}
               alt="Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)"
               fill
               style={{ objectFit: "cover", objectPosition: "center top" }}
@@ -101,7 +117,7 @@ export default function Candidate() {
               <div className="px-5 py-4 flex items-center justify-between">
                 <div>
                   <p className="text-[#FFFFFF] text-[11px] font-medium tracking-[0.22em] uppercase mb-0.5">
-                    Alhaji Omoowo
+                    Alhaji {knownAs}
                   </p>
                   <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(246,246,246,0.55)" }}>
                     PDP &middot; Ogun East &middot; 2027
@@ -163,10 +179,7 @@ export default function Candidate() {
                   className="leading-[1.8]"
                   style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(26,26,26,0.72)" }}
                 >
-                  Alhaji Abdulhameed Oluwafemi Omotayo, widely known as Omoowo, is a prominent community
-                  leader, businessman, and PDP stalwart with deep roots across the Ogun East Senatorial
-                  District. He has dedicated years to grassroots development, youth empowerment, and
-                  championing the welfare of ordinary people in Ogun State.
+                  {bio1}
                 </MaskedLine>
               </div>
 
@@ -176,9 +189,7 @@ export default function Candidate() {
                   className="leading-[1.8]"
                   style={{ fontSize: "clamp(0.9rem, 1.05vw, 1rem)", color: "rgba(26,26,26,0.72)" }}
                 >
-                  As the PDP candidate for the 2027 Ogun East Senatorial District election, Omoowo brings
-                  a clear, people-first agenda to the National Assembly &mdash; focused on infrastructure,
-                  education, security, and economic opportunity for every community in Ogun East.
+                  {bio2}
                 </MaskedLine>
               </div>
 

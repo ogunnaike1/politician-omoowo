@@ -6,12 +6,25 @@ import Image from "next/image";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const headline: [string[], string[]] = [
-  ["Alhaji", "Omoowo"],
-  ["Omotayo."],
-];
+export interface HeroProps {
+  headlineLine1?: string;
+  headlineLine2?: string;
+  subtitle?: string;
+  body?: string;
+  imageUrl?: string;
+  knownAs?: string;
+}
 
-function PortraitFrame({ scrolled }: { scrolled: number }) {
+const DEFAULTS: Required<HeroProps> = {
+  headlineLine1: "Alhaji Omoowo",
+  headlineLine2: "Omotayo.",
+  subtitle: "PDP · Ogun East Senatorial District · 2027",
+  body: "Bringing experienced, community-driven leadership to the National Assembly for the people of Ogun East.",
+  imageUrl: "https://res.cloudinary.com/dhmqhless/image/upload/v1784251310/omoowo_zflh1d.jpg",
+  knownAs: "Omoowo",
+};
+
+function PortraitFrame({ scrolled, imageUrl, knownAs }: { scrolled: number; imageUrl: string; knownAs: string }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -61,7 +74,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
           style={{ zIndex: 1 }}
         >
           <Image
-            src="https://res.cloudinary.com/dhmqhless/image/upload/v1784251310/omoowo_zflh1d.jpg"
+            src={imageUrl}
             alt="Alhaji Abdulhameed Oluwafemi Omotayo (Omoowo)"
             fill
             style={{ objectFit: "cover", objectPosition: "center top" }}
@@ -91,7 +104,7 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
             <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(246,246,246,0.18), transparent)" }} />
             <div className="px-5 py-4 flex items-center justify-between">
               <div>
-                <p className="text-[#FFFFFF] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji Omoowo</p>
+                <p className="text-[#FFFFFF] text-[11px] font-medium tracking-[0.2em] uppercase mb-0.5">Alhaji {knownAs}</p>
                 <p className="text-[#FFFFFF] text-[10px] tracking-[0.15em] uppercase">PDP &middot; Ogun East &middot; 2027</p>
               </div>
               <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(230,48,53,0.3)", border: "1px solid rgba(230,48,53,0.5)" }}>
@@ -141,7 +154,17 @@ function PortraitFrame({ scrolled }: { scrolled: number }) {
   );
 }
 
-export default function Hero() {
+export default function Hero(props: HeroProps) {
+  const {
+    headlineLine1 = DEFAULTS.headlineLine1,
+    headlineLine2 = DEFAULTS.headlineLine2,
+    subtitle = DEFAULTS.subtitle,
+    body = DEFAULTS.body,
+    imageUrl = DEFAULTS.imageUrl,
+    knownAs = DEFAULTS.knownAs,
+  } = props;
+  const headline: [string[], string[]] = [headlineLine1.split(" "), headlineLine2.split(" ")];
+
   const [scrolled, setScrolled] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -176,7 +199,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
           >
-            PDP &middot; Ogun East Senatorial District &middot; 2027
+            {subtitle}
           </motion.p>
 
           <h1
@@ -208,8 +231,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.85, ease }}
           >
-            Bringing experienced, community-driven leadership to the National Assembly
-            for the people of Ogun East.
+            {body}
           </motion.p>
 
           <motion.div
@@ -243,7 +265,7 @@ export default function Hero() {
             className="relative w-[220px] sm:w-[270px] lg:w-full lg:max-w-[360px]"
             style={{ aspectRatio: "3/4" }}
           >
-            <PortraitFrame scrolled={scrolled} />
+            <PortraitFrame scrolled={scrolled} imageUrl={imageUrl} knownAs={knownAs} />
           </div>
         </div>
       </div>

@@ -12,30 +12,13 @@ import { useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const quotes = [
-  {
-    q: "Omoowo is not a stranger to our communities. He has been here through the struggles and the progress. That is the kind of senator Ogun East needs.",
-    name: "PDP Ogun State Leadership",
-    role: "Peoples Democratic Party, Ogun State Chapter",
-  },
-  {
-    q: "What sets Omoowo apart is that he listens. He does not just come to town during elections â€” he has always been present.",
-    name: "Community Leader, Ijebu-East LGA",
-    role: "Traditional Rulers Council Representative",
-  },
-  {
-    q: "The people of Ogun Waterside have waited long enough. Omoowo understands our challenges and has a real plan to address them.",
-    name: "Market Women Association",
-    role: "Ogun Waterside Local Government",
-  },
-  {
-    q: "Our young people need someone at Abuja who will actually fight for their future. Omoowo has proven he can be that person.",
-    name: "Youth Leaders Forum",
-    role: "Ogun East Senatorial District",
-  },
-];
+export interface EndorsementQuote {
+  q: string;
+  name: string;
+  role: string;
+}
 
-export default function Endorsements() {
+export default function Endorsements({ quotes }: { quotes: EndorsementQuote[] }) {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -59,6 +42,8 @@ export default function Endorsements() {
     mouseX.set(0);
     mouseY.set(0);
   };
+
+  if (quotes.length === 0) return null;
 
   return (
     <section id="endorsements" ref={ref} className="py-28 md:py-40 px-6 md:px-12 lg:px-20" style={{ background: "#FFFFFF" }}>

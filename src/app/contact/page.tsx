@@ -284,10 +284,31 @@ function ContactMain() {
   const [phone,   setPhone]   = useState("");
   const [message, setMessage] = useState("");
   const [sent,    setSent]    = useState(false);
+  const [sending, setSending] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name && email && message) setSent(true);
+    if (!name || !email || !message) return;
+    setSending(true);
+    setFormError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, subject, message }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        setFormError(body.error || "Something went wrong. Please try again.");
+        return;
+      }
+      setSent(true);
+    } catch {
+      setFormError("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   /* Field theme for white background */
@@ -373,7 +394,8 @@ function ContactMain() {
                   <motion.div initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.58, ease }}>
                     <motion.button
                       type="submit"
-                      className="group relative flex items-center gap-4 px-8 py-4 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                      disabled={sending}
+                      className="group relative flex items-center gap-4 px-8 py-4 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 disabled:opacity-60"
                       style={{ background: C.red, color: C.light }}
                       whileHover="hov" whileTap={{ scale: 0.98 }}
                     >
@@ -384,11 +406,18 @@ function ContactMain() {
                         initial="default"
                         transition={{ duration: 0.35, ease }}
                       />
-                      <span className="relative z-10 text-[11px] tracking-[0.22em] uppercase">Send Message</span>
+                      <span className="relative z-10 text-[11px] tracking-[0.22em] uppercase">
+                        {sending ? "Sending…" : "Send Message"}
+                      </span>
                       <motion.span className="relative z-10 text-lg" variants={{ hov: { x: 5 }, default: { x: 0 } }} transition={{ duration: 0.25 }}>
                         &rarr;
                       </motion.span>
                     </motion.button>
+                    {formError && (
+                      <p className="text-[11px] mt-4" style={{ color: C.red }}>
+                        {formError}
+                      </p>
+                    )}
                     <p className="text-[10px] mt-4" style={{ color: "rgba(26,26,26,0.35)" }}>
                       We typically respond within 2 business days.
                     </p>

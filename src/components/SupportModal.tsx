@@ -82,7 +82,7 @@ function SuccessCheck({ title, body }: { title: string; body: React.ReactNode })
       </motion.svg>
       <p className="text-[10px] tracking-[0.35em] uppercase mb-2" style={{ color: C.green }}>Done</p>
       <h3 className="text-xl font-light leading-tight mb-4" style={{ color: C.dark }}>{title}</h3>
-      <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{body}</p>
+      <p className="text-base leading-relaxed" style={{ color: C.muted }}>{body}</p>
     </motion.div>
   );
 }
@@ -328,7 +328,7 @@ function ShareTab() {
           </motion.button>
         </div>
         <p
-          className="p-4 text-[12px] leading-[1.9] select-all cursor-text"
+          className="p-4 text-[14px] leading-[1.9] select-all cursor-text"
           style={{ background: "rgba(26,26,26,0.03)", border: `1px solid ${C.border}`, color: C.dark }}
         >
           {message}
@@ -366,7 +366,7 @@ function SidePanel() {
         <h2 className="font-light leading-[1.1] mb-5 text-[1.7rem]" style={{ letterSpacing: "-0.02em", color: C.light }}>
           Stand with<br />Omoowo.
         </h2>
-        <p className="text-[12px] leading-[1.9]" style={{ color: "rgba(246,246,246,0.5)" }}>
+        <p className="text-[14px] leading-[1.9]" style={{ color: "rgba(246,246,246,0.5)" }}>
           Every contribution — money, time, or a single share — brings Ogun East one step closer to the leadership it deserves.
         </p>
 

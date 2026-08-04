@@ -330,7 +330,7 @@ function Timeline() {
                     {item.period}
                   </p>
                   <h3 className="text-[#1A1A1A] font-light text-xl mb-3 leading-snug">{item.title}</h3>
-                  <p className="text-[#888888] text-sm leading-[1.85]">{item.body}</p>
+                  <p className="text-[#888888] text-base leading-[1.85]">{item.body}</p>
                 </motion.div>
               );
             })}
@@ -374,7 +374,7 @@ function ValueCard({ v, i, inView }: { v: typeof values[0]; i: number; inView: b
       >
         {v.title}
       </h3>
-      <p className="text-[#888888] text-sm leading-[1.85]">{v.body}</p>
+      <p className="text-[#888888] text-base leading-[1.85]">{v.body}</p>
       <motion.div
         className="mt-8 h-px origin-left"
         style={{ backgroundColor: accent }}
@@ -517,7 +517,7 @@ function StatCell({ d, i, inView }: { d: { value: string; label: string; sub: st
       >
         {d.label}
       </p>
-      <p className="text-[#888888] text-[11px] leading-relaxed">{d.sub}</p>
+      <p className="text-[#888888] text-[13px] leading-relaxed">{d.sub}</p>
     </motion.div>
   );
 }

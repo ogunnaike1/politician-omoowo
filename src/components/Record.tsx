@@ -78,7 +78,7 @@ function StatCard({
       >
         {s.label}
       </p>
-      <p className="text-[#888888] text-[11px] leading-relaxed">{s.sub}</p>
+      <p className="text-[#888888] text-[13px] leading-relaxed">{s.sub}</p>
     </motion.div>
   );
 }

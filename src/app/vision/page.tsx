@@ -141,7 +141,7 @@ function VisionHero() {
           <div className="w-full">
             <h1
               className="font-light leading-[0.98] mb-10"
-              style={{ fontSize: "clamp(3.4rem, 9.5vw, 9.5rem)", letterSpacing: "-0.04em", color: C.dark }}
+              style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)", letterSpacing: "-0.04em", color: C.dark }}
             >
               {headline.map(({ words, d }) => (
                 <span key={d} style={{ display: "block" }}>
@@ -171,7 +171,7 @@ function VisionHero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.85, delay: 1.05 + i * 0.15, ease }}
-                  className="text-sm leading-[1.9]"
+                  className="text-base leading-[1.9]"
                   style={{ color: C.muted }}
                 >
                   {text}
@@ -279,7 +279,7 @@ function TheNumbers() {
                   </p>
                 </div>
 
-                <p className="text-sm leading-[1.95] md:pt-3" style={{ color: "rgba(26,26,26,0.55)" }}>
+                <p className="text-base leading-[1.95] md:pt-3" style={{ color: "rgba(26,26,26,0.55)" }}>
                   {s.note}
                 </p>
               </motion.div>
@@ -411,7 +411,7 @@ function PillarPanel({ p, i }: { p: typeof pillars[0]; i: number }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.35, ease }}
-            className="text-sm leading-[1.95]"
+            className="text-base leading-[1.95]"
             style={{ color: p.light ? "rgba(246,246,246,0.5)" : C.muted }}
           >
             {p.body}
@@ -518,13 +518,13 @@ function RoadmapRow({ r, i, inView }: { r: typeof roadmap[0]; i: number; inView:
         >
           {r.title}
         </h3>
-        <p className="text-sm leading-[1.95]" style={{ color: "rgba(26,26,26,0.55)" }}>{r.body}</p>
+        <p className="text-base leading-[1.95]" style={{ color: "rgba(26,26,26,0.55)" }}>{r.body}</p>
       </div>
 
       {/* Action list — accent bullet lines */}
       <ul className="space-y-3 md:pt-1">
         {r.actions.map((a) => (
-          <li key={a} className="flex items-start gap-3 text-[12px] leading-[1.65]" style={{ color: "rgba(26,26,26,0.7)" }}>
+          <li key={a} className="flex items-start gap-3 text-[14px] leading-[1.65]" style={{ color: "rgba(26,26,26,0.7)" }}>
             <motion.span
               className="mt-[5px] flex-shrink-0 h-px"
               style={{ background: r.accent }}
@@ -694,7 +694,7 @@ function VisionCTA() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease }}
-            className="text-sm leading-[1.9] max-w-sm"
+            className="text-base leading-[1.9] max-w-sm"
             style={{ color: "rgba(26,26,26,0.6)" }}
           >
             This vision only works if the people of Ogun East are part of it &mdash; not as spectators,

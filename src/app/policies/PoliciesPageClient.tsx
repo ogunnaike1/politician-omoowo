@@ -142,7 +142,7 @@ function PolicySection({ policy }: { policy: PolicyItem }) {
               <p className="text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: labelCol }}>
                 Priority {policy.n}
               </p>
-              <p className="text-sm leading-relaxed italic" style={{ color: body }}>
+              <p className="text-base leading-relaxed italic" style={{ color: body }}>
                 &ldquo;{policy.tagline}&rdquo;
               </p>
             </motion.div>
@@ -204,7 +204,7 @@ function PolicySection({ policy }: { policy: PolicyItem }) {
                         <circle cx="3" cy="3" r="2" fill={accent} />
                       </svg>
                     </div>
-                    <p className="text-sm leading-[1.8]" style={{ color: body }}>{c}</p>
+                    <p className="text-base leading-[1.8]" style={{ color: body }}>{c}</p>
                   </motion.li>
                 ))}
               </ul>
@@ -242,7 +242,7 @@ function PolicySection({ policy }: { policy: PolicyItem }) {
                   className="mt-5 px-5 py-5 border-l-2"
                   style={{ borderColor: impactBorder, background: impactBg }}
                 >
-                  <p className="text-sm leading-[1.85] italic" style={{ color: body }}>
+                  <p className="text-base leading-[1.85] italic" style={{ color: body }}>
                     {policy.impact}
                   </p>
                 </div>

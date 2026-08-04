@@ -131,7 +131,7 @@ export default function Endorsements({ quotes }: { quotes: EndorsementQuote[] })
                   transition={{ duration: 0.35, ease }}
                   style={{ background: "#008B4D" }}
                 />
-                <p className="text-[#1A1A1A] text-sm leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
+                <p className="text-[#1A1A1A] text-base leading-relaxed mb-1 line-clamp-2 group-hover:opacity-100 transition-opacity duration-200">&ldquo;{q.q}&rdquo;</p>
                 <p className="text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(26,26,26,0.5)" }}>{q.name}</p>
               </motion.button>
             ))}

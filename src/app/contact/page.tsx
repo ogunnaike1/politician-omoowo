@@ -182,7 +182,7 @@ function ContactHero() {
         {/* Headline */}
         <div className="flex-1 flex items-center py-16 md:py-20">
           <div>
-            <h1 className="font-light leading-[0.96] mb-10" style={{ fontSize: "clamp(3.6rem, 10vw, 10.5rem)", letterSpacing: "-0.04em", color: C.dark }}>
+            <h1 className="font-light leading-[0.96] mb-10" style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)", letterSpacing: "-0.04em", color: C.dark }}>
               {[
                 { words: ["Your"], d: 0.3 },
                 { words: ["voice"], d: 0.44 },
@@ -202,7 +202,7 @@ function ContactHero() {
             <motion.p
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.85, ease }}
-              className="text-sm leading-[1.95] max-w-md" style={{ color: C.muted }}
+              className="text-base leading-[1.95] max-w-md" style={{ color: C.muted }}
             >
               Omoowo is committed to hearing from every community in Ogun East &mdash;
               whether you have a question, want to get involved, or need to reach the campaign team directly.
@@ -265,7 +265,7 @@ function ContactInfoItem({ item, i, inView }: { item: { label: string; lines: st
       {item.lines.map((line, j) => (
         <p
           key={j}
-          className="text-[13px] leading-[1.7]"
+          className="text-[15px] leading-[1.7]"
           style={{ color: j === 0 ? "rgba(26,26,26,0.85)" : "rgba(26,26,26,0.5)" }}
           dangerouslySetInnerHTML={{ __html: line }}
         />
@@ -434,7 +434,7 @@ function ContactMain() {
                   <h3 className="font-light leading-[1.2] mb-6" style={{ fontSize: "clamp(1.4rem, 2.2vw, 2rem)", letterSpacing: "-0.02em", color: C.dark }}>
                     Thank you, {name.split(" ")[0]}.
                   </h3>
-                  <p className="text-sm leading-[1.85] mb-10" style={{ color: "rgba(26,26,26,0.6)" }}>
+                  <p className="text-base leading-[1.85] mb-10" style={{ color: "rgba(26,26,26,0.6)" }}>
                     Your message has been received by the Omoowo 2027 campaign team. We will respond to <strong style={{ color: C.dark, fontWeight: 500 }}>{email}</strong> within 2 business days.
                   </p>
                   <button
@@ -493,7 +493,7 @@ function Offices() {
           </div>
           <motion.p
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[11px] leading-[1.75] max-w-xs text-right hidden md:block" style={{ color: C.muted }}
+            className="text-[13px] leading-[1.75] max-w-xs text-right hidden md:block" style={{ color: C.muted }}
           >
             Every constituency office is open to residents<br />of Ogun East — no appointment needed.
           </motion.p>
@@ -519,7 +519,7 @@ function Offices() {
                 >
                   {o.lga}
                 </h3>
-                <p className="text-[12px] leading-[1.8] mb-5" style={{ color: C.muted, whiteSpace: "pre-line" }}>{o.address}</p>
+                <p className="text-[14px] leading-[1.8] mb-5" style={{ color: C.muted, whiteSpace: "pre-line" }}>{o.address}</p>
                 <p className="text-[10px] tracking-[0.18em] uppercase" style={{ color: C.border }}>{o.hours}</p>
               </motion.div>
             );
@@ -562,7 +562,7 @@ function PressCard({ card, i, inView }: { card: typeof pressCards[0]; i: number;
       >
         {card.heading}
       </h4>
-      <p className="text-[12px] leading-[1.85] mb-6" style={{ color: "rgba(26,26,26,0.5)" }}>{card.body}</p>
+      <p className="text-[14px] leading-[1.85] mb-6" style={{ color: "rgba(26,26,26,0.5)" }}>{card.body}</p>
       <a
         href={card.href}
         className="relative inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase focus-visible:outline-none"

@@ -68,7 +68,7 @@ function PillarCard({
       >
         {p.title}
       </h3>
-      <p className="text-[#888888] text-sm leading-[1.8]">{p.body}</p>
+      <p className="text-[#888888] text-base leading-[1.8]">{p.body}</p>
       <motion.div
         className="mt-8 h-px origin-left"
         style={{ backgroundColor: accent }}

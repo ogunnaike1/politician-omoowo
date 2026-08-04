@@ -128,7 +128,7 @@ export default function Involved() {
                   {c.title}
                 </h3>
                 <p
-                  className="text-sm leading-[1.8] mb-10 flex-1"
+                  className="text-base leading-[1.8] mb-10 flex-1"
                   style={{ color: bodyColor }}
                 >
                   {c.body}

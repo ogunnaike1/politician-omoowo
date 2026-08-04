@@ -224,7 +224,7 @@ function EventsHero({ nextEvent }: { nextEvent: NextEventInfo | null }) {
           <div>
             <h1
               className="font-light leading-[0.97] mb-10"
-              style={{ fontSize: "clamp(3.5rem, 9vw, 9.5rem)", letterSpacing: "-0.04em", color: C.dark }}
+              style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)", letterSpacing: "-0.04em", color: C.dark }}
             >
               {[
                 { words: ["On", "the"], d: 0.4 },
@@ -253,7 +253,7 @@ function EventsHero({ nextEvent }: { nextEvent: NextEventInfo | null }) {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1, ease }}
-              className="text-sm leading-[1.95] max-w-md"
+              className="text-base leading-[1.95] max-w-md"
               style={{ color: C.muted }}
             >
               Omoowo is not campaigning from a distance. He is showing up — ward by ward, LGA by LGA — to
@@ -571,7 +571,7 @@ function PastEvents({ events }: { events: PastEventItem[] }) {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[11px] leading-[1.7] max-w-xs text-right hidden md:block"
+            className="text-[13px] leading-[1.7] max-w-xs text-right hidden md:block"
             style={{ color: C.muted }}
           >
             The campaign did not begin with the launch rally.<br />
@@ -604,7 +604,7 @@ function PastEvents({ events }: { events: PastEventItem[] }) {
                   {event.title}
                 </p>
                 <p className="text-[11px] mb-3" style={{ color: C.muted }}>{event.location}</p>
-                <p className="text-[12px] leading-[1.8]" style={{ color: C.muted }}>{event.note}</p>
+                <p className="text-[14px] leading-[1.8]" style={{ color: C.muted }}>{event.note}</p>
               </div>
             </motion.div>
           ))}
@@ -669,7 +669,7 @@ function AttendCTA() {
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.25, ease }}
-            className="text-sm leading-[1.95]"
+            className="text-base leading-[1.95]"
             style={{ color: "rgba(26,26,26,0.55)" }}
           >
             Every rally, town hall, and forum is open to all residents of Ogun East. Omoowo campaigns
@@ -698,7 +698,7 @@ function AttendCTA() {
               >
                 {card.headline}
               </h3>
-              <p className="text-sm leading-[1.9] mb-8" style={{ color: "rgba(246,246,246,0.85)" }}>
+              <p className="text-base leading-[1.9] mb-8" style={{ color: "rgba(246,246,246,0.85)" }}>
                 {card.body}
               </p>
               <p

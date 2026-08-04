@@ -115,7 +115,7 @@ function NewsHero() {
         {/* Headline */}
         <div className="flex-1 flex items-center py-16 md:py-20">
           <div>
-            <h1 className="font-light leading-[0.96] mb-10" style={{ fontSize: "clamp(3.6rem, 10vw, 10.5rem)", letterSpacing: "-0.04em", color: C.dark }}>
+            <h1 className="font-light leading-[0.96] mb-10" style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)", letterSpacing: "-0.04em", color: C.dark }}>
               {headline.map(({ words, d }) => (
                 <span key={d} style={{ display: "block" }}>
                   {words.map((word, wi) => (
@@ -137,7 +137,7 @@ function NewsHero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 1.05, ease }}
-              className="text-sm leading-[1.95] max-w-md"
+              className="text-base leading-[1.95] max-w-md"
               style={{ color: C.muted }}
             >
               All statements, updates, and dispatches from the Omoowo 2027 Senatorial Campaign —
@@ -222,7 +222,7 @@ function LeadStory({ lead }: { lead: NewsItem }) {
                 {lead.title}
               </h2>
               <div className="h-px mb-6" style={{ background: "rgba(26,26,26,0.08)" }} />
-              <p className="text-sm leading-[1.95] mb-8" style={{ color: C.muted }}>{lead.excerpt}</p>
+              <p className="text-base leading-[1.95] mb-8" style={{ color: C.muted }}>{lead.excerpt}</p>
               <div className="flex items-center gap-5">
                 <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: C.border }}>{lead.date}</span>
                 <span style={{ color: C.border }}>·</span>
@@ -294,7 +294,7 @@ function FeaturedCard({ item, i, inView }: { item: NewsItem; i: number; inView: 
         />
       </div>
 
-      <p className="text-sm leading-[1.9] mb-7" style={{ color: C.muted }}>{item.excerpt}</p>
+      <p className="text-base leading-[1.9] mb-7" style={{ color: C.muted }}>{item.excerpt}</p>
 
       <div className="flex items-center justify-between">
         <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: C.border }}>{item.date}</span>
@@ -579,7 +579,7 @@ function NewsletterCTA() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.22, ease }}
-              className="text-sm leading-[1.95]"
+              className="text-base leading-[1.95]"
               style={{ color: C.muted }}
             >
               Every statement, update, and event notice from the Omoowo 2027 campaign —
@@ -635,7 +635,7 @@ function NewsletterCTA() {
                     />
                     <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: C.green }}>Subscribed</p>
                   </div>
-                  <p className="text-sm leading-[1.85]" style={{ color: C.muted }}>
+                  <p className="text-base leading-[1.85]" style={{ color: C.muted }}>
                     You&apos;re on the list. Watch your inbox for dispatches from the campaign.
                   </p>
                 </motion.div>

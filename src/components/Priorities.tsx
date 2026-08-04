@@ -152,7 +152,7 @@ export default function Priorities() {
                   </motion.span>
                 </div>
 
-                <p className="text-sm leading-[1.8]" style={{ color: "rgba(26,26,26,0.65)" }}>{item.body}</p>
+                <p className="text-base leading-[1.8]" style={{ color: "rgba(26,26,26,0.65)" }}>{item.body}</p>
                 <motion.div variants={makeBarVariants(accent)} className="mt-8 h-px" />
               </motion.div>
             );

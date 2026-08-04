@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SESSION_COOKIE, verifySessionToken } from "@/lib/auth";
+import { SESSION_COOKIE, SESSION_TTL_SECONDS, verifySessionToken, createSessionToken } from "@/lib/auth";
 
 export const config = {
   matcher: ["/admin/:path*", "/api/admin/:path*"],
@@ -23,5 +23,16 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  return NextResponse.next();
+  // Sliding expiration: every authenticated request pushes the 7-day expiry
+  // forward, so an active session never expires — only 7 days of no visits
+  // (i.e. no login-worthy activity) lets it lapse.
+  const response = NextResponse.next();
+  response.cookies.set(SESSION_COOKIE, createSessionToken(), {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: SESSION_TTL_SECONDS,
+  });
+  return response;
 }
